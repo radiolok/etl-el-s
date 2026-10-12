@@ -796,7 +796,7 @@
 },
 {
 "addr": 9022,
-"name": "key_frz_15",
+"name": "key_live_15",
 "block": "ROM1",
 "size": 54,
 "c_frame": false,
@@ -807,7 +807,7 @@
 },
 {
 "addr": 9076,
-"name": "key_frz_85",
+"name": "key_live_85",
 "block": "ROM1",
 "size": 45,
 "c_frame": false,
@@ -819,7 +819,7 @@
 },
 {
 "addr": 9121,
-"name": "key_frz_84",
+"name": "key_live_84",
 "block": "ROM1",
 "size": 11,
 "c_frame": false,
@@ -828,7 +828,7 @@
 },
 {
 "addr": 9132,
-"name": "key_frz_11",
+"name": "key_live_11",
 "block": "ROM1",
 "size": 92,
 "c_frame": false,
@@ -897,7 +897,7 @@
 },
 {
 "addr": 9476,
-"name": "key_frz_14",
+"name": "key_live_14",
 "block": "ROM1",
 "size": 51,
 "c_frame": false,
@@ -919,7 +919,7 @@
 },
 {
 "addr": 9536,
-"name": "key_frz_16",
+"name": "key_live_16",
 "block": "ROM1",
 "size": 26,
 "c_frame": false,

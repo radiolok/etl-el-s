@@ -42,7 +42,7 @@
 003D: rt_format
 003E: rt_format
 003F: FUN_ram_3e67
-0040: key_frz_14 main_start
+0040: key_live_14 main_start
 0041: FUN_ram_223b FUN_ram_2b43 key_10 key_12 key_15 key_87 main_start
 0042: key_10 key_12 key_15
 0043: FUN_ram_2b43 key_10 key_12 key_15
@@ -50,10 +50,10 @@
 0045: key_10
 0046: key_10 key_12
 0047: FUN_ram_3e67 key_12
-0048: FUN_ram_2e58 FUN_ram_2e6e kbd_scan key_frz_11 key_frz_84 key_frz_85 main_start vid_36
-0049: kbd_scan key_freeze_toggle key_frz_11 key_frz_14 key_frz_15 key_frz_16 main_start
-004A: key_frz_15
-004B: FUN_ram_2e58 FUN_ram_2e6e kbd_scan key_frz_11 key_frz_85
+0048: FUN_ram_2e58 FUN_ram_2e6e kbd_scan key_live_11 key_live_84 key_live_85 main_start vid_36
+0049: kbd_scan key_freeze_toggle key_live_11 key_live_14 key_live_15 key_live_16 main_start
+004A: key_live_15
+004B: FUN_ram_2e58 FUN_ram_2e6e kbd_scan key_live_11 key_live_85
 004C: input_sex
 004D: FUN_ram_2a78 picto_select
 004E: FUN_ram_27fa FUN_ram_28c9 key_81 key_82 key_83 key_84 key_85 key_86 key_87 key_88
@@ -77,7 +77,7 @@
 0065: key_freeze_toggle main_loop main_start
 0066: FUN_ram_2dc0 input_date input_patient_code
 0067: FUN_ram_2dc0 input_date input_patient_code
-0069: FUN_ram_223b FUN_ram_2dc0 input_date input_patient_code input_sex key_10 key_12 key_15 key_87 key_frz_14 key_frz_16 menu_main
+0069: FUN_ram_223b FUN_ram_2dc0 input_date input_patient_code input_sex key_10 key_12 key_15 key_87 key_live_14 key_live_16 menu_main
 006B: FUN_ram_223b key_10 key_12 key_15 main_start
 006C: FUN_ram_2b43 FUN_ram_2e2d kbio_16 key_15 key_35 key_87 main_start
 006D: FUN_ram_2b43 FUN_ram_2ce8
@@ -116,7 +116,7 @@
 00E6: FUN_ram_2b43
 00EB: FUN_ram_3b30 kmeas_31 kmeas_32 kmeas_33 kmeas_34 kmeas_35 kmeas_36 kmeas_37 kmeas_38
 00ED: FUN_ram_2b43 FUN_ram_553f caseD_0 fmt_7 fmt_8 fmt_value kbio_34 kbio_35 key_87 kmeas_34 kmeas_38 kmeas_39 main_start new_patient
-00F1: FUN_ram_3326 key_frz_11 main_start
+00F1: FUN_ram_3326 key_live_11 main_start
 00F2: FUN_ram_3b30 fmt_8 kbio_34 kmeas_31 kmeas_32 kmeas_33 kmeas_34 kmeas_35 kmeas_36 kmeas_37 kmeas_38
 00F3: FUN_ram_39de FUN_ram_536b kbio_31 kmeas_15 kmeas_16 kmeas_31 kmeas_32 kmeas_33 kmeas_34 kmeas_35 kmeas_36 kmeas_37 kmeas_38 kmeas_39
 00F5: FUN_ram_553f kmeas_39
@@ -186,25 +186,25 @@
 01DB: FUN_ram_3626 fmt_7
 01DC: main_start
 01DF: vid_0E
-01E0: FUN_ram_3f63 FUN_ram_406b key_frz_11 main_start vid_0A vid_0F vid_33
+01E0: FUN_ram_3f63 FUN_ram_406b key_live_11 main_start vid_0A vid_0F vid_33
 01E1: vid_05
-01E2: FUN_ram_2944 FUN_ram_2a63 FUN_ram_2a83 FUN_ram_2dc0 FUN_ram_2e43 FUN_ram_4716 FUN_ram_5095 FUN_ram_561d FUN_ram_5677 input_sex key_frz_11 kpic_10 kpic_82 kpic_87 kprot_31 kprot_32 kprot_35 menu_main
-01E3: FUN_ram_2944 FUN_ram_2a63 FUN_ram_2a83 FUN_ram_2b43 FUN_ram_2dc0 FUN_ram_2e43 FUN_ram_46f2 FUN_ram_5095 FUN_ram_52dd FUN_ram_561d FUN_ram_5677 input_sex kbio_31 key_87 key_frz_11 kmeas_16 kmeth_31 kpic_10 kpic_16 kpic_84 kpic_85 kprot_31 kprot_32 kprot_35 menu_main
+01E2: FUN_ram_2944 FUN_ram_2a63 FUN_ram_2a83 FUN_ram_2dc0 FUN_ram_2e43 FUN_ram_4716 FUN_ram_5095 FUN_ram_561d FUN_ram_5677 input_sex key_live_11 kpic_10 kpic_82 kpic_87 kprot_31 kprot_32 kprot_35 menu_main
+01E3: FUN_ram_2944 FUN_ram_2a63 FUN_ram_2a83 FUN_ram_2b43 FUN_ram_2dc0 FUN_ram_2e43 FUN_ram_46f2 FUN_ram_5095 FUN_ram_52dd FUN_ram_561d FUN_ram_5677 input_sex kbio_31 key_87 key_live_11 kmeas_16 kmeth_31 kpic_10 kpic_16 kpic_84 kpic_85 kprot_31 kprot_32 kprot_35 menu_main
 01E4: FUN_ram_2a63 FUN_ram_2b43 FUN_ram_52dd FUN_ram_561d kbio_31 key_87 kmeas_16 kmeth_31 kpic_16 menu_main vid_03 vid_0B vid_2F vid_3A
-01E5: FUN_ram_2944 FUN_ram_2a83 FUN_ram_2e43 FUN_ram_5095 FUN_ram_5677 input_sex key_frz_11 kpic_10 kpic_81 kpic_82 kpic_84 kpic_86 vid_0D vid_22 vid_3F
+01E5: FUN_ram_2944 FUN_ram_2a83 FUN_ram_2e43 FUN_ram_5095 FUN_ram_5677 input_sex key_live_11 kpic_10 kpic_81 kpic_82 kpic_84 kpic_86 vid_0D vid_22 vid_3F
 01E7: FUN_ram_2822 FUN_ram_2d03 key_10 key_15 key_87 vid_19 vid_20 vid_22
 01E8: FUN_ram_2d23 vid_19 vid_20 vid_22
 01E9: key_12 key_87 vid_25
 01EA: vid_25
-01ED: FUN_ram_406b key_frz_85 main_start
-01EE: key_frz_15 main_start vid_2E
+01ED: FUN_ram_406b key_live_85 main_start
+01EE: key_live_15 main_start vid_2E
 01EF: key_10 key_87 vid_28
 01F0: vid_28
 01F1: key_12 key_87 vid_2B
 01F2: vid_2B
 01F3: FUN_ram_2a63 FUN_ram_2aac FUN_ram_2b43 FUN_ram_2dc0 FUN_ram_553f FUN_ram_561d kbio_31 key_87 kmeas_34 kmeas_38 menu_main vid_0A vid_0B vid_0C vid_0E vid_2F vid_3C vid_print_str
 01F5: FUN_ram_2944 kpic_10 kpic_81 kpic_82 kpic_84 kpic_85 kpic_86 kpic_87 main_start vid_3D
-01F6: key_frz_14 main_start vid_36
+01F6: key_live_14 main_start vid_36
 01F7: FUN_ram_406b
 01F9: vid_0E
 01FA: vid_33

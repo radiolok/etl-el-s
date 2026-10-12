@@ -85,7 +85,7 @@
 <rect class="box" x="610" y="696" width="340" height="70" rx="4" fill="#f3e19a"/>
 <text class="tb" x="780" y="719" text-anchor="middle">Главный цикл 20B8</text>
 <text class="s" x="780" y="735" text-anchor="middle">kbd_scan → dispatch_key</text>
-<text class="s" x="780" y="751" text-anchor="middle">(таблица «живой» 22FE / «фиксация» 22E8)</text>
+<text class="s" x="780" y="751" text-anchor="middle">(таблица «живой» 22E8 / «фиксация» 22FE)</text>
 <path class="ln" d="M950 748 L980 748 L980 714 L950 714" marker-end="url(#ar)"/>
 <text class="s" x="984" y="735" text-anchor="start">цикл</text>
 <rect class="box" x="600" y="796" width="360" height="44" rx="4" fill="#e3e9f6"/>

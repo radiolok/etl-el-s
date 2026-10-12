@@ -162,7 +162,7 @@ def boot_flow():
         s.box(px, y, pw, 44, COLORS['init'][0] if i < 4 else COLORS['ui'][0], [a, b])
         s.line([(C(px, pw), y + 44), (C(px, pw), y + 58)])
         y += 58
-    s.box(px, y, pw, 70, '#f3e19a', ['Главный цикл 20B8', 'kbd_scan → dispatch_key', '(таблица «живой» 22FE / «фиксация» 22E8)'])
+    s.box(px, y, pw, 70, '#f3e19a', ['Главный цикл 20B8', 'kbd_scan → dispatch_key', '(таблица «живой» 22E8 / «фиксация» 22FE)'])
     s.line([(px + pw, y + 52), (px + pw + 30, y + 52), (px + pw + 30, y + 18), (px + pw, y + 18)])
     s.text(px + pw + 34, y + 39, 'цикл', 's')
     s.box(px - 10, y + 100, pw + 20, 44, '#e3e9f6', ['ВК с консоли (8251 FE)', '→ JMP 0831: тёплый вход в монитор'])
