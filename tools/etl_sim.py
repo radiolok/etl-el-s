@@ -4,6 +4,10 @@
 монитор 0800-0FFF, три 2764 в 2000-7FFF, 8000-FFFF — ОЗУ (видеоОЗУ «УВЗ»).
 Два 8251: FE/FF — консоль, EE/EF — канал Intel HEX. Каждый канал снаружи
 выглядит как объект pyserial (write / read(n) с таймаутом / reset_input_buffer).
+Пульт: столбец матрицы — биты 4-5 порта FA, строки читаются из F6 (0 — нажата),
+нажатые клавиши — Board.keys (коды из таблицы 0x21D4).
+Такты считаются по таблице 8085; Board(mhz=3) идёт с реальной скоростью,
+mhz=None — так быстро, как получится.
 
     sim = Board(); con, aux = sim.start()
 """
@@ -17,6 +21,44 @@ ROMS = [(0x0800, 'u_0800_2716-monitor.bin'), (0x2000, 'u_2000_2764-1.bin'),
         (0x4000, 'u_4000_2764-2.bin'), (0x6000, 'u_6000_2764-3.bin')]
 
 PARITY = [bin(i).count('1') % 2 == 0 for i in range(256)]
+KBTAB = 0x21D4                  # коды клавиш пульта: 4 столбца x 8 строк
+
+
+def _cycles():
+    """Такты 8085 по коду операции (для условных — без перехода; доплата в step)."""
+    t = [4] * 256
+    for op in range(0x40, 0x80):
+        t[op] = 7 if (op & 7) == 6 or (op >> 3 & 7) == 6 else 4
+    t[0x76] = 5
+    for op in range(0x80, 0xC0):
+        t[op] = 7 if (op & 7) == 6 else 4
+    for i in range(4):
+        t[0x01 + 16 * i] = 10                          # LXI
+        t[0x03 + 16 * i] = t[0x0B + 16 * i] = 6        # INX DCX
+        t[0x09 + 16 * i] = 10                          # DAD
+        t[0xC1 + 16 * i] = 10                          # POP
+        t[0xC5 + 16 * i] = 12                          # PUSH
+    for r in range(8):
+        t[0x04 + 8 * r] = t[0x05 + 8 * r] = 10 if r == 6 else 4
+        t[0x06 + 8 * r] = 10 if r == 6 else 7
+        t[0xC0 + 8 * r] = 6                            # Rcc (+6)
+        t[0xC2 + 8 * r] = 7                            # Jcc (+3)
+        t[0xC4 + 8 * r] = 9                            # Ccc (+9)
+        t[0xC6 + 8 * r] = 7                            # ALU imm
+        t[0xC7 + 8 * r] = 12                           # RST
+    for op in (0x02, 0x12, 0x0A, 0x1A):
+        t[op] = 7
+    t[0x22] = t[0x2A] = 16
+    t[0x32] = t[0x3A] = 13
+    t[0xC3] = t[0xC9] = 10
+    t[0xCD] = 18
+    t[0xD3] = t[0xDB] = 10
+    t[0xE3] = 16
+    t[0xE9] = t[0xF9] = 6
+    return t
+
+
+CYC = _cycles()
 
 
 class CPU:
@@ -26,6 +68,7 @@ class CPU:
         self.sp = self.pc = 0
         self.cy = self.z = self.s = self.p = self.ac = 0
         self.ie = 0
+        self.cyc = 0                # такты с начала работы
 
     # --- регистры и флаги ---
     def hl(self):
@@ -108,6 +151,7 @@ class CPU:
 
     def step(self):
         op = self.fetch()
+        self.cyc += CYC[op]
         if 0x40 <= op < 0x80:
             if op == 0x76:                                # HLT
                 self.pc = (self.pc - 1) & 0xFFFF
@@ -190,6 +234,7 @@ class CPU:
             if lo == 0:
                 if self.cond(c):
                     self.pc = self.pop()
+                    self.cyc += 6
             elif lo == 1:
                 if op & 8:
                     if op == 0xC9:
@@ -208,6 +253,7 @@ class CPU:
                 a = self.fetch16()
                 if self.cond(c):
                     self.pc = a
+                    self.cyc += 3
             elif lo == 3:
                 if op == 0xC3:
                     self.pc = self.fetch16()
@@ -230,6 +276,7 @@ class CPU:
                 if self.cond(c):
                     self.push(self.pc)
                     self.pc = a
+                    self.cyc += 9
             elif lo == 5:
                 if op == 0xCD:
                     a = self.fetch16()
@@ -288,7 +335,7 @@ class SimPort:
 
 
 class Board:
-    def __init__(self):
+    def __init__(self, mhz=None):
         self.mem = bytearray(0x10000)
         self.rom = bytearray(0x10000)   # 1 = адрес только для чтения
         for base, name in ROMS:
@@ -301,6 +348,31 @@ class Board:
         self.cpu = CPU(self.rd, self.wr, self.inp, self.out)
         self.cpu.pc = 0x0815            # сброс: оверлей 2716 на 0000 даёт JMP 0815
         self.stop = threading.Event()
+        self.mhz = mhz
+        self.fa = 0x80                  # последнее значение порта FA
+        self.keys = set()               # коды нажатых клавиш пульта
+        self.keypos = {}                # код -> (столбец, строка)
+        for i in range(32):
+            code = self.mem[KBTAB + i]
+            if code != 0x55:
+                self.keypos[code] = (i // 8, i % 8)
+
+    def load_hex(self, text):
+        """Intel HEX прямо в память (в обход монитора). Возвращает (мин, макс) адрес."""
+        lo, hi = 0xFFFF, 0
+        for line in text.splitlines():
+            line = line.strip()
+            if not line.startswith(':'):
+                continue
+            rec = bytes.fromhex(line[1:])
+            n, addr, typ = rec[0], rec[1] << 8 | rec[2], rec[3]
+            if typ != 0:
+                continue
+            for i, b in enumerate(rec[4:4 + n]):
+                self.mem[(addr + i) & 0xFFFF] = b
+            if n:
+                lo, hi = min(lo, addr), max(hi, addr + n - 1)
+        return lo, hi
 
     def rd(self, a):
         return self.mem[a]
@@ -313,9 +385,17 @@ class Board:
         return {0xFE: self.con, 0xFF: self.con, 0xEE: self.aux, 0xEF: self.aux}.get(port)
 
     def inp(self, port):
+        if port == 0xF6:                 # строки матрицы пульта, 0 — нажата
+            col = self.fa >> 4 & 3
+            v = 0
+            for k in list(self.keys):
+                pos = self.keypos.get(k)
+                if pos and pos[0] == col:
+                    v |= 1 << pos[1]
+            return ~v & 0xFF
         u = self._uart(port)
         if u is None:
-            return 0xFF                  # F6 — клавиатура: «ничего не нажато»
+            return 0xFF
         if port & 1:                     # статус: TxRDY всегда, RxRDY если есть байт
             return 0x85 | (2 if not u.to_cpu.empty() else 0)
         try:
@@ -324,15 +404,24 @@ class Board:
             return 0
 
     def out(self, port, v):
+        if port == 0xFA:
+            self.fa = v
         u = self._uart(port)
         if u is not None and not port & 1:
             u.from_cpu.put(v)
 
     def run(self):
-        step = self.cpu.step
+        step, cpu = self.cpu.step, self.cpu
+        t0, c0 = time.monotonic(), cpu.cyc
         while not self.stop.is_set():
             for _ in range(5000):
                 step()
+            if self.mhz:                 # не обгонять настоящий процессор
+                ahead = (cpu.cyc - c0) / (self.mhz * 1e6) - (time.monotonic() - t0)
+                if ahead > 0.002:
+                    time.sleep(ahead)
+                elif ahead < -0.25:      # не успеваем — не копить отставание
+                    t0, c0 = time.monotonic(), cpu.cyc
             time.sleep(0)
 
     def start(self):

@@ -1,0 +1,1047 @@
+                  ; ======================================================================
+                  ;  ТЕТРИС для эхотомоскопа ЭТС-ЭЛ-С (Меделком SLE-101), процессор 80C85
+                  ;
+                  ;  Загружается в ОЗУ с 0040H через монитор (R или S) и запускается G40.
+                  ;  Сборка:  python3 tools/asm8085.py tetris/tetris.asm --lst tetris/tetris.lst
+                  ;  Эмулятор: python3 tools/etl_gui.py --hex tetris/tetris.hex --go 40
+                  ;
+                  ;  Пульт (коды из таблицы 21D4H, блок стрелок 3x3, в центре «+»):
+                  ;    ←, →     сдвиг (с автоповтором)
+                  ;    ↑, ↗     поворот по часовой, ↖ — против часовой
+                  ;    ↓        ускоренное падение
+                  ;    +        сбросить фигуру до упора
+                  ;    СТАРТ    начать игру / пауза
+                  ;    МЕНЮ     выход в основную программу (JMP 2000H)
+                  ;
+                  ;  Экран: видеоОЗУ, 45 байт в строке, кадр повёрнут на 180°.
+                  ;  Байт со столбцом bc (0..44) экранной строки sy (0..306) лежит по адресу
+                  ;      0FFFFH - 45*sy - bc,   старший бит — левая точка.
+                  ;  Шрифт 8x8 прошивки — 5D91H + 8*код, байты глифа идут сверху вниз.
+                  ; ======================================================================
+                  
+                  ROWB    EQU 45                  ; байт в строке видеоОЗУ
+                  FONT    EQU 5D91H               ; шрифт 8x8 в ПЗУ
+                  KBTAB   EQU 21D4H               ; коды клавиш пульта: 4 столбца x 8 строк
+                  MAIN    EQU 2000H               ; основная программа прибора
+                  STACK   EQU 07C0H               ; 07C7-07FF — трамплин и регистры монитора
+                  ZEROS   EQU 443AH               ; 26 нулевых байтов в ПЗУ №2 (внутри пиктограммы)
+                  
+                  ; Задержка кадра: цикл по 24 такта. 2200 -> ~53 тыс. тактов, т.е. ~20 мс
+                  ; при 3 МГц вместе с работой игры. Частота процессора на плате точно не
+                  ; известна: если игра идёт слишком быстро или медленно — поменять здесь.
+                  FDEL    EQU 2200
+                  
+                  DAS     EQU 10                  ; задержка автоповтора ←/→, кадров
+                  ARR     EQU 3                   ; период автоповтора ←/→
+                  SDR     EQU 2                   ; период повтора ↓
+                  
+                  K_UP    EQU 84H
+                  K_DOWN  EQU 85H
+                  K_LEFT  EQU 87H
+                  K_RIGHT EQU 82H
+                  K_UL    EQU 86H
+                  K_UR    EQU 81H
+                  K_DROP  EQU 10H                 ; «+» в центре блока стрелок
+                  K_START EQU 1AH
+                  K_MENU  EQU 13H
+                  
+                  ; --- геометрия экрана ---
+                  CELLH   EQU 13                  ; клетка 16 точек x 13 строк
+                  WELLY   EQU 24                  ; экранная строка верха стакана
+                  ; клетка (столбец c=1..10, строка r=0..19): bc = 13+2c, sy = WELLY+13r
+                  ROW0    EQU 0FFFFH-ROWB*WELLY-13 ; адрес столбца 0 строки 0 стакана
+                  TX0     EQU 3                   ; левая панель: байты 3..13 (11 знаков)
+                  PREVA   EQU 0FFFFH-ROWB*40-37   ; окно следующей фигуры: bc 37, sy 40
+                  P_SCORE EQU 0FFFFH-ROWB*60-TX0
+                  P_LINES EQU 0FFFFH-ROWB*96-TX0
+                  P_LEVEL EQU 0FFFFH-ROWB*132-TX0
+                  P_MSG1  EQU 0FFFFH-ROWB*164-TX0
+                  P_MSG2  EQU 0FFFFH-ROWB*176-TX0
+                  
+0040                      ORG 0040H               ; 0000-0005 занят монитором, RST-векторы не нужны
+                  
+                  ; ======================================================================
+0040 F3           START:  DI
+0041 31 C0 07             LXI SP,STACK
+0044 3E 30                MVI A,30H               ; как основная программа: F8 = 30, FA = 80
+0046 D3 F8                OUT 0F8H
+0048 3E 80                MVI A,80H
+004A D3 FA                OUT 0FAH
+004C 21 E1 AC             LXI H,0ACE1H
+004F 22 1B 07             SHLD SEED
+0052 AF                   XRA A
+0053 32 1D 07             STA LASTK
+0056 CD 5B 04             CALL SCREEN
+0059 21 DB 06             LXI H,M_TITLE
+005C CD E8 04             CALL MSG
+005F C3 6B 00             JMP WAITST
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Конец игры: сообщение и ожидание СТАРТ
+0062 31 C0 07     GOVER:  LXI SP,STACK
+0065 21 F8 06             LXI H,M_OVER
+0068 CD E8 04             CALL MSG
+006B CD 80 05     WAITST: CALL FDELAY
+006E CD 8A 05             CALL RND                ; ГСЧ крутится, пока игрок не нажмёт СТАРТ
+0071 CD 5F 05             CALL GETKEY
+0074 FE 1A                CPI K_START
+0076 CA 84 00             JZ NEWG
+0079 FE 13                CPI K_MENU
+007B CA 81 00             JZ EXIT
+007E C3 6B 00             JMP WAITST
+                  
+0081 C3 00 20     EXIT:   JMP MAIN
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Новая игра
+0084 31 C0 07     NEWG:   LXI SP,STACK
+0087 CD 5B 04             CALL SCREEN
+008A CD A1 05             CALL RND7
+008D 32 28 07             STA NT
+0090 CD BA 01             CALL SPAWN
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Главный цикл: один проход — один кадр
+0093 CD 80 05     LOOP:   CALL FDELAY
+0096 CD 33 05             CALL KSCAN
+0099 47                   MOV B,A
+009A 3A 1D 07             LDA LASTK
+009D B8                   CMP B
+009E CA BC 00             JZ LPHELD
+00A1 78                   MOV A,B                 ; новое нажатие (или отпускание)
+00A2 32 1D 07             STA LASTK
+00A5 B7                   ORA A
+00A6 CA EA 00             JZ LPGRAV
+00A9 FE 85                CPI K_DOWN
+00AB 3E 0A                MVI A,DAS
+00AD C2 B2 00             JNZ LP1
+00B0 3E 02                MVI A,SDR
+00B2 32 1E 07     LP1:    STA REP
+00B5 78                   MOV A,B
+00B6 CD 00 01             CALL ACTION
+00B9 C3 EA 00             JMP LPGRAV
+                  
+00BC B7           LPHELD: ORA A                   ; та же клавиша держится: автоповтор
+00BD CA EA 00             JZ LPGRAV
+00C0 FE 87                CPI K_LEFT
+00C2 CA CF 00             JZ LPREP
+00C5 FE 82                CPI K_RIGHT
+00C7 CA CF 00             JZ LPREP
+00CA FE 85                CPI K_DOWN
+00CC C2 EA 00             JNZ LPGRAV
+00CF 3A 1E 07     LPREP:  LDA REP
+00D2 3D                   DCR A
+00D3 32 1E 07             STA REP
+00D6 C2 EA 00             JNZ LPGRAV
+00D9 78                   MOV A,B
+00DA FE 85                CPI K_DOWN
+00DC 3E 03                MVI A,ARR
+00DE C2 E3 00             JNZ LP2
+00E1 3E 02                MVI A,SDR
+00E3 32 1E 07     LP2:    STA REP
+00E6 78                   MOV A,B
+00E7 CD 00 01             CALL ACTION
+                  
+00EA 3A 1F 07     LPGRAV: LDA GCNT                ; падение
+00ED 3D                   DCR A
+00EE 32 1F 07             STA GCNT
+00F1 C2 93 00             JNZ LOOP
+00F4 3A 20 07             LDA SPEED
+00F7 32 1F 07             STA GCNT
+00FA CD A8 01             CALL DOWN1
+00FD C3 93 00             JMP LOOP
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Действие по коду клавиши в A
+0100 FE 87        ACTION: CPI K_LEFT
+0102 CA 4A 01             JZ MLEFT
+0105 FE 82                CPI K_RIGHT
+0107 CA 51 01             JZ MRIGHT
+010A FE 84                CPI K_UP
+010C CA 58 01             JZ ROTCW
+010F FE 81                CPI K_UR
+0111 CA 58 01             JZ ROTCW
+0114 FE 86                CPI K_UL
+0116 CA 5D 01             JZ ROTCCW
+0119 FE 85                CPI K_DOWN
+011B CA 84 01             JZ SDROP
+011E FE 10                CPI K_DROP
+0120 CA 8D 01             JZ HDROP
+0123 FE 1A                CPI K_START
+0125 CA 2E 01             JZ PAUSE
+0128 FE 13                CPI K_MENU
+012A CA 81 00             JZ EXIT
+012D C9                   RET
+                  
+012E 21 EE 06     PAUSE:  LXI H,M_PAUSE
+0131 CD E8 04             CALL MSG
+0134 CD 80 05     PA1:    CALL FDELAY
+0137 CD 5F 05             CALL GETKEY
+013A FE 1A                CPI K_START
+013C CA 47 01             JZ PA2
+013F FE 13                CPI K_MENU
+0141 CA 81 00             JZ EXIT
+0144 C3 34 01             JMP PA1
+0147 C3 FA 04     PA2:    JMP CLRMSG
+                  
+014A CD EB 01     MLEFT:  CALL SETT
+014D 35                   DCR M                   ; SETT оставляет HL = TX
+014E C3 FF 01             JMP TRY
+                  
+0151 CD EB 01     MRIGHT: CALL SETT
+0154 34                   INR M
+0155 C3 FF 01             JMP TRY
+                  
+0158 06 01        ROTCW:  MVI B,1
+015A C3 5F 01             JMP ROT
+015D 06 03        ROTCCW: MVI B,3
+015F CD EB 01     ROT:    CALL SETT
+0162 3A 24 07             LDA PR
+0165 80                   ADD B
+0166 E6 03                ANI 3
+0168 32 27 07             STA TR
+016B 21 2D 06             LXI H,KICKS             ; пробуем сдвиги 0, -1, +1, -2, +2
+016E 7E           ROT1:   MOV A,M
+016F FE 80                CPI 80H
+0171 C8                   RZ
+0172 E5                   PUSH H
+0173 47                   MOV B,A
+0174 3A 22 07             LDA PX
+0177 80                   ADD B
+0178 32 25 07             STA TX
+017B CD FF 01             CALL TRY
+017E E1                   POP H
+017F C8                   RZ
+0180 23                   INX H
+0181 C3 6E 01             JMP ROT1
+                  
+0184 3A 20 07     SDROP:  LDA SPEED
+0187 32 1F 07             STA GCNT
+018A C3 A8 01             JMP DOWN1
+                  
+                  ; Сброс до упора
+018D AF           HDROP:  XRA A
+018E CD 6A 02             CALL DRAWP              ; стереть, чтобы не мешала сама себе
+0191 CD EB 01             CALL SETT
+0194 21 26 07     HD1:    LXI H,TY
+0197 34                   INR M
+0198 CD 1A 02             CALL FITS
+019B CA 94 01             JZ HD1
+019E 21 26 07             LXI H,TY
+01A1 35                   DCR M
+01A2 CD FF 01             CALL TRY
+01A5 C3 B1 01             JMP LOCKP
+                  
+                  ; Шаг вниз; если некуда — фигура ложится, новая фигура
+01A8 CD EB 01     DOWN1:  CALL SETT
+01AB 23                   INX H
+01AC 34                   INR M                   ; TY
+01AD CD FF 01             CALL TRY
+01B0 C8                   RZ
+01B1 CD 6E 05     LOCKP:  CALL CLICK              ; фигура остаётся нарисованной — это и есть стакан
+01B4 CD 8E 02             CALL CLRLN
+01B7 C3 BA 01             JMP SPAWN
+                  
+                  ; Новая фигура вверху стакана; не помещается — конец игры
+01BA 3A 28 07     SPAWN:  LDA NT
+01BD 32 21 07             STA PT
+01C0 CD A1 05             CALL RND7
+01C3 32 28 07             STA NT
+01C6 21 04 00             LXI H,0004H             ; PX=4, PY=0
+01C9 22 22 07             SHLD PX
+01CC 22 25 07             SHLD TX
+01CF AF                   XRA A
+01D0 32 24 07             STA PR
+01D3 32 27 07             STA TR
+01D6 CD FF 03             CALL PREVIEW
+01D9 CD 1A 02             CALL FITS
+01DC C2 62 00             JNZ GOVER
+01DF 3E 01                MVI A,1
+01E1 CD 6A 02             CALL DRAWP
+01E4 3A 20 07             LDA SPEED
+01E7 32 1F 07             STA GCNT
+01EA C9                   RET
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Фигура: PT — тип 0..6, PR — поворот, PX/PY — левый верхний угол рамки
+                  ; 4x4 в клетках стакана. TX/TY/TR — проверяемое положение.
+                  
+                  ; T <- P; на выходе HL = TX
+01EB 21 22 07     SETT:   LXI H,PX
+01EE 11 25 07             LXI D,TX
+01F1 0E 03        COPY3:  MVI C,3
+01F3 7E           CP1:    MOV A,M
+01F4 12                   STAX D
+01F5 23                   INX H
+01F6 13                   INX D
+01F7 0D                   DCR C
+01F8 C2 F3 01             JNZ CP1
+01FB 21 25 07             LXI H,TX
+01FE C9                   RET
+                  
+                  ; Перенести фигуру в TX/TY/TR, если там свободно. Z — получилось.
+01FF AF           TRY:    XRA A
+0200 CD 6A 02             CALL DRAWP              ; стереть, чтобы не мешала сама себе
+0203 CD 1A 02             CALL FITS
+0206 F5                   PUSH PSW
+0207 C2 13 02             JNZ TR1
+020A 21 25 07             LXI H,TX
+020D 11 22 07             LXI D,PX
+0210 CD F1 01             CALL COPY3
+0213 3E 01        TR1:    MVI A,1
+0215 CD 6A 02             CALL DRAWP
+0218 F1                   POP PSW
+0219 C9                   RET
+                  
+                  ; Проверка положения TX/TY/TR. Z (A=0) — свободно.
+                  ; Отдельного массива стакана нет: занятость клетки читается из видеоОЗУ
+                  ; (первый байт кубика 0FFH, пустой клетки — 0). Текущая фигура должна быть стёрта.
+021A 3A 27 07     FITS:   LDA TR
+021D CD 59 02             CALL SHPTR
+0220 0E 04                MVI C,4
+0222 11 25 07     FT1:    LXI D,TX
+0225 CD 48 02             CALL CELLXY
+0228 FE 14                CPI 20                  ; дно
+022A D2 44 02             JNC FTBAD
+022D 57                   MOV D,A
+022E 78                   MOV A,B
+022F 3D                   DCR A                   ; столбцы 1..10
+0230 FE 0A                CPI 10
+0232 D2 44 02             JNC FTBAD
+0235 7A                   MOV A,D
+0236 E5                   PUSH H
+0237 CD C4 03             CALL CELLA
+023A 7E                   MOV A,M
+023B E1                   POP H
+023C B7                   ORA A
+023D C0                   RNZ
+023E 23                   INX H
+023F 0D                   DCR C
+0240 C2 22 02             JNZ FT1
+0243 C9                   RET
+0244 3E 01        FTBAD:  MVI A,1
+0246 B7                   ORA A
+0247 C9                   RET
+                  
+                  ; Клетка фигуры: (HL) = dy*16+dx, DE -> X, Y (PX/PY или TX/TY)
+                  ; -> B = X+dx, A = Y+dy. HL, C не портит.
+0248 1A           CELLXY: LDAX D
+0249 86                   ADD M
+024A E6 0F                ANI 0FH                 ; X+dx (X от -3 до 12 — по модулю 16)
+024C 47                   MOV B,A
+024D 13                   INX D
+024E 7E                   MOV A,M
+024F 0F                   RRC
+0250 0F                   RRC
+0251 0F                   RRC
+0252 0F                   RRC
+0253 E6 0F                ANI 0FH
+0255 EB                   XCHG
+0256 86                   ADD M
+0257 EB                   XCHG
+0258 C9                   RET
+                  
+                  ; HL = SHAPES + (тип*4 + поворот)*4.  SHPTR: A = поворот, тип из PT;
+                  ; SHPTR2: A = тип, B = поворот.
+0259 47           SHPTR:  MOV B,A
+025A 3A 21 07             LDA PT
+025D 87           SHPTR2: ADD A
+025E 87                   ADD A
+025F 80                   ADD B
+0260 87                   ADD A
+0261 87                   ADD A
+0262 5F                   MOV E,A
+0263 16 00                MVI D,0
+0265 21 BD 05             LXI H,SHAPES
+0268 19                   DAD D
+0269 C9                   RET
+                  
+                  ; Нарисовать (A<>0) или стереть (A=0) текущую фигуру
+026A 32 29 07     DRAWP:  STA FILL
+026D 3A 24 07             LDA PR
+0270 CD 59 02             CALL SHPTR
+0273 0E 04                MVI C,4
+0275 11 22 07     DP1:    LXI D,PX
+0278 CD 48 02             CALL CELLXY
+027B E5                   PUSH H
+027C C5                   PUSH B
+027D CD C4 03             CALL CELLA
+0280 3A 29 07             LDA FILL
+0283 CD DE 03             CALL BLK
+0286 C1                   POP B
+0287 E1                   POP H
+0288 23                   INX H
+0289 0D                   DCR C
+028A C2 75 02             JNZ DP1
+028D C9                   RET
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Стакан
+                  
+                  ; Убрать заполненные строки, начислить очки
+028E AF           CLRLN:  XRA A
+028F 32 2A 07             STA NCLR
+0292 3E 13                MVI A,19
+0294 32 2B 07             STA CROW
+0297 06 0A        CL1:    MVI B,10
+0299 3A 2B 07     CL2:    LDA CROW
+029C CD C4 03             CALL CELLA
+029F 7E                   MOV A,M
+02A0 B7                   ORA A
+02A1 CA B5 02             JZ CL4
+02A4 05                   DCR B
+02A5 C2 99 02             JNZ CL2
+02A8 21 2A 07             LXI H,NCLR              ; строка заполнена
+02AB 34                   INR M
+02AC 3A 2B 07             LDA CROW
+02AF CD 0B 03             CALL DELROW
+02B2 C3 97 02             JMP CL1                 ; ту же строку — ещё раз
+02B5 21 2B 07     CL4:    LXI H,CROW
+02B8 35                   DCR M
+02B9 F2 97 02             JP CL1
+02BC 3A 2A 07             LDA NCLR
+02BF B7                   ORA A
+02C0 C8                   RZ
+                          ; очки: PTS[n-1] * (уровень+1)
+02C1 3D                   DCR A
+02C2 87                   ADD A
+02C3 5F                   MOV E,A
+02C4 16 00                MVI D,0
+02C6 21 33 06             LXI H,PTS
+02C9 19                   DAD D
+02CA 5E                   MOV E,M
+02CB 23                   INX H
+02CC 56                   MOV D,M
+02CD 3A 33 07             LDA LEVEL
+02D0 3C                   INR A
+02D1 4F                   MOV C,A
+02D2 CD 5D 03     CL5:    CALL ADDSC
+02D5 0D                   DCR C
+02D6 C2 D2 02             JNZ CL5
+                          ; линии (BCD)
+02D9 21 30 07             LXI H,LINES
+02DC 3A 2A 07             LDA NCLR
+02DF 86                   ADD M
+02E0 27                   DAA
+02E1 77                   MOV M,A
+02E2 23                   INX H
+02E3 7E                   MOV A,M
+02E4 CE 00                ACI 0
+02E6 27                   DAA
+02E7 77                   MOV M,A
+                          ; уровень — каждые 10 линий
+02E8 3A 2A 07             LDA NCLR
+02EB 47                   MOV B,A
+02EC 3A 32 07             LDA LCNT
+02EF 90                   SUB B
+02F0 32 32 07             STA LCNT
+02F3 CA F9 02             JZ CL6
+02F6 F2 08 03             JP CL7
+02F9 C6 0A        CL6:    ADI 10
+02FB 32 32 07             STA LCNT
+02FE 3A 33 07             LDA LEVEL
+0301 3C                   INR A
+0302 32 33 07             STA LEVEL
+0305 CD 70 03             CALL SETSPD
+0308 C3 89 03     CL7:    JMP SHOWST
+                  
+                  ; Удалить строку A: всё, что выше, сдвинуть на строку вниз прямо в видеоОЗУ.
+                  ; Вниз по экрану — к младшим адресам, поэтому копируем от младших к старшим.
+030B F5           DELROW: PUSH PSW
+030C 06 0A                MVI B,10
+030E CD C4 03             CALL CELLA
+0311 11 E3 FD             LXI D,-(ROWB*(CELLH-1)+1)
+0314 19                   DAD D                   ; HL — самый младший адрес строки стакана
+0315 F1                   POP PSW
+0316 47                   MOV B,A
+0317 87                   ADD A
+0318 80                   ADD B
+0319 87                   ADD A
+031A 87                   ADD A
+031B 80                   ADD B                   ; 13*строка экранных строк
+031C CA 3A 03             JZ DR3
+031F 4F                   MOV C,A
+0320 E5           DR1:    PUSH H
+0321 11 49 02             LXI D,ROWB*CELLH
+0324 19                   DAD D                   ; HL — та же строка клетками выше
+0325 D1                   POP D
+0326 D5                   PUSH D
+0327 06 14                MVI B,20
+0329 7E           DR2:    MOV A,M
+032A 12                   STAX D
+032B 23                   INX H
+032C 13                   INX D
+032D 05                   DCR B
+032E C2 29 03             JNZ DR2
+0331 E1                   POP H
+0332 11 2D 00             LXI D,ROWB
+0335 19                   DAD D
+0336 0D                   DCR C
+0337 C2 20 03             JNZ DR1
+033A 06 0A        DR3:    MVI B,10                ; верхняя строка — пустая
+033C AF           DR4:    XRA A
+033D CD C4 03             CALL CELLA
+0340 AF                   XRA A
+0341 C5                   PUSH B
+0342 CD DE 03             CALL BLK
+0345 C1                   POP B
+0346 05                   DCR B
+0347 C2 3C 03             JNZ DR4
+034A C9                   RET
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Счёт
+                  
+034B 21 2D 07     CLRST:  LXI H,SCORE               ; SCORE, LINES, LCNT, LEVEL
+034E 06 07                MVI B,7
+0350 36 00        CS1:    MVI M,0
+0352 23                   INX H
+0353 05                   DCR B
+0354 C2 50 03             JNZ CS1
+0357 3E 0A                MVI A,10
+0359 32 32 07             STA LCNT
+035C C9                   RET
+                  
+                  ; SCORE += DE (BCD); C, D, E не портит
+035D 21 2D 07     ADDSC:  LXI H,SCORE
+0360 7E                   MOV A,M
+0361 83                   ADD E
+0362 27                   DAA
+0363 77                   MOV M,A
+0364 23                   INX H
+0365 7E                   MOV A,M
+0366 8A                   ADC D
+0367 27                   DAA
+0368 77                   MOV M,A
+0369 23                   INX H
+036A 7E                   MOV A,M
+036B CE 00                ACI 0
+036D 27                   DAA
+036E 77                   MOV M,A
+036F C9                   RET
+                  
+0370 3A 33 07     SETSPD: LDA LEVEL
+0373 FE 0F                CPI 15
+0375 DA 7A 03             JC SS1
+0378 3E 0F                MVI A,15
+037A 5F           SS1:    MOV E,A
+037B 16 00                MVI D,0
+037D 21 3B 06             LXI H,GTAB
+0380 19                   DAD D
+0381 7E                   MOV A,M
+0382 32 20 07             STA SPEED
+0385 32 1F 07             STA GCNT
+0388 C9                   RET
+                  
+0389 21 2F 07     SHOWST: LXI H,SCORE+2
+038C 0E 03                MVI C,3
+038E 11 70 F5             LXI D,P_SCORE
+0391 CD 1A 05             CALL PBCD
+0394 21 31 07             LXI H,LINES+1
+0397 0E 02                MVI C,2
+0399 11 1C EF             LXI D,P_LINES
+039C CD 1A 05             CALL PBCD
+039F 3A 33 07             LDA LEVEL               ; уровень -> BCD
+03A2 06 00                MVI B,0
+03A4 FE 0A        SH1:    CPI 10
+03A6 DA AF 03             JC SH2
+03A9 D6 0A                SUI 10
+03AB 04                   INR B
+03AC C3 A4 03             JMP SH1
+03AF 4F           SH2:    MOV C,A
+03B0 78                   MOV A,B
+03B1 07                   RLC
+03B2 07                   RLC
+03B3 07                   RLC
+03B4 07                   RLC
+03B5 B1                   ORA C
+03B6 32 2C 07             STA TMP
+03B9 21 2C 07             LXI H,TMP
+03BC 0E 01                MVI C,1
+03BE 11 C8 E8             LXI D,P_LEVEL
+03C1 C3 1A 05             JMP PBCD
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Графика
+                  
+                  ; Клетка стакана: A = строка, B = столбец -> HL = адрес на экране
+                  ; (ROW0 - 45*13*строка - 2*столбец)
+03C4 21 BA FB     CELLA:  LXI H,ROW0
+03C7 11 B7 FD             LXI D,-ROWB*CELLH
+03CA 3C                   INR A
+03CB 3D           CA1:    DCR A
+03CC CA D3 03             JZ CA2
+03CF 19                   DAD D
+03D0 C3 CB 03             JMP CA1
+03D3 7D           CA2:    MOV A,L
+03D4 90                   SUB B
+03D5 D2 D9 03             JNC CA3
+03D8 25                   DCR H
+03D9 90           CA3:    SUB B
+03DA 6F                   MOV L,A
+03DB D0                   RNC
+03DC 25                   DCR H
+03DD C9                   RET
+                  
+                  ; Клетка 16x13 по адресу HL: A<>0 — кубик, A=0 — пусто. B не портит.
+03DE EB           BLK:    XCHG
+03DF 21 4B 06             LXI H,BPAT
+03E2 B7                   ORA A
+03E3 C2 E9 03             JNZ BK1
+03E6 21 3A 44             LXI H,ZEROS
+03E9 0E 0D        BK1:    MVI C,CELLH
+03EB 7E           BK2:    MOV A,M
+03EC 12                   STAX D
+03ED 23                   INX H
+03EE 1B                   DCX D
+03EF 7E                   MOV A,M
+03F0 12                   STAX D
+03F1 23                   INX H
+03F2 7B                   MOV A,E                 ; DE = DE+1-45
+03F3 D6 2C                SUI ROWB-1
+03F5 5F                   MOV E,A
+03F6 D2 FA 03             JNC BK3
+03F9 15                   DCR D
+03FA 0D           BK3:    DCR C
+03FB C2 EB 03             JNZ BK2
+03FE C9                   RET
+                  
+                  ; Следующая фигура в окне справа
+03FF              PREVIEW:
+03FF 21 D2 F8             LXI H,PREVA
+0402 0E 04                MVI C,4
+0404 E5           PV1:    PUSH H
+0405 C5                   PUSH B
+0406 06 04                MVI B,4
+0408 E5           PV2:    PUSH H
+0409 AF                   XRA A
+040A CD DE 03             CALL BLK
+040D E1                   POP H
+040E 2B                   DCX H
+040F 2B                   DCX H
+0410 05                   DCR B
+0411 C2 08 04             JNZ PV2
+0414 C1                   POP B
+0415 E1                   POP H
+0416 11 B7 FD             LXI D,-ROWB*CELLH
+0419 19                   DAD D
+041A 0D                   DCR C
+041B C2 04 04             JNZ PV1
+041E 06 00                MVI B,0
+0420 3A 28 07             LDA NT
+0423 CD 5D 02             CALL SHPTR2
+0426 0E 04                MVI C,4
+0428 E5           PV3:    PUSH H
+0429 C5                   PUSH B
+042A 7E                   MOV A,M
+042B E6 0F                ANI 0FH
+042D 87                   ADD A
+042E 47                   MOV B,A                 ; B = 2*dx
+042F 7E                   MOV A,M
+0430 0F                   RRC
+0431 0F                   RRC
+0432 0F                   RRC
+0433 0F                   RRC
+0434 E6 0F                ANI 0FH
+0436 4F                   MOV C,A                 ; C = dy
+0437 21 D2 F8             LXI H,PREVA
+043A 7D                   MOV A,L
+043B 90                   SUB B
+043C 6F                   MOV L,A
+043D D2 41 04             JNC PV4
+0440 25                   DCR H
+0441 79           PV4:    MOV A,C
+0442 B7                   ORA A
+0443 CA 4E 04             JZ PV6
+0446 11 B7 FD             LXI D,-ROWB*CELLH
+0449 19           PV5:    DAD D
+044A 0D                   DCR C
+044B C2 49 04             JNZ PV5
+044E 3E 01        PV6:    MVI A,1
+0450 CD DE 03             CALL BLK
+0453 C1                   POP B
+0454 E1                   POP H
+0455 23                   INX H
+0456 0D                   DCR C
+0457 C2 28 04             JNZ PV3
+045A C9                   RET
+                  
+                  ; Экран новой игры: очистка, стакан, надписи, счёт
+045B CD 6A 04     SCREEN: CALL CLS
+045E CD 7A 04             CALL DECOR
+0461 CD 4B 03             CALL CLRST
+0464 CD 70 03             CALL SETSPD
+0467 C3 89 03             JMP SHOWST
+                  
+                  ; Очистка видеоОЗУ C700-FFFF
+046A 21 00 C7     CLS:    LXI H,0C700H
+046D 01 00 39             LXI B,10000H-0C700H
+0470 36 00        CLS1:   MVI M,0
+0472 23                   INX H
+0473 0B                   DCX B
+0474 78                   MOV A,B
+0475 B1                   ORA C
+0476 C2 70 04             JNZ CLS1
+0479 C9                   RET
+                  
+                  ; Стенки, дно и постоянные надписи
+047A 21 6D FC     DECOR:  LXI H,0FFFFH-ROWB*20-14
+047D 3E 06                MVI A,06H
+047F 0E 85                MVI C,133               ; строки 20..285
+0481 CD A0 04             CALL VLINE
+0484 21 58 FC             LXI H,0FFFFH-ROWB*20-35
+0487 3E C0                MVI A,0C0H
+0489 0E 85                MVI C,133
+048B CD A0 04             CALL VLINE
+048E 21 05 CE             LXI H,0FFFFH-ROWB*284-14
+0491 CD AC 04             CALL HLINE
+0494 21 D8 CD             LXI H,0FFFFH-ROWB*285-14
+0497 CD AC 04             CALL HLINE
+049A 21 65 06             LXI H,S_STATIC
+049D C3 0C 05             JMP PRLIST
+                  
+                  ; Вертикаль байтом A, 2*C строк вниз от HL
+04A0 11 D3 FF     VLINE:  LXI D,-ROWB
+04A3 77           VL1:    MOV M,A
+04A4 19                   DAD D
+04A5 77                   MOV M,A
+04A6 19                   DAD D
+04A7 0D                   DCR C
+04A8 C2 A3 04             JNZ VL1
+04AB C9                   RET
+                  
+                  ; Дно стакана от байта HL (bc 14) вправо
+04AC 36 07        HLINE:  MVI M,07H
+04AE 2B                   DCX H
+04AF 06 14                MVI B,20
+04B1 36 FF        HL1:    MVI M,0FFH
+04B3 2B                   DCX H
+04B4 05                   DCR B
+04B5 C2 B1 04             JNZ HL1
+04B8 36 C0                MVI M,0C0H
+04BA C9                   RET
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Текст
+                  
+                  ; Символ A по экранному адресу DE; DE сдвигается на знакоместо вправо.
+                  ; HL, BC не портит.
+04BB E5           PUTC:   PUSH H
+04BC C5                   PUSH B
+04BD D5                   PUSH D
+04BE 6F                   MOV L,A
+04BF 26 00                MVI H,0
+04C1 29                   DAD H
+04C2 29                   DAD H
+04C3 29                   DAD H
+04C4 01 91 5D             LXI B,FONT
+04C7 09                   DAD B
+04C8 0E 08                MVI C,8
+04CA 7E           PC1:    MOV A,M
+04CB 12                   STAX D
+04CC 23                   INX H
+04CD 7B                   MOV A,E
+04CE D6 2D                SUI ROWB
+04D0 5F                   MOV E,A
+04D1 D2 D5 04             JNC PC2
+04D4 15                   DCR D
+04D5 0D           PC2:    DCR C
+04D6 C2 CA 04             JNZ PC1
+04D9 D1                   POP D
+04DA 1B                   DCX D
+04DB C1                   POP B
+04DC E1                   POP H
+04DD C9                   RET
+                  
+                  ; Строка HL (до 0) по адресу DE; на выходе HL указывает на 0
+04DE 7E           PUTS:   MOV A,M
+04DF B7                   ORA A
+04E0 C8                   RZ
+04E1 CD BB 04             CALL PUTC
+04E4 23                   INX H
+04E5 C3 DE 04             JMP PUTS
+                  
+                  ; Сообщение HL (две строки) в левую панель; CLRMSG — стереть
+04E8 E5           MSG:    PUSH H
+04E9 CD FA 04             CALL CLRMSG
+04EC E1                   POP H
+04ED 11 28 E3             LXI D,P_MSG1
+04F0 CD DE 04             CALL PUTS
+04F3 23                   INX H
+04F4 11 0C E1             LXI D,P_MSG2
+04F7 C3 DE 04             JMP PUTS
+04FA 21 0F 07     CLRMSG: LXI H,S_SPC
+04FD 11 28 E3             LXI D,P_MSG1
+0500 CD DE 04             CALL PUTS
+0503 21 0F 07             LXI H,S_SPC
+0506 11 0C E1             LXI D,P_MSG2
+0509 C3 DE 04             JMP PUTS
+                  
+                  ; Список: DW адрес, DB 'строка',0 ... DW 0
+050C 5E           PRLIST: MOV E,M
+050D 23                   INX H
+050E 56                   MOV D,M
+050F 23                   INX H
+0510 7A                   MOV A,D
+0511 B3                   ORA E
+0512 C8                   RZ
+0513 CD DE 04             CALL PUTS
+0516 23                   INX H
+0517 C3 0C 05             JMP PRLIST
+                  
+                  ; C байтов BCD, начиная со старшего (HL), по адресу DE
+051A 7E           PBCD:   MOV A,M
+051B 0F                   RRC
+051C 0F                   RRC
+051D 0F                   RRC
+051E 0F                   RRC
+051F CD 2C 05             CALL PDIG
+0522 7E                   MOV A,M
+0523 CD 2C 05             CALL PDIG
+0526 2B                   DCX H
+0527 0D                   DCR C
+0528 C2 1A 05             JNZ PBCD
+052B C9                   RET
+052C E6 0F        PDIG:   ANI 0FH
+052E C6 30                ADI '0'
+0530 C3 BB 04             JMP PUTC
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Пульт
+                  
+                  ; Опрос матрицы: A = код нажатой клавиши или 0
+0533 21 D4 21     KSCAN:  LXI H,KBTAB
+0536 0E 80                MVI C,80H               ; FA: бит 7 как у прошивки, биты 4-5 — столбец
+0538 79           KS1:    MOV A,C
+0539 D3 FA                OUT 0FAH
+053B DB F6                IN 0F6H
+053D 2F                   CMA
+053E B7                   ORA A
+053F C2 51 05             JNZ KS3
+0542 11 08 00             LXI D,8
+0545 19                   DAD D
+0546 79                   MOV A,C
+0547 C6 10                ADI 10H
+0549 4F                   MOV C,A
+054A FE C0                CPI 0C0H
+054C C2 38 05             JNZ KS1
+054F AF                   XRA A
+0550 C9                   RET
+0551 1F           KS3:    RAR
+0552 DA 59 05             JC KS4
+0555 23                   INX H
+0556 C3 51 05             JMP KS3
+0559 7E           KS4:    MOV A,M
+055A FE 55                CPI 55H                 ; 55 — нет клавиши
+055C C0                   RNZ
+055D AF                   XRA A
+055E C9                   RET
+                  
+                  ; Новое нажатие: A = код или 0
+055F CD 33 05     GETKEY: CALL KSCAN
+0562 47                   MOV B,A
+0563 3A 1D 07             LDA LASTK
+0566 B8                   CMP B
+0567 78                   MOV A,B
+0568 32 1D 07             STA LASTK
+056B C0                   RNZ
+056C AF                   XRA A
+056D C9                   RET
+                  
+                  ; Щелчок: короткий импульс 0 на бите 4 порта F8 (как у прошивки)
+056E 3E 20        CLICK:  MVI A,20H
+0570 D3 F8                OUT 0F8H
+0572 01 2C 01             LXI B,300
+0575 0B           CK1:    DCX B
+0576 78                   MOV A,B
+0577 B1                   ORA C
+0578 C2 75 05             JNZ CK1
+057B 3E 30                MVI A,30H
+057D D3 F8                OUT 0F8H
+057F C9                   RET
+                  
+0580 01 98 08     FDELAY: LXI B,FDEL
+0583 0B           FD1:    DCX B
+0584 78                   MOV A,B
+0585 B1                   ORA C
+0586 C2 83 05             JNZ FD1
+0589 C9                   RET
+                  
+                  ; ----------------------------------------------------------------------
+                  ; Случайные числа: 16-битный РСЛОС (Галуа, x^16+x^5+x^3+x^2+1)
+058A 2A 1B 07     RND:    LHLD SEED
+058D 06 08                MVI B,8
+058F 29           RN1:    DAD H
+0590 D2 97 05             JNC RN2
+0593 7D                   MOV A,L
+0594 EE 2D                XRI 2DH
+0596 6F                   MOV L,A
+0597 05           RN2:    DCR B
+0598 C2 8F 05             JNZ RN1
+059B 22 1B 07             SHLD SEED
+059E 7D                   MOV A,L
+059F AC                   XRA H
+05A0 C9                   RET
+                  
+                  ; Тип фигуры 0..6; повтор предыдущей перевыбирается один раз
+05A1 CD 8A 05     RND7:   CALL RND
+05A4 E6 07                ANI 7
+05A6 FE 07                CPI 7
+05A8 CA A1 05             JZ RND7
+05AB 47                   MOV B,A
+05AC 3A 28 07             LDA NT
+05AF B8                   CMP B
+05B0 78                   MOV A,B
+05B1 C0                   RNZ
+05B2 CD 8A 05     R7B:    CALL RND
+05B5 E6 07                ANI 7
+05B7 FE 07                CPI 7
+05B9 CA B2 05             JZ R7B
+05BC C9                   RET
+                  
+                  ; ======================================================================
+                  ; Данные
+                  
+                  ; Фигуры: 4 поворота по 4 клетки, байт = dy*16+dx (повороты SRS)
+05BD 10 11 12 13  SHAPES: DB 10H,11H,12H,13H, 02H,12H,22H,32H, 23H,22H,21H,20H, 31H,21H,11H,01H  ; I
+05C1 02 12 22 32 
+05C5 23 22 21 20 
+05C9 31 21 11 01 
+05CD 00 10 11 12          DB 00H,10H,11H,12H, 02H,01H,11H,21H, 22H,12H,11H,10H, 20H,21H,11H,01H  ; J
+05D1 02 01 11 21 
+05D5 22 12 11 10 
+05D9 20 21 11 01 
+05DD 02 10 11 12          DB 02H,10H,11H,12H, 22H,01H,11H,21H, 20H,12H,11H,10H, 00H,21H,11H,01H  ; L
+05E1 22 01 11 21 
+05E5 20 12 11 10 
+05E9 00 21 11 01 
+05ED 01 02 11 12          DB 01H,02H,11H,12H, 01H,02H,11H,12H, 01H,02H,11H,12H, 01H,02H,11H,12H  ; O
+05F1 01 02 11 12 
+05F5 01 02 11 12 
+05F9 01 02 11 12 
+05FD 01 02 10 11          DB 01H,02H,10H,11H, 12H,22H,01H,11H, 21H,20H,12H,11H, 10H,00H,21H,11H  ; S
+0601 12 22 01 11 
+0605 21 20 12 11 
+0609 10 00 21 11 
+060D 01 10 11 12          DB 01H,10H,11H,12H, 12H,01H,11H,21H, 21H,12H,11H,10H, 10H,21H,11H,01H  ; T
+0611 12 01 11 21 
+0615 21 12 11 10 
+0619 10 21 11 01 
+061D 00 01 11 12          DB 00H,01H,11H,12H, 02H,12H,11H,21H, 22H,21H,11H,10H, 20H,10H,11H,01H  ; Z
+0621 02 12 11 21 
+0625 22 21 11 10 
+0629 20 10 11 01 
+                  
+062D 00 FF 01 FE  KICKS:  DB 0,-1,1,-2,2,80H
+0631 02 80       
+                  
+                  ; Очки за 1-4 линии (BCD), умножаются на (уровень+1)
+0633 40 00 00 01  PTS:    DW 0040H,0100H,0300H,1200H
+0637 00 03 00 12 
+                  
+                  ; Кадров на одну строку падения по уровням
+063B 28 22 1D 18  GTAB:   DB 40,34,29,24,20,16,13,10,8,7,6,5,4,3,3,2
+063F 14 10 0D 0A 
+0643 08 07 06 05 
+0647 04 03 03 02 
+                  
+                  ; Кубик 16x13: рамка, внутри сплошной квадрат, справа и снизу зазор
+064B FF FE        BPAT:   DB 0FFH,0FEH
+064D 80 02                DB 080H,002H
+064F BF FA BF FA          DB 0BFH,0FAH, 0BFH,0FAH, 0BFH,0FAH, 0BFH,0FAH
+0653 BF FA BF FA 
+0657 BF FA BF FA          DB 0BFH,0FAH, 0BFH,0FAH, 0BFH,0FAH, 0BFH,0FAH
+065B BF FA BF FA 
+065F 80 02                DB 080H,002H
+0661 FF FE                DB 0FFH,0FEH
+0663 00 00                DB 000H,000H
+                  
+                  ; Надписи: экранный адрес, текст (КОИ-7 Н2). Стрелки шрифта: 80 ↑, 82 →, 84 ↓, 86 ←
+0665              S_STATIC:
+0665 C4 FB                DW 0FFFFH-ROWB*24-TX0
+0667 74 65 74 72          DB 'ТЕТРИС',0
+066B 69 73 00    
+066E 8C F7                DW 0FFFFH-ROWB*48-TX0
+0670 6F 7E 6B 69          DB 'ОЧКИ',0
+0674 00          
+0675 38 F1                DW 0FFFFH-ROWB*84-TX0
+0677 6C 69 6E 69          DB 'ЛИНИИ',0
+067B 69 00       
+067D E4 EA                DW 0FFFFH-ROWB*120-TX0
+067F 75 72 6F 77          DB 'УРОВЕНЬ',0
+0683 65 6E 78 00 
+0687 A2 FB                DW 0FFFFH-ROWB*24-37
+0689 64 61 6C 65          DB 'ДАЛЕЕ',0
+068D 65 00       
+068F B8 DA                DW 0FFFFH-ROWB*212-TX0
+0691 86 82 20 73          DB 86H,82H,' СДВИГ',0
+0695 64 77 69 67 
+0699 00          
+069A 9C D8                DW 0FFFFH-ROWB*224-TX0
+069C 80 20 20 70          DB 80H,'  ПОВОРОТ',0
+06A0 6F 77 6F 72 
+06A4 6F 74 00    
+06A7 80 D6                DW 0FFFFH-ROWB*236-TX0
+06A9 84 20 20 77          DB 84H,'  ВНИЗ',0
+06AD 6E 69 7A 00 
+06B1 64 D4                DW 0FFFFH-ROWB*248-TX0
+06B3 2B 20 20 62          DB '+  БРОСОК',0
+06B7 72 6F 73 6F 
+06BB 6B 00       
+06BD 48 D2                DW 0FFFFH-ROWB*260-TX0
+06BF 73 74 61 72          DB 'СТАРТ ПАУЗА',0
+06C3 74 20 70 61 
+06C7 75 7A 61 00 
+06CB 2C D0                DW 0FFFFH-ROWB*272-TX0
+06CD 6D 65 6E 60          DB 'МЕНЮ  ВЫХОД',0
+06D1 20 20 77 79 
+06D5 68 6F 64 00 
+06D9 00 00                DW 0
+                  
+                  ; Сообщения в левой панели (строка 1, строка 2)
+06DB              M_TITLE:
+06DB 20 20 6E 61          DB '  НАЖМИТЕ',0,'   СТАРТ',0
+06DF 76 6D 69 74 
+06E3 65 00 20 20 
+06E7 20 73 74 61 
+06EB 72 74 00    
+06EE              M_PAUSE:
+06EE 20 20 20 70          DB '   ПАУЗА',0,0
+06F2 61 75 7A 61 
+06F6 00 00       
+06F8 6B 6F 6E 65  M_OVER: DB 'КОНЕЦ ИГРЫ',0,'СТАРТ-СНОВА',0
+06FC 63 20 69 67 
+0700 72 79 00 73 
+0704 74 61 72 74 
+0708 2D 73 6E 6F 
+070C 77 61 00    
+070F 20 20 20 20  S_SPC:  DB '           ',0
+0713 20 20 20 20 
+0717 20 20 20 00 
+                  
+071B              CODEEND:
+                  
+                  ; ======================================================================
+                  ; Переменные (ОЗУ, не загружаются)
+071B              SEED:   DS 2
+071D              LASTK:  DS 1
+071E              REP:    DS 1
+071F              GCNT:   DS 1
+0720              SPEED:  DS 1
+0721              PT:     DS 1
+0722              PX:     DS 1                    ; PX, PY, PR и TX, TY, TR — подряд (COPY3, SHLD)
+0723              PY:     DS 1
+0724              PR:     DS 1
+0725              TX:     DS 1
+0726              TY:     DS 1
+0727              TR:     DS 1
+0728              NT:     DS 1
+0729              FILL:   DS 1
+072A              NCLR:   DS 1
+072B              CROW:   DS 1
+072C              TMP:    DS 1
+072D              SCORE:  DS 3                    ; BCD, младший байт первым; дальше подряд
+0730              LINES:  DS 2                    ; BCD                         ; обнуляет CLRST
+0732              LCNT:   DS 1                    ; линий до следующего уровня
+0733              LEVEL:  DS 1
+0734              VAREND:
