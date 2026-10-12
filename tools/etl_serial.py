@@ -302,20 +302,24 @@ def merge_chunks(chunks):
 
 
 # ---------- снимок видеоОЗУ ----------
-def vram_png(data, row_bytes=VRAM_ROW):
-    """1 бит/точка, младший бит — левая точка (как в vid_xy2addr 0x4809)."""
+def vram_png(data, row_bytes=VRAM_ROW, rotate=True):
+    """1 бит/точка, в памяти младший бит — меньший x (vid_xy2addr 0x4809).
+    На экране изображение повёрнуто на 180° (луч идёт от старших адресов
+    к младшим — проверено по заставке на эмуляторе), rotate=True это учитывает."""
     w = row_bytes * 8
     h = len(data) // row_bytes
-    raw = bytearray()
+    rows = []
     for y in range(h):
-        raw.append(0)
+        row = bytearray()
         for b in data[y * row_bytes:(y + 1) * row_bytes]:
-            raw += bytes(255 if b >> i & 1 else 0 for i in range(8))
+            row += bytes(255 if b >> i & 1 else 0 for i in range(8))
+        rows.append(row[::-1] if rotate else row)
+    raw = b''.join(b'\0' + r for r in (rows[::-1] if rotate else rows))
 
     def chunk(tag, body):
         return struct.pack('>I', len(body)) + tag + body + struct.pack('>I', zlib.crc32(tag + body))
     return (b'\x89PNG\r\n\x1a\n' + chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 0, 0, 0, 0))
-            + chunk(b'IDAT', zlib.compress(bytes(raw), 9)) + chunk(b'IEND', b''))
+            + chunk(b'IDAT', zlib.compress(raw, 9)) + chunk(b'IEND', b''))
 
 
 def hexdump(addr, data):
@@ -391,7 +395,9 @@ def main():
     p.add_argument('--start', type=num, default=VRAM[0])
     p.add_argument('--end', type=num, default=VRAM[1])
     p.add_argument('--raw', help='сохранить также сырые байты')
+    p.add_argument('--no-rotate', action='store_true', help='как лежит в памяти, без поворота на 180°')
     sub.add_parser('term', help='простой терминал (pyserial miniterm)')
+    sub.add_parser('probe', help='подобрать скорость: ВК на 300…38400, ждать «\\r\\n-»')
 
     args = ap.parse_args()
     if not args.sim and not args.port:
@@ -406,6 +412,19 @@ def main():
         print('8251 шлёт 8N2, ПК в 8N1 это принимает. Только ЗАГЛАВНЫЕ буквы;'
               ' ^C — прервать команду; любая клавиша — пауза вывода.', file=sys.stderr)
         return miniterm.main()
+
+    if args.cmd == 'probe':
+        import serial
+        for baud in (9600, 19200, 4800, 2400, 1200, 38400, 600, 300):
+            with serial.Serial(args.port, baud, stopbits=2, timeout=0.3) as port:
+                try:
+                    Monitor(port).sync(tries=2)
+                except MonitorError:
+                    print('%6d — нет' % baud)
+                    continue
+                print('%6d — монитор отвечает' % baud)
+                return
+        sys.exit('не найдено: проверьте уровни (8251 — ТТЛ, нужен MAX232), TxD/RxD, CTS/DSR 8251')
 
     con, aux = open_ports(args)
     mon = Monitor(con, aux, log=sys.stderr if args.verbose else None)
@@ -478,7 +497,7 @@ def main():
         data = mon.read_mem(args.start, args.end)
         if args.raw:
             open(args.raw, 'wb').write(data)
-        open(args.out, 'wb').write(vram_png(data))
+        open(args.out, 'wb').write(vram_png(data, rotate=not args.no_rotate))
         print('%s: %dx%d' % (args.out, VRAM_ROW * 8, len(data) // VRAM_ROW))
 
 
