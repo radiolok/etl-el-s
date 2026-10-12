@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="880" viewBox="0 0 1060 880">
+<style>
+ .h{font:bold 17px sans-serif;fill:#111} .sub{font:12px sans-serif;fill:#555}
+ .t{font:13px sans-serif;fill:#111} .tb{font:bold 13px sans-serif;fill:#111}
+ .s{font:11px sans-serif;fill:#333} .a{font:11px monospace;fill:#444}
+ .box{stroke:#444;stroke-width:1} .dash{stroke:#888;stroke-width:1;stroke-dasharray:5 3;fill:none}
+ .ln{stroke:#444;stroke-width:1.3;fill:none} .bus{stroke:#666;stroke-width:5;fill:none;stroke-linecap:round}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10z" fill="#444"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text class="h" x="20" y="28">ЭТЛ-ЭЛ-С: последовательность запуска</text>
+<text class="sub" x="20" y="47">По коду монитора (0815) и основной программы (2000). Пунктир — гипотеза.</text>
+<rect class="box" x="430" y="70" width="200" height="40" rx="4" fill="#eee"/>
+<text class="tb" x="530" y="94" text-anchor="middle">СБРОС 8085</text>
+<path class="ln" d="M530 110 L530 140" marker-end="url(#ar)"/>
+<rect class="box" x="380" y="140" width="300" height="44" rx="4" fill="#fff3b0"/>
+<text class="tb" x="530" y="158" text-anchor="middle">Чтение 0000 — из ПЗУ (оверлей)</text>
+<text class="s" x="530" y="174" text-anchor="middle">запись 0000 — в ОЗУ</text>
+<path class="ln" d="M450 184 L250 230" marker-end="url(#ar)"/>
+<path class="ln" stroke-dasharray="5 3" d="M610 184 L810 230" marker-end="url(#ar)"/>
+<text class="s" x="250" y="200" text-anchor="start">режим отладки (2716)</text>
+<text class="s" x="740" y="200" text-anchor="start">рабочий режим (гипотеза, джампер?)</text>
+<rect class="box" x="90" y="230" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="248" text-anchor="middle">0000: JMP 0815</text>
+<text class="s" x="250" y="264" text-anchor="middle">векторы 2716</text>
+<path class="ln" d="M250 274 L250 290" marker-end="url(#ar)"/>
+<rect class="box" x="90" y="290" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="308" text-anchor="middle">0815: DI, 11×NOP</text>
+<text class="s" x="250" y="324" text-anchor="middle">место под патч</text>
+<path class="ln" d="M250 334 L250 350" marker-end="url(#ar)"/>
+<rect class="box" x="90" y="350" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="368" text-anchor="middle">Инициализация 8251</text>
+<text class="s" x="250" y="384" text-anchor="middle">FF и EF: режим CF, команда 25</text>
+<path class="ln" d="M250 394 L250 410" marker-end="url(#ar)"/>
+<rect class="box" x="90" y="410" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="428" text-anchor="middle">Поиск конца ОЗУ</text>
+<text class="s" x="250" y="444" text-anchor="middle">по страницам → (0004) = 07FF</text>
+<path class="ln" d="M250 454 L250 470" marker-end="url(#ar)"/>
+<rect class="box" x="90" y="470" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="488" text-anchor="middle">Трамплин 0FC7 → 07C7</text>
+<text class="s" x="250" y="504" text-anchor="middle">JMP 0C3E → 0000</text>
+<path class="ln" d="M250 514 L250 530" marker-end="url(#ar)"/>
+<rect class="box" x="90" y="530" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="548" text-anchor="middle">Вывод регистров</text>
+<text class="s" x="250" y="564" text-anchor="middle">P A H L D E B C S F I</text>
+<path class="ln" d="M250 574 L250 590" marker-end="url(#ar)"/>
+<rect class="box" x="90" y="590" width="320" height="44" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="250" y="608" text-anchor="middle">Командный цикл</text>
+<text class="s" x="250" y="624" text-anchor="middle">C D E F G H M P R S U W X</text>
+<path class="ln" d="M410 612 L480 612 L480 300 L610 300" marker-end="url(#ar)"/>
+<text class="a" x="416" y="606" text-anchor="start">G 2000</text>
+<rect class="box" x="610" y="230" width="340" height="44" rx="4" fill="#f3e19a" stroke-dasharray="5 3"/>
+<text class="tb" x="780" y="248" text-anchor="middle">0000: ROM1 с нулевого адреса</text>
+<text class="s" x="780" y="264" text-anchor="middle">LXI SP / LXI H / … / JNZ 2008</text>
+<path class="ln" d="M780 274 L780 290" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="290" width="340" height="44" rx="4" fill="#f6c99b"/>
+<text class="tb" x="780" y="308" text-anchor="middle">2000 main_start</text>
+<text class="s" x="780" y="324" text-anchor="middle">стек 0720, обнуление 0041–0070, 036B–0373</text>
+<path class="ln" d="M780 334 L780 348" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="348" width="340" height="44" rx="4" fill="#f6c99b"/>
+<text class="tb" x="780" y="366" text-anchor="middle">8251 на FF, порты F8=30, FA=80</text>
+<text class="s" x="780" y="382" text-anchor="middle">копии в 0049/0048</text>
+<path class="ln" d="M780 392 L780 406" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="406" width="340" height="44" rx="4" fill="#f6c99b"/>
+<text class="tb" x="780" y="424" text-anchor="middle">Тест видеоОЗУ C800–FFFF</text>
+<text class="s" x="780" y="440" text-anchor="middle">«ОШИБКА УВЗ» — повтор до успеха</text>
+<path class="ln" d="M780 450 L780 464" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="464" width="340" height="44" rx="4" fill="#f6c99b"/>
+<text class="tb" x="780" y="482" text-anchor="middle">JMP 0C3E → 0000, EI</text>
+<text class="s" x="780" y="498" text-anchor="middle">выход в монитор по RST0</text>
+<path class="ln" d="M780 508 L780 522" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="522" width="340" height="44" rx="4" fill="#f3e19a"/>
+<text class="tb" x="780" y="540" text-anchor="middle">Новый пациент (55BE)</text>
+<text class="s" x="780" y="556" text-anchor="middle">протокол, заставка MEDELKOM SLE-101</text>
+<path class="ln" d="M780 566 L780 580" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="580" width="340" height="44" rx="4" fill="#f3e19a"/>
+<text class="tb" x="780" y="598" text-anchor="middle">Экран: vid_call 1 (очистка C700–FFFF)</text>
+<text class="s" x="780" y="614" text-anchor="middle">шаблон текста 2FF1 → 0080</text>
+<path class="ln" d="M780 624 L780 638" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="638" width="340" height="44" rx="4" fill="#f3e19a"/>
+<text class="tb" x="780" y="656" text-anchor="middle">SOD=1 (SIM), режимы, маркеры</text>
+<text class="s" x="780" y="672" text-anchor="middle">живое изображение</text>
+<path class="ln" d="M780 682 L780 696" marker-end="url(#ar)"/>
+<rect class="box" x="610" y="696" width="340" height="70" rx="4" fill="#f3e19a"/>
+<text class="tb" x="780" y="719" text-anchor="middle">Главный цикл 20B8</text>
+<text class="s" x="780" y="735" text-anchor="middle">kbd_scan → dispatch_key</text>
+<text class="s" x="780" y="751" text-anchor="middle">(таблица «живой» 22FE / «фиксация» 22E8)</text>
+<path class="ln" d="M950 748 L980 748 L980 714 L950 714" marker-end="url(#ar)"/>
+<text class="s" x="984" y="735" text-anchor="start">цикл</text>
+<rect class="box" x="600" y="796" width="360" height="44" rx="4" fill="#e3e9f6"/>
+<text class="tb" x="780" y="814" text-anchor="middle">ВК с консоли (8251 FE)</text>
+<text class="s" x="780" y="830" text-anchor="middle">→ JMP 0831: тёплый вход в монитор</text>
+<path class="ln" d="M780 766 L780 796" marker-end="url(#ar)"/>
+<path class="ln" d="M600 818 L60 818 L60 432 L90 432" marker-end="url(#ar)"/>
+<text class="a" x="64" y="426" text-anchor="start">0831</text>
+</svg>

@@ -51,7 +51,7 @@
 <text class="a" x="423" y="127.8">2203</text>
 <line x1="490" y1="127.4" x2="498" y2="129.2" stroke="#999" stroke-width=".6"/>
 <text class="n" x="500" y="133.2">Заморозка и самотесты <tspan class="a">2203–22D2</tspan></text>
-<text class="d" x="500" y="144.2">Фиксация кадра (порт F8), контрольная сумма ПЗУ, те…</text>
+<text class="d" x="500" y="144.2">Фиксация кадра (порт F8), контрольная сумма ПЗУ (не…</text>
 <rect x="420" y="137.1" width="70" height="9.9" fill="#f3e19a" stroke="#555" stroke-width=".6"/>
 <text class="a" x="423" y="146.0">22D3</text>
 <line x1="490" y1="142.0" x2="498" y2="153.2" stroke="#999" stroke-width=".6"/>
@@ -131,27 +131,27 @@
 <rect x="1220" y="120.6" width="70" height="54.6" fill="#f0b7b7" stroke="#555" stroke-width=".6"/>
 <text class="a" x="1223" y="130.6">6221</text>
 <line x1="1290" y1="135.6" x2="1298" y2="135.6" stroke="#999" stroke-width=".6"/>
-<text class="n" x="1300" y="139.6">Рантайм: ввод/вывод <tspan class="a">6221–646D</tspan></text>
+<text class="n" x="1300" y="139.6">Библиотека: ввод/вывод <tspan class="a">6221–646D</tspan></text>
 <text class="d" x="1300" y="150.6">Дескрипторы каналов, диспетчер операций, степени 10</text>
 <rect x="1220" y="175.2" width="70" height="135.4" fill="#f0b7b7" stroke="#555" stroke-width=".6"/>
 <text class="a" x="1223" y="185.2">646E</text>
 <line x1="1290" y1="190.2" x2="1298" y2="190.2" stroke="#999" stroke-width=".6"/>
-<text class="n" x="1300" y="194.2">Рантайм: форматный вывод <tspan class="a">646E–6A20</tspan></text>
+<text class="n" x="1300" y="194.2">Библиотека: форматный вывод <tspan class="a">646E–6A20</tspan></text>
 <text class="d" x="1300" y="205.2">rt_format — преобразование чисел в текст</text>
 <rect x="1220" y="310.6" width="70" height="73.8" fill="#f0b7b7" stroke="#555" stroke-width=".6"/>
 <text class="a" x="1223" y="320.6">6A21</text>
 <line x1="1290" y1="325.6" x2="1298" y2="325.6" stroke="#999" stroke-width=".6"/>
-<text class="n" x="1300" y="329.6">Рантайм: преобразования <tspan class="a">6A21–6D3C</tspan></text>
+<text class="n" x="1300" y="329.6">Библиотека: преобразования <tspan class="a">6A21–6D3C</tspan></text>
 <text class="d" x="1300" y="340.6">Текст/целое -&gt; float и обратно</text>
 <rect x="1220" y="384.4" width="70" height="208.1" fill="#f0b7b7" stroke="#555" stroke-width=".6"/>
 <text class="a" x="1223" y="394.4">6D3D</text>
 <line x1="1290" y1="399.4" x2="1298" y2="399.4" stroke="#999" stroke-width=".6"/>
-<text class="n" x="1300" y="403.4">Рантайм: float32 <tspan class="a">6D3D–75FF</tspan></text>
+<text class="n" x="1300" y="403.4">Библиотека: float32 <tspan class="a">6D3D–75FF</tspan></text>
 <text class="d" x="1300" y="414.4">Сложение, умножение, деление, сравнение IEEE-754</text>
 <rect x="1220" y="592.5" width="70" height="13.6" fill="#f0b7b7" stroke="#555" stroke-width=".6"/>
 <text class="a" x="1223" y="602.5">7600</text>
 <line x1="1290" y1="599.3" x2="1298" y2="599.3" stroke="#999" stroke-width=".6"/>
-<text class="n" x="1300" y="603.3">Рантайм: 16 бит <tspan class="a">7600–7692</tspan></text>
+<text class="n" x="1300" y="603.3">Библиотека: 16 бит <tspan class="a">7600–7692</tspan></text>
 <text class="d" x="1300" y="614.3">Вычитание/сравнение/сдвиги целых</text>
 <rect x="1220" y="606.1" width="70" height="223.9" fill="#ffffff" stroke="#555" stroke-width=".6"/>
 <text class="a" x="1223" y="616.1">7693</text>
@@ -177,7 +177,7 @@
 <rect x="480" y="881" width="14" height="14" fill="#c7c7c7" stroke="#555" stroke-width=".6"/>
 <text class="s" x="500" y="892">шрифт 8×8</text>
 <rect x="710" y="881" width="14" height="14" fill="#f0b7b7" stroke="#555" stroke-width=".6"/>
-<text class="s" x="730" y="892">рантайм: float, формат</text>
+<text class="s" x="730" y="892">библиотека float32, формат</text>
 <rect x="940" y="881" width="14" height="14" fill="#ffffff" stroke="#555" stroke-width=".6"/>
 <text class="s" x="960" y="892">свободно (0xFF)</text>
 </svg>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+<style>
+ .h{font:bold 17px sans-serif;fill:#111} .sub{font:12px sans-serif;fill:#555}
+ .t{font:13px sans-serif;fill:#111} .tb{font:bold 13px sans-serif;fill:#111}
+ .s{font:11px sans-serif;fill:#333} .a{font:11px monospace;fill:#444}
+ .box{stroke:#444;stroke-width:1} .dash{stroke:#888;stroke-width:1;stroke-dasharray:5 3;fill:none}
+ .ln{stroke:#444;stroke-width:1.3;fill:none} .bus{stroke:#666;stroke-width:5;fill:none;stroke-linecap:round}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10z" fill="#444"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text class="h" x="20" y="28">ЭТЛ-ЭЛ-С: блок-схема процессорной платы</text>
+<text class="sub" x="20" y="47">По фото платы и обращениям в коде. Адреса и порты — из прошивки; номера дешифраторов не сверены со схемой.</text>
+<path class="bus" d="M250 210 L1240 210"/>
+<path class="bus" d="M250 430 L1240 430"/>
+<text class="s" x="1240" y="228" text-anchor="end">шина адреса A0–A15</text>
+<text class="s" x="1240" y="450" text-anchor="end">шина данных D0–D7</text>
+<rect class="box" x="30" y="240" width="190" height="160" rx="4" fill="#f6c99b"/>
+<text class="tb" x="125" y="292" text-anchor="middle">ИМ1821ВМ85А</text>
+<text class="s" x="125" y="308" text-anchor="middle">(80C85)</text>
+<text class="s" x="125" y="324" text-anchor="middle">кварц</text>
+<text class="s" x="125" y="340" text-anchor="middle">SOD — выход</text>
+<text class="s" x="125" y="356" text-anchor="middle">INTR не используется</text>
+<rect class="box" x="250" y="270" width="130" height="100" rx="4" fill="#eee"/>
+<text class="tb" x="315" y="308" text-anchor="middle">ИР23 / ИР35</text>
+<text class="s" x="315" y="324" text-anchor="middle">защёлка адреса</text>
+<text class="s" x="315" y="340" text-anchor="middle">(ALE, AD0–AD7)</text>
+<path class="ln" d="M220 310 L250 310" marker-end="url(#ar)"/>
+<path class="ln" d="M315 270 L315 215" marker-end="url(#ar)"/>
+<path class="ln" d="M220 390 L236 390 L236 425" marker-end="url(#ar)"/>
+<rect class="box" x="420" y="80" width="180" height="80" rx="4" fill="#eee"/>
+<text class="tb" x="510" y="108" text-anchor="middle">К555ИД7</text>
+<text class="s" x="510" y="124" text-anchor="middle">дешифраторы</text>
+<text class="s" x="510" y="140" text-anchor="middle">памяти и портов</text>
+<path class="ln" d="M510 205 L510 160" marker-end="url(#ar)"/>
+<rect class="box" x="760" y="80" width="200" height="80" rx="4" fill="#eee"/>
+<text class="tb" x="860" y="108" text-anchor="middle">КР1533АП6 (245)</text>
+<text class="s" x="860" y="124" text-anchor="middle">буфер шины данных</text>
+<text class="s" x="860" y="140" text-anchor="middle">на разъём</text>
+<path class="ln" d="M860 160 L860 205"/>
+<rect class="box" x="1020" y="70" width="200" height="90" rx="4" fill="#b5dde6" stroke-dasharray="5 3"/>
+<text class="tb" x="1120" y="103" text-anchor="middle">ВидеоОЗУ C700–FFFF</text>
+<text class="s" x="1120" y="119" text-anchor="middle">«УВЗ», ~14 КБ</text>
+<text class="s" x="1120" y="135" text-anchor="middle">на другой плате</text>
+<path class="ln" d="M1120 160 L1120 205" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<rect class="box" x="410" y="250" width="140" height="140" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="480" y="300" text-anchor="middle">КР573РФ2</text>
+<text class="s" x="480" y="316" text-anchor="middle">2716, «Д17»</text>
+<text class="s" x="480" y="332" text-anchor="middle">0800–0FFF</text>
+<text class="s" x="480" y="348" text-anchor="middle">+ оверлей 0000</text>
+<path class="ln" d="M480 210 L480 250"/>
+<path class="ln" d="M480 390 L480 430"/>
+<rect class="box" x="570" y="250" width="140" height="140" rx="4" fill="#f3e19a"/>
+<text class="tb" x="640" y="300" text-anchor="middle">К573РФ4А</text>
+<text class="s" x="640" y="316" text-anchor="middle">2764 №1</text>
+<text class="s" x="640" y="332" text-anchor="middle">2000–3FFF</text>
+<text class="s" x="640" y="348" text-anchor="middle">ROM1</text>
+<path class="ln" d="M640 210 L640 250"/>
+<path class="ln" d="M640 390 L640 430"/>
+<rect class="box" x="730" y="250" width="140" height="140" rx="4" fill="#e3c1e6"/>
+<text class="tb" x="800" y="300" text-anchor="middle">К573РФ4А</text>
+<text class="s" x="800" y="316" text-anchor="middle">2764 №2</text>
+<text class="s" x="800" y="332" text-anchor="middle">4000–5FFF</text>
+<text class="s" x="800" y="348" text-anchor="middle">ROM2</text>
+<path class="ln" d="M800 210 L800 250"/>
+<path class="ln" d="M800 390 L800 430"/>
+<rect class="box" x="890" y="250" width="140" height="140" rx="4" fill="#f0b7b7"/>
+<text class="tb" x="960" y="300" text-anchor="middle">К573РФ4А</text>
+<text class="s" x="960" y="316" text-anchor="middle">2764 №3</text>
+<text class="s" x="960" y="332" text-anchor="middle">6000–7FFF</text>
+<text class="s" x="960" y="348" text-anchor="middle">ROM3</text>
+<path class="ln" d="M960 210 L960 250"/>
+<path class="ln" d="M960 390 L960 430"/>
+<rect class="box" x="1050" y="250" width="140" height="140" rx="4" fill="#fff3b0"/>
+<text class="tb" x="1120" y="300" text-anchor="middle">КР537РУ10</text>
+<text class="s" x="1120" y="316" text-anchor="middle">6116, 2 КБ</text>
+<text class="s" x="1120" y="332" text-anchor="middle">0000–07FF</text>
+<text class="s" x="1120" y="348" text-anchor="middle">ОЗУ</text>
+<path class="ln" d="M1120 210 L1120 250"/>
+<path class="ln" d="M1120 390 L1120 430"/>
+<rect class="box" x="270" y="490" width="210" height="90" rx="4" fill="#e3e9f6"/>
+<text class="tb" x="375" y="523" text-anchor="middle">КР580ВВ51А (8251)</text>
+<text class="s" x="375" y="539" text-anchor="middle">FE — данные, FF — упр.</text>
+<text class="s" x="375" y="555" text-anchor="middle">консоль монитора</text>
+<path class="ln" d="M375 430 L375 490"/>
+<path class="ln" d="M375 580 L375 620" marker-end="url(#ar)"/>
+<rect class="box" x="510" y="490" width="210" height="90" rx="4" fill="#e3e9f6" stroke-dasharray="5 3"/>
+<text class="tb" x="615" y="523" text-anchor="middle">8251 №2 или зеркало</text>
+<text class="s" x="615" y="539" text-anchor="middle">порты EE / EF</text>
+<text class="s" x="615" y="555" text-anchor="middle">Intel HEX (R/W/E)</text>
+<path class="ln" d="M615 430 L615 490"/>
+<path class="ln" stroke-dasharray="5 3" d="M615 580 L615 620" marker-end="url(#ar)"/>
+<rect class="box" x="750" y="490" width="210" height="90" rx="4" fill="#f3e19a"/>
+<text class="tb" x="855" y="523" text-anchor="middle">Порты вывода F8, FA</text>
+<text class="s" x="855" y="539" text-anchor="middle">F8 бит 0: «фиксация»</text>
+<text class="s" x="855" y="555" text-anchor="middle">FA биты 4–5: столбец ПУ</text>
+<path class="ln" d="M855 430 L855 490"/>
+<path class="ln" d="M855 580 L855 620" marker-end="url(#ar)"/>
+<rect class="box" x="990" y="490" width="210" height="90" rx="4" fill="#f3e19a"/>
+<text class="tb" x="1095" y="523" text-anchor="middle">Порт ввода F6</text>
+<text class="s" x="1095" y="539" text-anchor="middle">строки клавиатуры ПУ</text>
+<text class="s" x="1095" y="555" text-anchor="middle">(инверсно)</text>
+<path class="ln" d="M1095 430 L1095 490"/>
+<path class="ln" d="M1095 580 L1095 620" marker-end="url(#ar)"/>
+<rect class="box" x="270" y="620" width="450" height="64" rx="4" fill="#f7f7f7"/>
+<text class="tb" x="495" y="648" text-anchor="middle">Последовательный канал</text>
+<text class="s" x="495" y="664" text-anchor="middle">терминал или ЭВМ: отладка, загрузка Intel HEX</text>
+<rect class="box" x="750" y="620" width="450" height="64" rx="4" fill="#f7f7f7"/>
+<text class="tb" x="975" y="648" text-anchor="middle">Разъём на другие платы</text>
+<text class="s" x="975" y="664" text-anchor="middle">пульт управления (ПУ), видеотракт</text>
+</svg>

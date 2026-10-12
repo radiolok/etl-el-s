@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1130" height="1060" viewBox="0 0 1130 1060">
+<style>
+ .h{font:bold 17px sans-serif;fill:#111} .sub{font:12px sans-serif;fill:#555}
+ .t{font:13px sans-serif;fill:#111} .tb{font:bold 13px sans-serif;fill:#111}
+ .s{font:11px sans-serif;fill:#333} .a{font:11px monospace;fill:#444}
+ .box{stroke:#444;stroke-width:1} .dash{stroke:#888;stroke-width:1;stroke-dasharray:5 3;fill:none}
+ .ln{stroke:#444;stroke-width:1.3;fill:none} .bus{stroke:#666;stroke-width:5;fill:none;stroke-linecap:round}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10z" fill="#444"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text class="h" x="20" y="28">ЭТЛ-ЭЛ-С: карта памяти 8085</text>
+<text class="sub" x="20" y="47">Слева — всё адресное пространство (линейно), справа — распределение ОЗУ 0000–07FF по коду программы</text>
+<rect class="box" x="40" y="80" width="150" height="28.125" rx="0" fill="#fff3b0"/>
+<text class="a" x="36" y="90" text-anchor="end">0000</text>
+<text class="s" x="198" y="98.0625" text-anchor="start">ОЗУ КР537РУ10 · 2 КБ</text>
+<rect class="box" x="40" y="108.125" width="150" height="28.125" rx="0" fill="#c9d7f0"/>
+<text class="a" x="36" y="118.125" text-anchor="end">0800</text>
+<text class="s" x="198" y="126.188" text-anchor="start">2716 монитор</text>
+<rect class="box" x="40" y="136.25" width="150" height="56.25" rx="0" fill="#f7f7f7"/>
+<text class="tb" x="115" y="168.375" text-anchor="middle">не используется</text>
+<text class="a" x="36" y="146.25" text-anchor="end">1000</text>
+<rect class="box" x="40" y="192.5" width="150" height="112.5" rx="0" fill="#f3e19a"/>
+<text class="tb" x="115" y="244.75" text-anchor="middle">2764 №1 (ROM1)</text>
+<text class="s" x="115" y="260.75" text-anchor="middle">основная программа</text>
+<text class="a" x="36" y="202.5" text-anchor="end">2000</text>
+<rect class="box" x="40" y="305" width="150" height="112.5" rx="0" fill="#e3c1e6"/>
+<text class="tb" x="115" y="357.25" text-anchor="middle">2764 №2 (ROM2)</text>
+<text class="s" x="115" y="373.25" text-anchor="middle">графика, биометрия</text>
+<text class="a" x="36" y="315" text-anchor="end">4000</text>
+<rect class="box" x="40" y="417.5" width="150" height="112.5" rx="0" fill="#f0b7b7"/>
+<text class="tb" x="115" y="469.75" text-anchor="middle">2764 №3 (ROM3)</text>
+<text class="s" x="115" y="485.75" text-anchor="middle">шрифт, float</text>
+<text class="a" x="36" y="427.5" text-anchor="end">6000</text>
+<rect class="box" x="40" y="530" width="150" height="249.609" rx="0" fill="#f7f7f7"/>
+<text class="tb" x="115" y="658.805" text-anchor="middle">обращений нет</text>
+<text class="a" x="36" y="540" text-anchor="end">8000</text>
+<rect class="box" x="40" y="779.609" width="150" height="200.391" rx="0" fill="#b5dde6"/>
+<text class="tb" x="115" y="875.805" text-anchor="middle">видеоОЗУ («УВЗ»)</text>
+<text class="s" x="115" y="891.805" text-anchor="middle">вне процессорной платы</text>
+<text class="a" x="36" y="789.609" text-anchor="end">C700</text>
+<text class="a" x="36" y="980" text-anchor="end">FFFF</text>
+<text class="s" x="198" y="797.125" text-anchor="start">C800–FFFF: тест при старте</text>
+<text class="s" x="198" y="781.609" text-anchor="start">C700: очистка (vid_01)</text>
+<text class="s" x="198" y="818.28" text-anchor="start">CA09: база графики, строка 45 байт</text>
+<rect class="box" x="500" y="80" width="280" height="28.125" rx="0" fill="#fde7a6"/>
+<text class="a" x="496" y="90" text-anchor="end">0000</text>
+<text class="tb" x="508" y="98.0625" text-anchor="start">Векторы</text>
+<text class="s" x="790" y="98.0625" text-anchor="start">JMP 0C3E в 0000; (0004) — верх ОЗУ (монитор)</text>
+<rect class="box" x="500" y="108.125" width="280" height="28.125" rx="0" fill="#fff3b0"/>
+<text class="a" x="496" y="118.125" text-anchor="end">0040</text>
+<text class="tb" x="508" y="126.188" text-anchor="start">Переменные главной программы</text>
+<text class="s" x="790" y="126.188" text-anchor="start">0048/0049 — копии портов FA/F8, клавиатура</text>
+<rect class="box" x="500" y="136.25" width="280" height="36.4746" rx="0" fill="#e9f5d6"/>
+<text class="a" x="496" y="146.25" text-anchor="end">0080</text>
+<text class="tb" x="508" y="158.25" text-anchor="start">Шаблон экранного текста</text>
+<text class="s" x="790" y="158.25" text-anchor="start">копия 0x2FF1: заставка, дата, «L+», «P», «S»</text>
+<rect class="box" x="500" y="172.725" width="280" height="19.7754" rx="0" fill="#fff3b0"/>
+<text class="a" x="496" y="182.725" text-anchor="end">00D3</text>
+<text class="tb" x="508" y="186.612" text-anchor="start">Маркеры измерений</text>
+<text class="s" x="790" y="186.612" text-anchor="start">00D3.. сбрасываются в FF</text>
+<rect class="box" x="500" y="192.5" width="280" height="98.4375" rx="0" fill="#d7efd0"/>
+<text class="a" x="496" y="202.5" text-anchor="end">0100</text>
+<text class="tb" x="508" y="214.5" text-anchor="start">Рабочая область измерений</text>
+<text class="s" x="790" y="214.5" text-anchor="start">float-переменные по 4 байта, буфер формата</text>
+<rect class="box" x="500" y="290.938" width="280" height="14.0625" rx="0" fill="#fff3b0"/>
+<text class="a" x="496" y="300.938" text-anchor="end">01E0</text>
+<text class="s" x="508" y="301.969" text-anchor="start">Состояние интерфейса</text>
+<text class="s" x="790" y="301.969" text-anchor="start">режимы, курсор (01F3 — строка)</text>
+<rect class="box" x="500" y="305" width="280" height="158.203" rx="0" fill="#b5dde6"/>
+<text class="a" x="496" y="315" text-anchor="end">0200</text>
+<text class="tb" x="508" y="327" text-anchor="start">Переменные графики</text>
+<text class="s" x="790" y="327" text-anchor="start">02DF режим, 02E3 строка, 02E5 глиф</text>
+<rect class="box" x="500" y="463.203" width="280" height="295.312" rx="0" fill="#e3c1e6"/>
+<text class="a" x="496" y="473.203" text-anchor="end">0368</text>
+<text class="tb" x="508" y="485.203" text-anchor="start">Пациент и биометрия</text>
+<text class="s" x="790" y="485.203" text-anchor="start">протокол, методы 036B–0374, результаты</text>
+<rect class="box" x="500" y="758.516" width="280" height="123.047" rx="0" fill="#f2f2f2"/>
+<text class="a" x="496" y="768.516" text-anchor="end">0608</text>
+<text class="tb" x="508" y="780.516" text-anchor="start">Стек главной программы</text>
+<text class="s" x="790" y="780.516" text-anchor="start">SP = 0720, растёт вниз</text>
+<rect class="box" x="500" y="881.562" width="280" height="73.3887" rx="0" fill="#e3e9f6"/>
+<text class="a" x="496" y="891.562" text-anchor="end">0720</text>
+<text class="tb" x="508" y="903.562" text-anchor="start">Стек монитора</text>
+<text class="s" x="790" y="903.562" text-anchor="start">SP = 07BF</text>
+<rect class="box" x="500" y="954.951" width="280" height="25.0488" rx="0" fill="#c9d7f0"/>
+<text class="a" x="496" y="964.951" text-anchor="end">07C7</text>
+<text class="tb" x="508" y="971.476" text-anchor="start">Трамплин монитора</text>
+<text class="s" x="790" y="971.476" text-anchor="start">регистры, JMP-векторы (копия 0FC7)</text>
+<text class="a" x="496" y="980" text-anchor="end">07FF</text>
+<path class="dash" d="M190 80 L460 80"/>
+<path class="dash" d="M190 108.125 L460 980"/>
+<text class="s" x="20" y="1020" text-anchor="start">При сбросе чтение с 0x0000 идёт из ПЗУ (оверлей): из 2716 (JMP 0815) или, по гипотезе, из ROM1.</text>
+<text class="s" x="20" y="1036" text-anchor="start">Запись в 0x0000 всегда попадает в ОЗУ. Порты: FE/FF и EE/EF — 8251; F6 — клавиатура; F8, FA — управление.</text>
+</svg>

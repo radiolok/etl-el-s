@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880">
+<style>
+ .h{font:bold 17px sans-serif;fill:#111} .sub{font:12px sans-serif;fill:#555}
+ .t{font:13px sans-serif;fill:#111} .tb{font:bold 13px sans-serif;fill:#111}
+ .s{font:11px sans-serif;fill:#333} .a{font:11px monospace;fill:#444}
+ .box{stroke:#444;stroke-width:1} .dash{stroke:#888;stroke-width:1;stroke-dasharray:5 3;fill:none}
+ .ln{stroke:#444;stroke-width:1.3;fill:none} .bus{stroke:#666;stroke-width:5;fill:none;stroke-linecap:round}
+</style>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M0 0L10 5L0 10z" fill="#444"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/>
+<text class="h" x="20" y="28">ЭТЛ-ЭЛ-С: граф вызовов между частями прошивки</text>
+<text class="sub" x="20" y="47">Число на стрелке — пар «функция → вызываемая функция»; толщина ~ числу. Пунктир — переход через таблицу.</text>
+<defs><marker id="au" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#555"/></marker></defs>
+<path d="M660 115 L880 115" stroke="#555" stroke-width="1.1" fill="none" marker-end="url(#au)"/>
+<rect x="758" y="104" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="770" y="115" text-anchor="middle">1</text>
+<path d="M400 113.169 L290 111.62" stroke="#555" stroke-width="1.1" fill="none" marker-end="url(#au)"/>
+<rect x="333" y="101.394" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="345" y="112.394" text-anchor="middle">1</text>
+<path d="M447.931 150 L260.345 230" stroke="#555" stroke-width="1.2" fill="none" marker-end="url(#au)"/>
+<rect x="342.138" y="179" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="354.138" y="190" text-anchor="middle">2</text>
+<path d="M530 450 L530 550" stroke="#555" stroke-width="1.2" fill="none" marker-end="url(#au)"/>
+<rect x="518" y="489" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="530" y="500" text-anchor="middle">2</text>
+<path d="M626.295 555.597 L884.892 455.597" stroke="#555" stroke-width="1.2" fill="none" marker-end="url(#au)"/>
+<rect x="691.874" y="514.597" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="703.874" y="525.597" text-anchor="middle">2</text>
+<path d="M820 385.192 L320 285.833" stroke="#555" stroke-width="1.2" fill="none" marker-end="url(#au)"/>
+<rect x="558" y="324.513" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="570" y="335.513" text-anchor="middle">2</text>
+<path d="M458.87 374.541 L261.197 284.541" stroke="#555" stroke-width="1.2" fill="none" marker-end="url(#au)"/>
+<rect x="387.568" y="336.541" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="399.568" y="347.541" text-anchor="middle">3</text>
+<path d="M873.705 444.403 L615.108 544.403" stroke="#555" stroke-width="1.2" fill="none" marker-end="url(#au)"/>
+<rect x="784.126" y="463.403" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="796.126" y="474.403" text-anchor="middle">3</text>
+<path d="M962.097 380 L941.774 290" stroke="#555" stroke-width="1.3" fill="none" marker-end="url(#au)"/>
+<rect x="939.935" y="324" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="951.935" y="335" text-anchor="middle">4</text>
+<path d="M250.613 295.459 L447.352 385.459" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#au)"/>
+<rect x="297.635" y="311.459" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="309.635" y="322.459" text-anchor="middle">6</text>
+<path d="M530 150 L530 380" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#au)"/>
+<rect x="518" y="254" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="530" y="265" text-anchor="middle">7</text>
+<path d="M970 450 L970 550" stroke="#555" stroke-width="2.2" fill="none" marker-end="url(#au)"/>
+<rect x="958" y="489" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="970" y="500" text-anchor="middle">14</text>
+<path d="M820 406.955 L680 406.955" stroke="#555" stroke-width="2.2" fill="none" marker-end="url(#au)"/>
+<rect x="766" y="395.955" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="778" y="406.955" text-anchor="middle">15</text>
+<path d="M620.588 450 L879.412 550" stroke="#555" stroke-width="3.2" fill="none" marker-end="url(#au)"/>
+<rect x="738" y="489" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="750" y="500" text-anchor="middle">27</text>
+<path d="M530 620 L530 710" stroke="#555" stroke-width="6.0" fill="none" marker-end="url(#au)"/>
+<rect x="518" y="654" width="24" height="15" rx="3" fill="#fff" stroke="#bbb" stroke-width=".5"/>
+<text class="a" x="530" y="665" text-anchor="middle">77</text>
+<path d="M872.613 290 L637.452 380" stroke="#777" stroke-width="1.3" stroke-dasharray="6 4" fill="none" marker-end="url(#au)"/>
+<text class="s" x="761.032" y="331" text-anchor="start">таблицы клавиш</text>
+<path d="M957.774 290 L978.097 380" stroke="#777" stroke-width="1.3" stroke-dasharray="6 4" fill="none" marker-end="url(#au)"/>
+<text class="s" x="973.935" y="331" text-anchor="start">клавиша 5</text>
+<path d="M643.759 150 L867.207 230" stroke="#777" stroke-width="1.3" stroke-dasharray="6 4" fill="none" marker-end="url(#au)"/>
+<text class="s" x="761.483" y="186" text-anchor="start">главный цикл</text>
+<rect class="box" x="60" y="80" width="230" height="60" rx="4" fill="#f3e19a"/>
+<text class="tb" x="175" y="106" text-anchor="middle">Клавиатура</text>
+<text class="s" x="175" y="122" text-anchor="middle">20F1–2202</text>
+<rect class="box" x="400" y="80" width="260" height="70" rx="4" fill="#f6c99b"/>
+<text class="tb" x="530" y="111" text-anchor="middle">Старт и главный цикл</text>
+<text class="s" x="530" y="127" text-anchor="middle">2000–20F0</text>
+<rect class="box" x="880" y="80" width="260" height="70" rx="4" fill="#c9d7f0"/>
+<text class="tb" x="1010" y="111" text-anchor="middle">Монитор (2716)</text>
+<text class="s" x="1010" y="127" text-anchor="middle">0800–0FFF</text>
+<rect class="box" x="60" y="230" width="260" height="60" rx="4" fill="#f6c99b"/>
+<text class="tb" x="190" y="256" text-anchor="middle">Фиксация, самотесты</text>
+<text class="s" x="190" y="272" text-anchor="middle">2203–22D2</text>
+<rect class="box" x="820" y="230" width="230" height="60" rx="4" fill="#f3e19a"/>
+<text class="tb" x="935" y="256" text-anchor="middle">Диспетчер клавиш</text>
+<text class="s" x="935" y="272" text-anchor="middle">22D3–233D, таблицы</text>
+<rect class="box" x="380" y="380" width="300" height="70" rx="4" fill="#f3e19a"/>
+<text class="tb" x="530" y="411" text-anchor="middle">Обработчики клавиш</text>
+<text class="s" x="530" y="427" text-anchor="middle">233E–2EAC (ROM1)</text>
+<rect class="box" x="820" y="380" width="300" height="70" rx="4" fill="#e3c1e6"/>
+<text class="tb" x="970" y="411" text-anchor="middle">Биометрия плода</text>
+<text class="s" x="970" y="427" text-anchor="middle">4DFF–56AA (ROM2)</text>
+<rect class="box" x="380" y="550" width="300" height="70" rx="4" fill="#b9e3b0"/>
+<text class="tb" x="530" y="581" text-anchor="middle">Измерения и формат</text>
+<text class="s" x="530" y="597" text-anchor="middle">3045–3C12 (ROM1)</text>
+<rect class="box" x="820" y="550" width="300" height="70" rx="4" fill="#b5dde6"/>
+<text class="tb" x="970" y="581" text-anchor="middle">Графика vid_call</text>
+<text class="s" x="970" y="597" text-anchor="middle">3C13–4DFE (ROM1/ROM2)</text>
+<rect class="box" x="380" y="710" width="300" height="70" rx="4" fill="#f0b7b7"/>
+<text class="tb" x="530" y="741" text-anchor="middle">Библиотека float32, формат</text>
+<text class="s" x="530" y="757" text-anchor="middle">6221–7692 (ROM3)</text>
+<text class="s" x="880" y="172" text-anchor="start">внутри: команды → ввод/вывод (44)</text>
+<text class="s" x="700" y="750" text-anchor="start">внутри ROM3: формат/преобразования → float32, 16 бит</text>
+<text class="s" x="20" y="820" text-anchor="start">Не показаны единичные связи (10): Биометрия→Клавиатура, Клавиатура→Обработчики, Обработчики→Биометрия, Обработчики→Диспетчер, Обработчики→Клавиатура,</text>
+<text class="s" x="20" y="838" text-anchor="start">Старт→Биометрия, Старт→Измерения, Старт→Диспетчер, Старт→Графика, Фиксация→Графика</text>
+</svg>
