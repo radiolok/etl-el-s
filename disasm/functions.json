@@ -1,0 +1,5116 @@
+[
+{
+"addr": 0,
+"name": "RST0",
+"block": "VEC",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 2069,
+"name": "mon_reset",
+"block": "MON",
+"size": 28,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 2097,
+"name": "mon_warm",
+"block": "MON",
+"size": 17,
+"c_frame": false,
+"callees": [],
+"callers": [
+8376
+]
+},
+{
+"addr": 2114,
+"name": "caseD_55",
+"block": "MON",
+"size": 40,
+"c_frame": false,
+"callees": [
+2164,
+2757
+],
+"callers": []
+},
+{
+"addr": 2154,
+"name": "caseD_41",
+"block": "MON",
+"size": 6,
+"c_frame": false,
+"callees": [],
+"callers": [
+2698,
+2913
+]
+},
+{
+"addr": 2164,
+"name": "mon_cmd_loop",
+"block": "MON",
+"size": 46,
+"c_frame": false,
+"callees": [
+2805,
+2846,
+2855
+],
+"callers": [
+2114
+]
+},
+{
+"addr": 2258,
+"name": "caseD_43",
+"block": "MON",
+"size": 20,
+"c_frame": false,
+"callees": [
+2873,
+2903,
+2913
+],
+"callers": []
+},
+{
+"addr": 2278,
+"name": "caseD_44",
+"block": "MON",
+"size": 31,
+"c_frame": false,
+"callees": [
+2460,
+2465,
+2841,
+2846,
+2903,
+2913
+],
+"callers": []
+},
+{
+"addr": 2309,
+"name": "caseD_45",
+"block": "MON",
+"size": 40,
+"c_frame": false,
+"callees": [
+2913,
+3092,
+3107,
+3112
+],
+"callers": []
+},
+{
+"addr": 2349,
+"name": "caseD_46",
+"block": "MON",
+"size": 15,
+"c_frame": false,
+"callees": [
+2903,
+2913
+],
+"callers": []
+},
+{
+"addr": 2364,
+"name": "caseD_47",
+"block": "MON",
+"size": 78,
+"c_frame": false,
+"callees": [
+2805,
+2932,
+2938,
+2968
+],
+"callers": []
+},
+{
+"addr": 2442,
+"name": "caseD_48",
+"block": "MON",
+"size": 18,
+"c_frame": false,
+"callees": [
+2465,
+2903,
+2913
+],
+"callers": []
+},
+{
+"addr": 2460,
+"name": "FUN_ram_099c",
+"block": "MON",
+"size": 5,
+"c_frame": false,
+"callees": [
+2465
+],
+"callers": [
+2278,
+2873
+]
+},
+{
+"addr": 2465,
+"name": "FUN_ram_09a1",
+"block": "MON",
+"size": 9,
+"c_frame": false,
+"callees": [
+2474
+],
+"callers": [
+2278,
+2442,
+2460,
+2873,
+3035
+]
+},
+{
+"addr": 2474,
+"name": "FUN_ram_09aa",
+"block": "MON",
+"size": 6,
+"c_frame": false,
+"callees": [
+2809,
+2831
+],
+"callers": [
+2465
+]
+},
+{
+"addr": 2480,
+"name": "caseD_4d",
+"block": "MON",
+"size": 17,
+"c_frame": false,
+"callees": [
+2903,
+2913
+],
+"callers": []
+},
+{
+"addr": 2497,
+"name": "caseD_50",
+"block": "MON",
+"size": 42,
+"c_frame": false,
+"callees": [
+2805,
+2809,
+2841,
+2846
+],
+"callers": []
+},
+{
+"addr": 2550,
+"name": "caseD_52",
+"block": "MON",
+"size": 69,
+"c_frame": false,
+"callees": [
+2913,
+3055,
+3067
+],
+"callers": []
+},
+{
+"addr": 2619,
+"name": "caseD_53",
+"block": "MON",
+"size": 15,
+"c_frame": false,
+"callees": [
+2932
+],
+"callers": []
+},
+{
+"addr": 2634,
+"name": "caseD_57",
+"block": "MON",
+"size": 64,
+"c_frame": false,
+"callees": [
+2903,
+2913,
+3092,
+3107,
+3112
+],
+"callers": []
+},
+{
+"addr": 2698,
+"name": "caseD_58",
+"block": "MON",
+"size": 59,
+"c_frame": false,
+"callees": [
+2154,
+2805,
+2841,
+2938,
+2968,
+3035
+],
+"callers": []
+},
+{
+"addr": 2757,
+"name": "mon_puts",
+"block": "MON",
+"size": 23,
+"c_frame": false,
+"callees": [
+2805,
+2809,
+2841,
+2846,
+3035
+],
+"callers": [
+2114
+]
+},
+{
+"addr": 2780,
+"name": "FUN_ram_0adc",
+"block": "MON",
+"size": 15,
+"c_frame": false,
+"callees": [
+2795,
+2823
+],
+"callers": [
+2809
+]
+},
+{
+"addr": 2795,
+"name": "con_getc_raw",
+"block": "MON",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+2780,
+2855
+]
+},
+{
+"addr": 2805,
+"name": "FUN_ram_0af5",
+"block": "MON",
+"size": 4,
+"c_frame": false,
+"callees": [],
+"callers": [
+2164,
+2364,
+2497,
+2698,
+2757,
+2846
+]
+},
+{
+"addr": 2809,
+"name": "con_putc",
+"block": "MON",
+"size": 14,
+"c_frame": false,
+"callees": [
+2780
+],
+"callers": [
+2474,
+2497,
+2757,
+2841,
+2855
+]
+},
+{
+"addr": 2823,
+"name": "con_status",
+"block": "MON",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+2780
+]
+},
+{
+"addr": 2831,
+"name": "FUN_ram_0b0f",
+"block": "MON",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+2474,
+3112
+]
+},
+{
+"addr": 2841,
+"name": "FUN_ram_0b19",
+"block": "MON",
+"size": 5,
+"c_frame": false,
+"callees": [
+2809
+],
+"callers": [
+2278,
+2497,
+2698,
+2757,
+2873
+]
+},
+{
+"addr": 2846,
+"name": "FUN_ram_0b1e",
+"block": "MON",
+"size": 9,
+"c_frame": false,
+"callees": [
+2805
+],
+"callers": [
+2164,
+2278,
+2497,
+2757,
+2873
+]
+},
+{
+"addr": 2855,
+"name": "con_getc_echo",
+"block": "MON",
+"size": 18,
+"c_frame": false,
+"callees": [
+2795,
+2809
+],
+"callers": [
+2164,
+2938,
+2968
+]
+},
+{
+"addr": 2873,
+"name": "FUN_ram_0b39",
+"block": "MON",
+"size": 30,
+"c_frame": false,
+"callees": [
+2460,
+2465,
+2841,
+2846
+],
+"callers": [
+2258
+]
+},
+{
+"addr": 2903,
+"name": "FUN_ram_0b57",
+"block": "MON",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+2258,
+2278,
+2349,
+2442,
+2480,
+2634
+]
+},
+{
+"addr": 2913,
+"name": "FUN_ram_0b61",
+"block": "MON",
+"size": 19,
+"c_frame": false,
+"callees": [
+2154,
+2932
+],
+"callers": [
+2258,
+2278,
+2309,
+2349,
+2442,
+2480,
+2550,
+2634
+]
+},
+{
+"addr": 2932,
+"name": "FUN_ram_0b74",
+"block": "MON",
+"size": 6,
+"c_frame": false,
+"callees": [
+2968
+],
+"callers": [
+2364,
+2619,
+2913
+]
+},
+{
+"addr": 2938,
+"name": "FUN_ram_0b7a",
+"block": "MON",
+"size": 30,
+"c_frame": false,
+"callees": [
+2855,
+2971,
+2983
+],
+"callers": [
+2364,
+2698
+]
+},
+{
+"addr": 2968,
+"name": "FUN_ram_0b98",
+"block": "MON",
+"size": 3,
+"c_frame": false,
+"callees": [
+2855
+],
+"callers": [
+2364,
+2698,
+2932
+]
+},
+{
+"addr": 2971,
+"name": "FUN_ram_0b9b",
+"block": "MON",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": [
+2938
+]
+},
+{
+"addr": 2983,
+"name": "FUN_ram_0ba7",
+"block": "MON",
+"size": 18,
+"c_frame": false,
+"callees": [],
+"callers": [
+2938,
+3067
+]
+},
+{
+"addr": 3035,
+"name": "FUN_ram_0bdb",
+"block": "MON",
+"size": 20,
+"c_frame": false,
+"callees": [
+2465
+],
+"callers": [
+2698,
+2757
+]
+},
+{
+"addr": 3055,
+"name": "aux_getc",
+"block": "MON",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": [
+2550,
+3067
+]
+},
+{
+"addr": 3067,
+"name": "FUN_ram_0bfb",
+"block": "MON",
+"size": 25,
+"c_frame": false,
+"callees": [
+2983,
+3055
+],
+"callers": [
+2550
+]
+},
+{
+"addr": 3092,
+"name": "FUN_ram_0c14",
+"block": "MON",
+"size": 4,
+"c_frame": false,
+"callees": [],
+"callers": [
+2309,
+2634
+]
+},
+{
+"addr": 3096,
+"name": "aux_putc",
+"block": "MON",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": [
+3112
+]
+},
+{
+"addr": 3107,
+"name": "FUN_ram_0c23",
+"block": "MON",
+"size": 5,
+"c_frame": false,
+"callees": [
+3112
+],
+"callers": [
+2309,
+2634
+]
+},
+{
+"addr": 3112,
+"name": "FUN_ram_0c28",
+"block": "MON",
+"size": 22,
+"c_frame": false,
+"callees": [
+2831,
+3096
+],
+"callers": [
+2309,
+2634,
+3107
+]
+},
+{
+"addr": 3134,
+"name": "mon_break",
+"block": "MON",
+"size": 102,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 8192,
+"name": "main_start",
+"block": "ROM1",
+"size": 184,
+"c_frame": false,
+"callees": [
+8707,
+8842,
+9239,
+9568,
+10924,
+11619,
+11886,
+12357,
+15379,
+21950
+],
+"callers": []
+},
+{
+"addr": 8376,
+"name": "main_loop",
+"block": "ROM1",
+"size": 57,
+"c_frame": false,
+"callees": [
+2097,
+8433,
+8915,
+11712,
+11864
+],
+"callers": []
+},
+{
+"addr": 8433,
+"name": "kbd_scan",
+"block": "ROM1",
+"size": 210,
+"c_frame": false,
+"callees": [
+8692,
+9224
+],
+"callers": [
+8376,
+10872,
+20010
+]
+},
+{
+"addr": 8692,
+"name": "FUN_ram_21f4",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [],
+"callers": [
+8433
+]
+},
+{
+"addr": 8707,
+"name": "key_freeze_toggle",
+"block": "ROM1",
+"size": 56,
+"c_frame": false,
+"callees": [
+10564,
+10907,
+10921,
+11619,
+15379
+],
+"callers": [
+8192
+]
+},
+{
+"addr": 8763,
+"name": "FUN_ram_223b",
+"block": "ROM1",
+"size": 20,
+"c_frame": false,
+"callees": [],
+"callers": [
+10460,
+10961,
+11821,
+19967,
+21213
+]
+},
+{
+"addr": 8783,
+"name": "rom_checksum",
+"block": "ROM1",
+"size": 42,
+"c_frame": false,
+"callees": [
+10907
+],
+"callers": []
+},
+{
+"addr": 8825,
+"name": "FUN_ram_2279",
+"block": "ROM1",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": [
+8842
+]
+},
+{
+"addr": 8842,
+"name": "xram_test_C800",
+"block": "ROM1",
+"size": 62,
+"c_frame": false,
+"callees": [
+8825,
+10907
+],
+"callers": [
+8192
+]
+},
+{
+"addr": 8915,
+"name": "dispatch_key",
+"block": "ROM1",
+"size": 21,
+"c_frame": false,
+"callees": [],
+"callers": [
+8376,
+10460,
+19967,
+20059,
+20393,
+21240
+]
+},
+{
+"addr": 9022,
+"name": "key_frz_15",
+"block": "ROM1",
+"size": 54,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 9076,
+"name": "key_frz_85",
+"block": "ROM1",
+"size": 45,
+"c_frame": false,
+"callees": [
+9224,
+15379
+],
+"callers": []
+},
+{
+"addr": 9121,
+"name": "key_frz_84",
+"block": "ROM1",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9132,
+"name": "key_frz_11",
+"block": "ROM1",
+"size": 92,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 9224,
+"name": "delay_A",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [],
+"callers": [
+8433,
+9076,
+9658,
+10460,
+20629
+]
+},
+{
+"addr": 9239,
+"name": "copy_until_FF",
+"block": "ROM1",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+8192
+]
+},
+{
+"addr": 9249,
+"name": "key_10",
+"block": "ROM1",
+"size": 114,
+"c_frame": false,
+"callees": [
+10564,
+11619,
+11821,
+15379
+],
+"callers": [
+21366
+]
+},
+{
+"addr": 9363,
+"name": "key_12",
+"block": "ROM1",
+"size": 113,
+"c_frame": false,
+"callees": [
+10564,
+11619,
+11821,
+15379
+],
+"callers": [
+21373
+]
+},
+{
+"addr": 9476,
+"name": "key_frz_14",
+"block": "ROM1",
+"size": 51,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 9527,
+"name": "key_35",
+"block": "ROM1",
+"size": 9,
+"c_frame": false,
+"callees": [
+19967
+],
+"callers": []
+},
+{
+"addr": 9536,
+"name": "key_frz_16",
+"block": "ROM1",
+"size": 26,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9562,
+"name": "FUN_ram_255a",
+"block": "ROM1",
+"size": 6,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 9568,
+"name": "FUN_ram_2560",
+"block": "ROM1",
+"size": 6,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+8192
+]
+},
+{
+"addr": 9574,
+"name": "key_88",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9587,
+"name": "key_85",
+"block": "ROM1",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9599,
+"name": "key_83",
+"block": "ROM1",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9610,
+"name": "key_82",
+"block": "ROM1",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9622,
+"name": "key_81",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9635,
+"name": "key_84",
+"block": "ROM1",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9647,
+"name": "key_86",
+"block": "ROM1",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 9658,
+"name": "key_87",
+"block": "ROM1",
+"size": 576,
+"c_frame": false,
+"callees": [
+9224,
+10234,
+10274,
+10393,
+10441,
+10942,
+12357,
+15379
+],
+"callers": []
+},
+{
+"addr": 10234,
+"name": "FUN_ram_27fa",
+"block": "ROM1",
+"size": 40,
+"c_frame": false,
+"callees": [],
+"callers": [
+9658
+]
+},
+{
+"addr": 10274,
+"name": "FUN_ram_2822",
+"block": "ROM1",
+"size": 109,
+"c_frame": false,
+"callees": [
+10383
+],
+"callers": [
+9658,
+11523,
+11555
+]
+},
+{
+"addr": 10383,
+"name": "FUN_ram_288f",
+"block": "ROM1",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+10274
+]
+},
+{
+"addr": 10393,
+"name": "FUN_ram_2899",
+"block": "ROM1",
+"size": 32,
+"c_frame": false,
+"callees": [],
+"callers": [
+9658
+]
+},
+{
+"addr": 10425,
+"name": "shr16_hl",
+"block": "ROM1",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 10433,
+"name": "shl16_hl",
+"block": "ROM1",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 10441,
+"name": "FUN_ram_28c9",
+"block": "ROM1",
+"size": 19,
+"c_frame": false,
+"callees": [],
+"callers": [
+9658
+]
+},
+{
+"addr": 10460,
+"name": "picto_select",
+"block": "ROM1",
+"size": 56,
+"c_frame": false,
+"callees": [
+8763,
+8915,
+9224,
+10564,
+10851,
+10872,
+11886,
+15379
+],
+"callers": []
+},
+{
+"addr": 10541,
+"name": "kpic_16",
+"block": "ROM1",
+"size": 23,
+"c_frame": false,
+"callees": [
+11843,
+11864,
+15379
+],
+"callers": []
+},
+{
+"addr": 10564,
+"name": "FUN_ram_2944",
+"block": "ROM1",
+"size": 34,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+8707,
+9249,
+9363,
+10460,
+10924
+]
+},
+{
+"addr": 10598,
+"name": "kpic_10",
+"block": "ROM1",
+"size": 43,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 10641,
+"name": "kpic_86",
+"block": "ROM1",
+"size": 42,
+"c_frame": false,
+"callees": [
+10883,
+15379
+],
+"callers": []
+},
+{
+"addr": 10683,
+"name": "kpic_81",
+"block": "ROM1",
+"size": 34,
+"c_frame": false,
+"callees": [
+10883
+],
+"callers": []
+},
+{
+"addr": 10717,
+"name": "kpic_82",
+"block": "ROM1",
+"size": 40,
+"c_frame": false,
+"callees": [
+10883
+],
+"callers": []
+},
+{
+"addr": 10757,
+"name": "kpic_87",
+"block": "ROM1",
+"size": 27,
+"c_frame": false,
+"callees": [
+10883
+],
+"callers": []
+},
+{
+"addr": 10784,
+"name": "kpic_84",
+"block": "ROM1",
+"size": 39,
+"c_frame": false,
+"callees": [
+10883
+],
+"callers": []
+},
+{
+"addr": 10823,
+"name": "kpic_85",
+"block": "ROM1",
+"size": 28,
+"c_frame": false,
+"callees": [
+10883
+],
+"callers": []
+},
+{
+"addr": 10851,
+"name": "FUN_ram_2a63",
+"block": "ROM1",
+"size": 21,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+10460
+]
+},
+{
+"addr": 10872,
+"name": "FUN_ram_2a78",
+"block": "ROM1",
+"size": 11,
+"c_frame": false,
+"callees": [
+8433
+],
+"callers": [
+10460
+]
+},
+{
+"addr": 10883,
+"name": "FUN_ram_2a83",
+"block": "ROM1",
+"size": 24,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+10641,
+10683,
+10717,
+10757,
+10784,
+10823
+]
+},
+{
+"addr": 10907,
+"name": "vid_print_str",
+"block": "ROM1",
+"size": 14,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+8707,
+8783,
+8842,
+11632,
+11689,
+11712
+]
+},
+{
+"addr": 10921,
+"name": "key_33",
+"block": "ROM1",
+"size": 3,
+"c_frame": false,
+"callees": [
+11821
+],
+"callers": [
+8707,
+20044
+]
+},
+{
+"addr": 10924,
+"name": "FUN_ram_2aac",
+"block": "ROM1",
+"size": 18,
+"c_frame": false,
+"callees": [
+10564,
+11843,
+15379
+],
+"callers": [
+8192
+]
+},
+{
+"addr": 10942,
+"name": "FUN_ram_2abe",
+"block": "ROM1",
+"size": 19,
+"c_frame": false,
+"callees": [],
+"callers": [
+9658
+]
+},
+{
+"addr": 10961,
+"name": "key_15",
+"block": "ROM1",
+"size": 114,
+"c_frame": false,
+"callees": [
+8763,
+11075,
+11821,
+15379
+],
+"callers": [
+21420,
+21515,
+21673
+]
+},
+{
+"addr": 11075,
+"name": "FUN_ram_2b43",
+"block": "ROM1",
+"size": 380,
+"c_frame": false,
+"callees": [
+11455,
+11482,
+11496,
+11523,
+11555,
+12357,
+15379
+],
+"callers": [
+10961
+]
+},
+{
+"addr": 11455,
+"name": "FUN_ram_2cbf",
+"block": "ROM1",
+"size": 27,
+"c_frame": false,
+"callees": [
+11523,
+11555
+],
+"callers": [
+11075
+]
+},
+{
+"addr": 11482,
+"name": "FUN_ram_2cda",
+"block": "ROM1",
+"size": 14,
+"c_frame": false,
+"callees": [
+11587
+],
+"callers": [
+11075
+]
+},
+{
+"addr": 11496,
+"name": "FUN_ram_2ce8",
+"block": "ROM1",
+"size": 27,
+"c_frame": false,
+"callees": [
+11523,
+11555
+],
+"callers": [
+11075
+]
+},
+{
+"addr": 11523,
+"name": "FUN_ram_2d03",
+"block": "ROM1",
+"size": 32,
+"c_frame": false,
+"callees": [
+10274,
+15379
+],
+"callers": [
+11075,
+11455,
+11496
+]
+},
+{
+"addr": 11555,
+"name": "FUN_ram_2d23",
+"block": "ROM1",
+"size": 32,
+"c_frame": false,
+"callees": [
+10274,
+15379
+],
+"callers": [
+11075,
+11455,
+11496
+]
+},
+{
+"addr": 11587,
+"name": "FUN_ram_2d43",
+"block": "ROM1",
+"size": 32,
+"c_frame": false,
+"callees": [],
+"callers": [
+11482
+]
+},
+{
+"addr": 11619,
+"name": "FUN_ram_2d63",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [],
+"callers": [
+8192,
+8707,
+9249,
+9363,
+21213
+]
+},
+{
+"addr": 11632,
+"name": "input_patient_code",
+"block": "ROM1",
+"size": 23,
+"c_frame": false,
+"callees": [
+10907
+],
+"callers": []
+},
+{
+"addr": 11655,
+"name": "menu_main",
+"block": "ROM1",
+"size": 34,
+"c_frame": false,
+"callees": [
+11886,
+15379
+],
+"callers": []
+},
+{
+"addr": 11689,
+"name": "input_date",
+"block": "ROM1",
+"size": 23,
+"c_frame": false,
+"callees": [
+10907
+],
+"callers": []
+},
+{
+"addr": 11712,
+"name": "FUN_ram_2dc0",
+"block": "ROM1",
+"size": 109,
+"c_frame": false,
+"callees": [
+10907,
+15379
+],
+"callers": [
+8376
+]
+},
+{
+"addr": 11821,
+"name": "FUN_ram_2e2d",
+"block": "ROM1",
+"size": 22,
+"c_frame": false,
+"callees": [
+8763,
+11843,
+15379
+],
+"callers": [
+9249,
+9363,
+10921,
+10961
+]
+},
+{
+"addr": 11843,
+"name": "FUN_ram_2e43",
+"block": "ROM1",
+"size": 21,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+10541,
+10924,
+11821
+]
+},
+{
+"addr": 11864,
+"name": "FUN_ram_2e58",
+"block": "ROM1",
+"size": 22,
+"c_frame": false,
+"callees": [],
+"callers": [
+8376,
+10541,
+20044,
+21240
+]
+},
+{
+"addr": 11886,
+"name": "FUN_ram_2e6e",
+"block": "ROM1",
+"size": 22,
+"c_frame": false,
+"callees": [],
+"callers": [
+8192,
+10460,
+11655,
+19967,
+20059,
+20393,
+20970,
+21718
+]
+},
+{
+"addr": 11908,
+"name": "input_sex",
+"block": "ROM1",
+"size": 41,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 12357,
+"name": "fmt_value",
+"block": "ROM1",
+"size": 63,
+"c_frame": false,
+"callees": [
+29162
+],
+"callers": [
+8192,
+9658,
+11075,
+20941,
+20970,
+21950
+]
+},
+{
+"addr": 12420,
+"name": "caseD_1",
+"block": "ROM1",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": [
+12447,
+12501,
+12597,
+12692,
+13320,
+13985,
+14678,
+14690
+]
+},
+{
+"addr": 12447,
+"name": "caseD_0",
+"block": "ROM1",
+"size": 54,
+"c_frame": false,
+"callees": [
+12420,
+12805,
+12820,
+12835,
+12860,
+12885
+],
+"callers": []
+},
+{
+"addr": 12501,
+"name": "caseD_2",
+"block": "ROM1",
+"size": 96,
+"c_frame": false,
+"callees": [
+12420,
+12805,
+12820,
+12893,
+13021,
+13109,
+25710,
+29470
+],
+"callers": []
+},
+{
+"addr": 12597,
+"name": "fmt_5",
+"block": "ROM1",
+"size": 95,
+"c_frame": false,
+"callees": [
+12420,
+12885,
+13094,
+13109,
+25160,
+25710,
+27965,
+28591,
+28731,
+29470
+],
+"callers": []
+},
+{
+"addr": 12692,
+"name": "fmt_6",
+"block": "ROM1",
+"size": 113,
+"c_frame": false,
+"callees": [
+12420,
+13094,
+13109,
+13122,
+13153,
+13243,
+25710,
+27965,
+28591,
+28731,
+29470,
+29506
+],
+"callers": []
+},
+{
+"addr": 12805,
+"name": "FUN_ram_3205",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [
+13240
+],
+"callers": [
+12447,
+12501
+]
+},
+{
+"addr": 12820,
+"name": "FUN_ram_3214",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [
+13240
+],
+"callers": [
+12447,
+12501
+]
+},
+{
+"addr": 12835,
+"name": "FUN_ram_3223",
+"block": "ROM1",
+"size": 25,
+"c_frame": false,
+"callees": [
+13240
+],
+"callers": [
+12447
+]
+},
+{
+"addr": 12860,
+"name": "FUN_ram_323c",
+"block": "ROM1",
+"size": 25,
+"c_frame": false,
+"callees": [
+13240
+],
+"callers": [
+12447
+]
+},
+{
+"addr": 12885,
+"name": "FUN_ram_3255",
+"block": "ROM1",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+12447,
+12597,
+12917,
+13320,
+14690
+]
+},
+{
+"addr": 12893,
+"name": "FUN_ram_325d",
+"block": "ROM1",
+"size": 24,
+"c_frame": false,
+"callees": [],
+"callers": [
+12501,
+14831
+]
+},
+{
+"addr": 12917,
+"name": "FUN_ram_3275",
+"block": "ROM1",
+"size": 70,
+"c_frame": false,
+"callees": [
+12885,
+28591,
+29470
+],
+"callers": [
+12987,
+13021
+]
+},
+{
+"addr": 12987,
+"name": "FUN_ram_32bb",
+"block": "ROM1",
+"size": 34,
+"c_frame": false,
+"callees": [
+12917,
+13094,
+25121,
+25166,
+27965,
+28500,
+28731
+],
+"callers": []
+},
+{
+"addr": 13021,
+"name": "FUN_ram_32dd",
+"block": "ROM1",
+"size": 73,
+"c_frame": false,
+"callees": [
+12917,
+13094,
+25160,
+25166,
+27965,
+28500,
+28731,
+29220,
+29470
+],
+"callers": [
+12501,
+14831
+]
+},
+{
+"addr": 13094,
+"name": "FUN_ram_3326",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [],
+"callers": [
+12597,
+12692,
+12987,
+13021,
+14690
+]
+},
+{
+"addr": 13109,
+"name": "FUN_ram_3335",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [
+29506
+],
+"callers": [
+12501,
+12597,
+12692
+]
+},
+{
+"addr": 13122,
+"name": "FUN_ram_3342",
+"block": "ROM1",
+"size": 31,
+"c_frame": false,
+"callees": [],
+"callers": [
+12692
+]
+},
+{
+"addr": 13153,
+"name": "FUN_ram_3361",
+"block": "ROM1",
+"size": 11,
+"c_frame": false,
+"callees": [
+13243
+],
+"callers": [
+12692
+]
+},
+{
+"addr": 13164,
+"name": "FUN_ram_336c",
+"block": "ROM1",
+"size": 76,
+"c_frame": false,
+"callees": [
+13243,
+29506
+],
+"callers": []
+},
+{
+"addr": 13240,
+"name": "FUN_ram_33b8",
+"block": "ROM1",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": [
+12805,
+12820,
+12835,
+12860
+]
+},
+{
+"addr": 13243,
+"name": "FUN_ram_33bb",
+"block": "ROM1",
+"size": 28,
+"c_frame": false,
+"callees": [],
+"callers": [
+12692,
+13153,
+13164,
+13919
+]
+},
+{
+"addr": 13271,
+"name": "FUN_ram_33d7",
+"block": "ROM1",
+"size": 17,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 13288,
+"name": "FUN_ram_33e8",
+"block": "ROM1",
+"size": 24,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 13320,
+"name": "fmt_7",
+"block": "ROM1",
+"size": 542,
+"c_frame": false,
+"callees": [
+12420,
+12885,
+13862,
+13878,
+13885,
+13919,
+22066,
+25160,
+25166,
+25710,
+27965,
+28319,
+28500,
+28731,
+29470,
+29506
+],
+"callers": []
+},
+{
+"addr": 13862,
+"name": "FUN_ram_3626",
+"block": "ROM1",
+"size": 16,
+"c_frame": false,
+"callees": [
+28500,
+29506
+],
+"callers": [
+13320
+]
+},
+{
+"addr": 13878,
+"name": "FUN_ram_3636",
+"block": "ROM1",
+"size": 7,
+"c_frame": false,
+"callees": [
+28591,
+29470
+],
+"callers": [
+13320
+]
+},
+{
+"addr": 13885,
+"name": "FUN_ram_363d",
+"block": "ROM1",
+"size": 34,
+"c_frame": false,
+"callees": [],
+"callers": [
+13320,
+15152
+]
+},
+{
+"addr": 13919,
+"name": "FUN_ram_365f",
+"block": "ROM1",
+"size": 66,
+"c_frame": false,
+"callees": [
+13243,
+29506
+],
+"callers": [
+13320
+]
+},
+{
+"addr": 13985,
+"name": "fmt_8",
+"block": "ROM1",
+"size": 432,
+"c_frame": false,
+"callees": [
+12420,
+14152,
+14476,
+25160,
+25166,
+25710,
+27191,
+27965,
+28500,
+28731,
+29470,
+29506
+],
+"callers": []
+},
+{
+"addr": 14152,
+"name": "FUN_ram_3748",
+"block": "ROM1",
+"size": 59,
+"c_frame": false,
+"callees": [
+29506
+],
+"callers": [
+13985
+]
+},
+{
+"addr": 14476,
+"name": "FUN_ram_388c",
+"block": "ROM1",
+"size": 16,
+"c_frame": false,
+"callees": [
+28591
+],
+"callers": [
+13985
+]
+},
+{
+"addr": 14678,
+"name": "fmt_9",
+"block": "ROM1",
+"size": 12,
+"c_frame": false,
+"callees": [
+12420,
+14831,
+15152
+],
+"callers": []
+},
+{
+"addr": 14690,
+"name": "fmt_10",
+"block": "ROM1",
+"size": 124,
+"c_frame": false,
+"callees": [
+12420,
+12885,
+13094,
+14814,
+15093,
+15152,
+25160,
+25710,
+27965,
+28319,
+28591,
+28731,
+29470
+],
+"callers": []
+},
+{
+"addr": 14814,
+"name": "FUN_ram_39de",
+"block": "ROM1",
+"size": 17,
+"c_frame": false,
+"callees": [],
+"callers": [
+14690,
+14831
+]
+},
+{
+"addr": 14831,
+"name": "FUN_ram_39ef",
+"block": "ROM1",
+"size": 262,
+"c_frame": false,
+"callees": [
+12893,
+13021,
+14814,
+15093,
+15141,
+25160,
+25710,
+27965,
+28319,
+28500,
+28591,
+28731,
+29470
+],
+"callers": [
+14678
+]
+},
+{
+"addr": 15093,
+"name": "FUN_ram_3af5",
+"block": "ROM1",
+"size": 48,
+"c_frame": false,
+"callees": [
+29506
+],
+"callers": [
+14690,
+14831
+]
+},
+{
+"addr": 15141,
+"name": "FUN_ram_3b25",
+"block": "ROM1",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": [
+14831
+]
+},
+{
+"addr": 15152,
+"name": "FUN_ram_3b30",
+"block": "ROM1",
+"size": 155,
+"c_frame": false,
+"callees": [
+13885,
+22066,
+25160,
+28319,
+28500,
+28731,
+29470
+],
+"callers": [
+14678,
+14690
+]
+},
+{
+"addr": 15379,
+"name": "vid_call",
+"block": "ROM1",
+"size": 37,
+"c_frame": false,
+"callees": [
+15578
+],
+"callers": [
+8192,
+8707,
+9022,
+9076,
+9132,
+9249,
+9363,
+9476,
+9562,
+9568,
+9658,
+10460,
+10541,
+10564,
+10598,
+10641,
+10851,
+10883,
+10907,
+10924,
+10961,
+11075,
+11523,
+11555,
+11655,
+11712,
+11821,
+11843,
+11908,
+19967,
+20059,
+20261,
+20393,
+20496,
+20537,
+20597,
+20629,
+20970,
+21213,
+21240,
+21718,
+22045,
+22135
+]
+},
+{
+"addr": 15578,
+"name": "vid_01",
+"block": "ROM1",
+"size": 16,
+"c_frame": false,
+"callees": [
+18265
+],
+"callers": [
+15379
+]
+},
+{
+"addr": 15594,
+"name": "vid_02",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [
+15706
+],
+"callers": []
+},
+{
+"addr": 15607,
+"name": "vid_03",
+"block": "ROM1",
+"size": 18,
+"c_frame": false,
+"callees": [
+18162,
+18218
+],
+"callers": []
+},
+{
+"addr": 15625,
+"name": "FUN_ram_3d09",
+"block": "ROM1",
+"size": 39,
+"c_frame": false,
+"callees": [
+19812
+],
+"callers": [
+15741,
+15755,
+15783
+]
+},
+{
+"addr": 15664,
+"name": "vid_04",
+"block": "ROM1",
+"size": 40,
+"c_frame": false,
+"callees": [
+15704,
+15823,
+15825,
+18265
+],
+"callers": []
+},
+{
+"addr": 15704,
+"name": "FUN_ram_3d58",
+"block": "ROM1",
+"size": 2,
+"c_frame": false,
+"callees": [],
+"callers": [
+15664
+]
+},
+{
+"addr": 15706,
+"name": "FUN_ram_3d5a",
+"block": "ROM1",
+"size": 26,
+"c_frame": false,
+"callees": [
+15733,
+18441
+],
+"callers": [
+15594,
+15813,
+15876,
+16381,
+16932,
+16955
+]
+},
+{
+"addr": 15732,
+"name": "FUN_ram_3d74",
+"block": "ROM1",
+"size": 1,
+"c_frame": false,
+"callees": [],
+"callers": [
+15828
+]
+},
+{
+"addr": 15733,
+"name": "FUN_ram_3d75",
+"block": "ROM1",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+15706
+]
+},
+{
+"addr": 15741,
+"name": "vid_05",
+"block": "ROM1",
+"size": 14,
+"c_frame": false,
+"callees": [
+15625,
+18162,
+18198
+],
+"callers": []
+},
+{
+"addr": 15755,
+"name": "vid_3B",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [
+15625
+],
+"callers": []
+},
+{
+"addr": 15768,
+"name": "vid_3C",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 15783,
+"name": "vid_3A",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [
+15625,
+18162
+],
+"callers": []
+},
+{
+"addr": 15798,
+"name": "vid_06",
+"block": "ROM1",
+"size": 4,
+"c_frame": false,
+"callees": [
+15802
+],
+"callers": []
+},
+{
+"addr": 15802,
+"name": "FUN_ram_3dba",
+"block": "ROM1",
+"size": 6,
+"c_frame": false,
+"callees": [
+15808
+],
+"callers": [
+15798
+]
+},
+{
+"addr": 15808,
+"name": "FUN_ram_3dc0",
+"block": "ROM1",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": [
+15802
+]
+},
+{
+"addr": 15813,
+"name": "FUN_ram_3dc5",
+"block": "ROM1",
+"size": 7,
+"c_frame": false,
+"callees": [
+15706
+],
+"callers": [
+15840
+]
+},
+{
+"addr": 15823,
+"name": "FUN_ram_3dcf",
+"block": "ROM1",
+"size": 2,
+"c_frame": false,
+"callees": [],
+"callers": [
+15664
+]
+},
+{
+"addr": 15825,
+"name": "FUN_ram_3dd1",
+"block": "ROM1",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": [
+15664,
+16932
+]
+},
+{
+"addr": 15828,
+"name": "FUN_ram_3dd4",
+"block": "ROM1",
+"size": 12,
+"c_frame": false,
+"callees": [
+15732,
+18441
+],
+"callers": [
+16625
+]
+},
+{
+"addr": 15840,
+"name": "vid_07",
+"block": "ROM1",
+"size": 19,
+"c_frame": false,
+"callees": [
+15813,
+16381,
+18265
+],
+"callers": []
+},
+{
+"addr": 15859,
+"name": "vid_08",
+"block": "ROM1",
+"size": 17,
+"c_frame": false,
+"callees": [
+18162,
+18198,
+19812
+],
+"callers": []
+},
+{
+"addr": 15876,
+"name": "vid_09",
+"block": "ROM1",
+"size": 13,
+"c_frame": false,
+"callees": [
+15706
+],
+"callers": []
+},
+{
+"addr": 15889,
+"name": "vid_36",
+"block": "ROM1",
+"size": 86,
+"c_frame": false,
+"callees": [
+15975,
+19050
+],
+"callers": [
+15992
+]
+},
+{
+"addr": 15975,
+"name": "FUN_ram_3e67",
+"block": "ROM1",
+"size": 17,
+"c_frame": false,
+"callees": [
+19812
+],
+"callers": [
+15889
+]
+},
+{
+"addr": 15992,
+"name": "vid_0A",
+"block": "ROM1",
+"size": 54,
+"c_frame": false,
+"callees": [
+15889,
+16074,
+19812
+],
+"callers": []
+},
+{
+"addr": 16046,
+"name": "vid_0B",
+"block": "ROM1",
+"size": 28,
+"c_frame": false,
+"callees": [
+16074,
+18162
+],
+"callers": []
+},
+{
+"addr": 16074,
+"name": "FUN_ram_3eca",
+"block": "ROM1",
+"size": 14,
+"c_frame": false,
+"callees": [
+19781
+],
+"callers": [
+15992,
+16046
+]
+},
+{
+"addr": 16088,
+"name": "vid_0C",
+"block": "ROM1",
+"size": 21,
+"c_frame": false,
+"callees": [
+18162,
+18198,
+19781
+],
+"callers": []
+},
+{
+"addr": 16109,
+"name": "vid_0D",
+"block": "ROM1",
+"size": 18,
+"c_frame": false,
+"callees": [
+18162,
+18198,
+19812
+],
+"callers": []
+},
+{
+"addr": 16127,
+"name": "vid_0E",
+"block": "ROM1",
+"size": 51,
+"c_frame": false,
+"callees": [
+18162,
+18198,
+19812
+],
+"callers": []
+},
+{
+"addr": 16178,
+"name": "vid_10",
+"block": "ROM1",
+"size": 19,
+"c_frame": false,
+"callees": [
+16197,
+16257,
+16332,
+16409,
+16478,
+16575
+],
+"callers": []
+},
+{
+"addr": 16197,
+"name": "FUN_ram_3f45",
+"block": "ROM1",
+"size": 12,
+"c_frame": false,
+"callees": [
+16227
+],
+"callers": [
+16178
+]
+},
+{
+"addr": 16212,
+"name": "FUN_ram_3f54",
+"block": "ROM1",
+"size": 15,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": [
+16363
+]
+},
+{
+"addr": 16227,
+"name": "FUN_ram_3f63",
+"block": "ROM1",
+"size": 30,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": [
+16197
+]
+},
+{
+"addr": 16257,
+"name": "vid_0F",
+"block": "ROM1",
+"size": 50,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": [
+16178
+]
+},
+{
+"addr": 16307,
+"name": "vid_11",
+"block": "ROM1",
+"size": 25,
+"c_frame": false,
+"callees": [
+18162,
+18198,
+18523
+],
+"callers": []
+},
+{
+"addr": 16332,
+"name": "vid_12",
+"block": "ROM1",
+"size": 31,
+"c_frame": false,
+"callees": [
+16363,
+16372,
+16375
+],
+"callers": [
+16178
+]
+},
+{
+"addr": 16363,
+"name": "FUN_ram_3feb",
+"block": "ROM1",
+"size": 9,
+"c_frame": false,
+"callees": [
+16212
+],
+"callers": [
+16332
+]
+},
+{
+"addr": 16372,
+"name": "FUN_ram_3ff4",
+"block": "ROM1",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": [
+16332
+]
+},
+{
+"addr": 16375,
+"name": "FUN_ram_3ff7",
+"block": "ROM1",
+"size": 6,
+"c_frame": false,
+"callees": [
+16463
+],
+"callers": [
+16332
+]
+},
+{
+"addr": 16381,
+"name": "vid_13",
+"block": "ROM1",
+"size": 28,
+"c_frame": false,
+"callees": [
+15706
+],
+"callers": [
+15840
+]
+},
+{
+"addr": 16409,
+"name": "vid_33",
+"block": "ROM2",
+"size": 49,
+"c_frame": false,
+"callees": [
+16458
+],
+"callers": [
+16178
+]
+},
+{
+"addr": 16458,
+"name": "FUN_ram_404a",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": [
+16409
+]
+},
+{
+"addr": 16463,
+"name": "FUN_ram_404f",
+"block": "ROM2",
+"size": 15,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": [
+16375
+]
+},
+{
+"addr": 16478,
+"name": "vid_14",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": [
+16178
+]
+},
+{
+"addr": 16491,
+"name": "FUN_ram_406b",
+"block": "ROM2",
+"size": 44,
+"c_frame": false,
+"callees": [
+16535
+],
+"callers": [
+16565
+]
+},
+{
+"addr": 16535,
+"name": "FUN_ram_4097",
+"block": "ROM2",
+"size": 21,
+"c_frame": false,
+"callees": [
+19169
+],
+"callers": [
+16491
+]
+},
+{
+"addr": 16556,
+"name": "vid_15",
+"block": "ROM2",
+"size": 9,
+"c_frame": false,
+"callees": [],
+"callers": [
+16565
+]
+},
+{
+"addr": 16565,
+"name": "vid_16",
+"block": "ROM2",
+"size": 10,
+"c_frame": false,
+"callees": [
+16491,
+16556
+],
+"callers": []
+},
+{
+"addr": 16575,
+"name": "vid_2E",
+"block": "ROM2",
+"size": 50,
+"c_frame": false,
+"callees": [
+16625,
+19812
+],
+"callers": [
+16178
+]
+},
+{
+"addr": 16625,
+"name": "FUN_ram_40f1",
+"block": "ROM2",
+"size": 16,
+"c_frame": false,
+"callees": [
+15828
+],
+"callers": [
+16575
+]
+},
+{
+"addr": 16643,
+"name": "vid_17",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [
+18283
+],
+"callers": [
+16672,
+16697
+]
+},
+{
+"addr": 16648,
+"name": "vid_19",
+"block": "ROM2",
+"size": 19,
+"c_frame": false,
+"callees": [
+18139,
+18633
+],
+"callers": []
+},
+{
+"addr": 16667,
+"name": "vid_18",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": [
+16672,
+16868
+]
+},
+{
+"addr": 16672,
+"name": "vid_20",
+"block": "ROM2",
+"size": 25,
+"c_frame": false,
+"callees": [
+16643,
+16667,
+18139,
+18523
+],
+"callers": []
+},
+{
+"addr": 16697,
+"name": "vid_21",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+16643,
+18283
+],
+"callers": []
+},
+{
+"addr": 16705,
+"name": "vid_35",
+"block": "ROM2",
+"size": 19,
+"c_frame": false,
+"callees": [
+16724
+],
+"callers": []
+},
+{
+"addr": 16724,
+"name": "FUN_ram_4154",
+"block": "ROM2",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": [
+16705
+]
+},
+{
+"addr": 16736,
+"name": "vid_23",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": []
+},
+{
+"addr": 16744,
+"name": "vid_25",
+"block": "ROM2",
+"size": 19,
+"c_frame": false,
+"callees": [
+18139,
+18842
+],
+"callers": []
+},
+{
+"addr": 16763,
+"name": "vid_24",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 16768,
+"name": "vid_26",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": []
+},
+{
+"addr": 16776,
+"name": "vid_28",
+"block": "ROM2",
+"size": 20,
+"c_frame": false,
+"callees": [
+18139,
+18633
+],
+"callers": []
+},
+{
+"addr": 16796,
+"name": "vid_27",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 16801,
+"name": "vid_29",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": []
+},
+{
+"addr": 16809,
+"name": "vid_2B",
+"block": "ROM2",
+"size": 20,
+"c_frame": false,
+"callees": [
+18139,
+18842
+],
+"callers": []
+},
+{
+"addr": 16829,
+"name": "vid_2A",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 16834,
+"name": "vid_2F",
+"block": "ROM2",
+"size": 34,
+"c_frame": false,
+"callees": [
+18154,
+18162,
+18198,
+19781
+],
+"callers": []
+},
+{
+"addr": 16868,
+"name": "vid_22",
+"block": "ROM2",
+"size": 32,
+"c_frame": false,
+"callees": [
+16667,
+18139,
+19812
+],
+"callers": []
+},
+{
+"addr": 16900,
+"name": "vid_2C",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": []
+},
+{
+"addr": 16909,
+"name": "FUN_ram_420d",
+"block": "ROM2",
+"size": 18,
+"c_frame": false,
+"callees": [
+18162,
+18198,
+19812
+],
+"callers": [
+16927
+]
+},
+{
+"addr": 16927,
+"name": "vid_2D",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [
+16909
+],
+"callers": []
+},
+{
+"addr": 16932,
+"name": "vid_34",
+"block": "ROM2",
+"size": 23,
+"c_frame": false,
+"callees": [
+15706,
+15825
+],
+"callers": []
+},
+{
+"addr": 16955,
+"name": "vid_3E",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+15706
+],
+"callers": []
+},
+{
+"addr": 16968,
+"name": "vid_3D",
+"block": "ROM2",
+"size": 28,
+"c_frame": false,
+"callees": [
+16996
+],
+"callers": []
+},
+{
+"addr": 16996,
+"name": "FUN_ram_4264",
+"block": "ROM2",
+"size": 66,
+"c_frame": false,
+"callees": [
+18441
+],
+"callers": [
+16968
+]
+},
+{
+"addr": 17062,
+"name": "vid_3F",
+"block": "ROM2",
+"size": 24,
+"c_frame": false,
+"callees": [
+18193,
+18198,
+19812
+],
+"callers": []
+},
+{
+"addr": 17086,
+"name": "vid_picto",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 18139,
+"name": "FUN_ram_46db",
+"block": "ROM2",
+"size": 15,
+"c_frame": false,
+"callees": [],
+"callers": [
+16648,
+16672,
+16744,
+16776,
+16809,
+16868
+]
+},
+{
+"addr": 18154,
+"name": "FUN_ram_46ea",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+16834
+]
+},
+{
+"addr": 18162,
+"name": "FUN_ram_46f2",
+"block": "ROM2",
+"size": 31,
+"c_frame": false,
+"callees": [
+18218,
+18249
+],
+"callers": [
+15607,
+15741,
+15783,
+15859,
+16046,
+16088,
+16109,
+16127,
+16307,
+16834,
+16909
+]
+},
+{
+"addr": 18193,
+"name": "FUN_ram_4711",
+"block": "ROM2",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": [
+17062
+]
+},
+{
+"addr": 18198,
+"name": "FUN_ram_4716",
+"block": "ROM2",
+"size": 20,
+"c_frame": false,
+"callees": [
+18218,
+18249
+],
+"callers": [
+15741,
+15859,
+16088,
+16109,
+16127,
+16307,
+16834,
+16909,
+17062
+]
+},
+{
+"addr": 18218,
+"name": "FUN_ram_472a",
+"block": "ROM2",
+"size": 23,
+"c_frame": false,
+"callees": [
+18241
+],
+"callers": [
+15607,
+18162,
+18198
+]
+},
+{
+"addr": 18241,
+"name": "FUN_ram_4741",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+18218
+]
+},
+{
+"addr": 18249,
+"name": "FUN_ram_4749",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+18162,
+18198
+]
+},
+{
+"addr": 18257,
+"name": "shr16_hl_2",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 18265,
+"name": "FUN_ram_4759",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": [
+15578,
+15664,
+15840
+]
+},
+{
+"addr": 18273,
+"name": "FUN_ram_4761",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [
+18286
+],
+"callers": []
+},
+{
+"addr": 18283,
+"name": "FUN_ram_476b",
+"block": "ROM2",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": [
+16643,
+16697
+]
+},
+{
+"addr": 18286,
+"name": "FUN_ram_476e",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+16478,
+16736,
+16768,
+16801,
+16900,
+18265,
+18273
+]
+},
+{
+"addr": 18294,
+"name": "FUN_ram_4776",
+"block": "ROM2",
+"size": 101,
+"c_frame": false,
+"callees": [
+18395,
+18432,
+18441,
+18621
+],
+"callers": [
+19050
+]
+},
+{
+"addr": 18395,
+"name": "FUN_ram_47db",
+"block": "ROM2",
+"size": 33,
+"c_frame": false,
+"callees": [
+18428
+],
+"callers": [
+18294,
+18523,
+18610,
+18621
+]
+},
+{
+"addr": 18428,
+"name": "FUN_ram_47fc",
+"block": "ROM2",
+"size": 4,
+"c_frame": false,
+"callees": [],
+"callers": [
+18395,
+18523,
+18610
+]
+},
+{
+"addr": 18432,
+"name": "FUN_ram_4800",
+"block": "ROM2",
+"size": 9,
+"c_frame": false,
+"callees": [],
+"callers": [
+18294,
+18621
+]
+},
+{
+"addr": 18441,
+"name": "vid_xy2addr",
+"block": "ROM2",
+"size": 82,
+"c_frame": false,
+"callees": [],
+"callers": [
+15706,
+15828,
+16996,
+18294,
+18523,
+19812
+]
+},
+{
+"addr": 18523,
+"name": "FUN_ram_485b",
+"block": "ROM2",
+"size": 87,
+"c_frame": false,
+"callees": [
+18395,
+18428,
+18441,
+18610
+],
+"callers": [
+16307,
+16672,
+19050
+]
+},
+{
+"addr": 18610,
+"name": "FUN_ram_48b2",
+"block": "ROM2",
+"size": 11,
+"c_frame": false,
+"callees": [
+18395,
+18428
+],
+"callers": [
+18523
+]
+},
+{
+"addr": 18621,
+"name": "FUN_ram_48bd",
+"block": "ROM2",
+"size": 12,
+"c_frame": false,
+"callees": [
+18395,
+18432
+],
+"callers": [
+18294
+]
+},
+{
+"addr": 18633,
+"name": "FUN_ram_48c9",
+"block": "ROM2",
+"size": 143,
+"c_frame": false,
+"callees": [
+18776
+],
+"callers": [
+16648,
+16776
+]
+},
+{
+"addr": 18776,
+"name": "FUN_ram_4958",
+"block": "ROM2",
+"size": 66,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": [
+18633
+]
+},
+{
+"addr": 18842,
+"name": "FUN_ram_499a",
+"block": "ROM2",
+"size": 144,
+"c_frame": false,
+"callees": [
+18986
+],
+"callers": [
+16744,
+16809
+]
+},
+{
+"addr": 18986,
+"name": "FUN_ram_4a2a",
+"block": "ROM2",
+"size": 64,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": [
+18842
+]
+},
+{
+"addr": 19050,
+"name": "FUN_ram_4a6a",
+"block": "ROM2",
+"size": 96,
+"c_frame": false,
+"callees": [
+18294,
+18523,
+19147
+],
+"callers": [
+15889,
+16212,
+16227,
+16257,
+16463,
+18776,
+18986,
+19169,
+19560
+]
+},
+{
+"addr": 19147,
+"name": "FUN_ram_4acb",
+"block": "ROM2",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+19050
+]
+},
+{
+"addr": 19157,
+"name": "FUN_ram_4ad5",
+"block": "ROM2",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": [
+19169
+]
+},
+{
+"addr": 19169,
+"name": "FUN_ram_4ae1",
+"block": "ROM2",
+"size": 154,
+"c_frame": false,
+"callees": [
+19050,
+19157
+],
+"callers": [
+16535
+]
+},
+{
+"addr": 19323,
+"name": "FUN_ram_4b7b",
+"block": "ROM2",
+"size": 150,
+"c_frame": false,
+"callees": [
+19473,
+19500,
+19514,
+19530,
+19546
+],
+"callers": []
+},
+{
+"addr": 19473,
+"name": "FUN_ram_4c11",
+"block": "ROM2",
+"size": 27,
+"c_frame": false,
+"callees": [],
+"callers": [
+19323
+]
+},
+{
+"addr": 19500,
+"name": "FUN_ram_4c2c",
+"block": "ROM2",
+"size": 14,
+"c_frame": false,
+"callees": [],
+"callers": [
+19323
+]
+},
+{
+"addr": 19514,
+"name": "FUN_ram_4c3a",
+"block": "ROM2",
+"size": 16,
+"c_frame": false,
+"callees": [],
+"callers": [
+19323
+]
+},
+{
+"addr": 19530,
+"name": "FUN_ram_4c4a",
+"block": "ROM2",
+"size": 16,
+"c_frame": false,
+"callees": [],
+"callers": [
+19323
+]
+},
+{
+"addr": 19546,
+"name": "FUN_ram_4c5a",
+"block": "ROM2",
+"size": 14,
+"c_frame": false,
+"callees": [],
+"callers": [
+19323
+]
+},
+{
+"addr": 19560,
+"name": "FUN_ram_4c68",
+"block": "ROM2",
+"size": 121,
+"c_frame": false,
+"callees": [
+19050
+],
+"callers": []
+},
+{
+"addr": 19781,
+"name": "vid_text",
+"block": "ROM2",
+"size": 31,
+"c_frame": false,
+"callees": [
+19812
+],
+"callers": [
+16074,
+16088,
+16834
+]
+},
+{
+"addr": 19812,
+"name": "vid_char",
+"block": "ROM2",
+"size": 98,
+"c_frame": false,
+"callees": [
+18441,
+19910,
+19921,
+19935
+],
+"callers": [
+15625,
+15859,
+15975,
+15992,
+16109,
+16127,
+16575,
+16868,
+16909,
+17062,
+19781
+]
+},
+{
+"addr": 19910,
+"name": "FUN_ram_4dc6",
+"block": "ROM2",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": [
+19812
+]
+},
+{
+"addr": 19921,
+"name": "FUN_ram_4dd1",
+"block": "ROM2",
+"size": 14,
+"c_frame": false,
+"callees": [],
+"callers": [
+19812
+]
+},
+{
+"addr": 19935,
+"name": "font_ptr",
+"block": "ROM2",
+"size": 32,
+"c_frame": false,
+"callees": [],
+"callers": [
+19812
+]
+},
+{
+"addr": 19967,
+"name": "bio_menu",
+"block": "ROM2",
+"size": 43,
+"c_frame": false,
+"callees": [
+8763,
+8915,
+11886,
+15379,
+20010,
+22045
+],
+"callers": [
+9527
+]
+},
+{
+"addr": 20010,
+"name": "FUN_ram_4e2a",
+"block": "ROM2",
+"size": 12,
+"c_frame": false,
+"callees": [
+8433
+],
+"callers": [
+19967,
+20059,
+20393,
+20970,
+21240,
+21931
+]
+},
+{
+"addr": 20044,
+"name": "kbio_16",
+"block": "ROM2",
+"size": 15,
+"c_frame": false,
+"callees": [
+10921,
+11864,
+21213
+],
+"callers": []
+},
+{
+"addr": 20059,
+"name": "kbio_33",
+"block": "ROM2",
+"size": 63,
+"c_frame": false,
+"callees": [
+8915,
+11886,
+15379,
+20010,
+20153,
+22045
+],
+"callers": []
+},
+{
+"addr": 20153,
+"name": "FUN_ram_4eb9",
+"block": "ROM2",
+"size": 108,
+"c_frame": false,
+"callees": [
+22045
+],
+"callers": [
+20059,
+20970
+]
+},
+{
+"addr": 20261,
+"name": "kmeth_31",
+"block": "ROM2",
+"size": 26,
+"c_frame": false,
+"callees": [
+15379,
+21931
+],
+"callers": []
+},
+{
+"addr": 20287,
+"name": "kmeth_32",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20300,
+"name": "kmeth_33",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20313,
+"name": "kmeth_34",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20326,
+"name": "kmeth_35",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20339,
+"name": "kmeth_36",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20352,
+"name": "kmeth_37",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20365,
+"name": "kmeth_38",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20378,
+"name": "kmeth_39",
+"block": "ROM2",
+"size": 13,
+"c_frame": false,
+"callees": [
+21931
+],
+"callers": []
+},
+{
+"addr": 20391,
+"name": "kmeth_16",
+"block": "ROM2",
+"size": 2,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 20393,
+"name": "kbio_32",
+"block": "ROM2",
+"size": 84,
+"c_frame": false,
+"callees": [
+8915,
+11886,
+15379,
+20010,
+20629,
+22045,
+22123,
+22129,
+22135
+],
+"callers": []
+},
+{
+"addr": 20496,
+"name": "kprot_31",
+"block": "ROM2",
+"size": 41,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 20537,
+"name": "kprot_32",
+"block": "ROM2",
+"size": 44,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 20581,
+"name": "kprot_33",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 20589,
+"name": "kprot_34",
+"block": "ROM2",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 20597,
+"name": "kprot_35",
+"block": "ROM2",
+"size": 32,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": []
+},
+{
+"addr": 20629,
+"name": "FUN_ram_5095",
+"block": "ROM2",
+"size": 312,
+"c_frame": false,
+"callees": [
+9224,
+15379,
+22123,
+22129,
+22135
+],
+"callers": [
+20393
+]
+},
+{
+"addr": 20941,
+"name": "kbio_35",
+"block": "ROM2",
+"size": 29,
+"c_frame": false,
+"callees": [
+12357,
+22113
+],
+"callers": []
+},
+{
+"addr": 20970,
+"name": "kbio_34",
+"block": "ROM2",
+"size": 243,
+"c_frame": false,
+"callees": [
+11886,
+12357,
+15379,
+20010,
+20153,
+21861,
+22045,
+22157
+],
+"callers": []
+},
+{
+"addr": 21213,
+"name": "FUN_ram_52dd",
+"block": "ROM2",
+"size": 27,
+"c_frame": false,
+"callees": [
+8763,
+11619,
+15379
+],
+"callers": [
+20044,
+21380,
+21435,
+21475,
+21515,
+21560,
+21600,
+21633,
+21673,
+21718
+]
+},
+{
+"addr": 21240,
+"name": "kbio_31",
+"block": "ROM2",
+"size": 75,
+"c_frame": false,
+"callees": [
+8915,
+11864,
+15379,
+20010
+],
+"callers": []
+},
+{
+"addr": 21355,
+"name": "FUN_ram_536b",
+"block": "ROM2",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": [
+21366,
+21373
+]
+},
+{
+"addr": 21366,
+"name": "kmeas_10",
+"block": "ROM2",
+"size": 7,
+"c_frame": false,
+"callees": [
+9249,
+21355
+],
+"callers": []
+},
+{
+"addr": 21373,
+"name": "kmeas_12",
+"block": "ROM2",
+"size": 7,
+"c_frame": false,
+"callees": [
+9363,
+21355
+],
+"callers": []
+},
+{
+"addr": 21380,
+"name": "kmeas_31",
+"block": "ROM2",
+"size": 40,
+"c_frame": false,
+"callees": [
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21420,
+"name": "kmeas_15",
+"block": "ROM2",
+"size": 15,
+"c_frame": false,
+"callees": [
+10961
+],
+"callers": []
+},
+{
+"addr": 21435,
+"name": "kmeas_32",
+"block": "ROM2",
+"size": 40,
+"c_frame": false,
+"callees": [
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21475,
+"name": "kmeas_33",
+"block": "ROM2",
+"size": 40,
+"c_frame": false,
+"callees": [
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21515,
+"name": "kmeas_34",
+"block": "ROM2",
+"size": 45,
+"c_frame": false,
+"callees": [
+10961,
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21560,
+"name": "kmeas_35",
+"block": "ROM2",
+"size": 40,
+"c_frame": false,
+"callees": [
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21600,
+"name": "kmeas_36",
+"block": "ROM2",
+"size": 33,
+"c_frame": false,
+"callees": [
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21633,
+"name": "kmeas_37",
+"block": "ROM2",
+"size": 40,
+"c_frame": false,
+"callees": [
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21673,
+"name": "kmeas_38",
+"block": "ROM2",
+"size": 45,
+"c_frame": false,
+"callees": [
+10961,
+21213,
+21823
+],
+"callers": []
+},
+{
+"addr": 21718,
+"name": "kmeas_16",
+"block": "ROM2",
+"size": 27,
+"c_frame": false,
+"callees": [
+11886,
+15379,
+21213
+],
+"callers": []
+},
+{
+"addr": 21745,
+"name": "kmeas_39",
+"block": "ROM2",
+"size": 78,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 21823,
+"name": "FUN_ram_553f",
+"block": "ROM2",
+"size": 38,
+"c_frame": false,
+"callees": [
+22045,
+22113
+],
+"callers": [
+21380,
+21435,
+21475,
+21515,
+21560,
+21600,
+21633,
+21673
+]
+},
+{
+"addr": 21861,
+"name": "FUN_ram_5565",
+"block": "ROM2",
+"size": 70,
+"c_frame": false,
+"callees": [],
+"callers": [
+20970
+]
+},
+{
+"addr": 21931,
+"name": "FUN_ram_55ab",
+"block": "ROM2",
+"size": 19,
+"c_frame": false,
+"callees": [
+20010,
+22023
+],
+"callers": [
+20261,
+20287,
+20300,
+20313,
+20326,
+20339,
+20352,
+20365,
+20378
+]
+},
+{
+"addr": 21950,
+"name": "new_patient",
+"block": "ROM2",
+"size": 73,
+"c_frame": false,
+"callees": [
+12357,
+22113
+],
+"callers": [
+8192
+]
+},
+{
+"addr": 22023,
+"name": "FUN_ram_5607",
+"block": "ROM2",
+"size": 22,
+"c_frame": false,
+"callees": [
+22045
+],
+"callers": [
+21931
+]
+},
+{
+"addr": 22045,
+"name": "FUN_ram_561d",
+"block": "ROM2",
+"size": 21,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+19967,
+20059,
+20153,
+20393,
+20970,
+21823,
+22023,
+22129
+]
+},
+{
+"addr": 22066,
+"name": "FUN_ram_5632",
+"block": "ROM2",
+"size": 47,
+"c_frame": false,
+"callees": [],
+"callers": [
+13320,
+15152
+]
+},
+{
+"addr": 22113,
+"name": "FUN_ram_5661",
+"block": "ROM2",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+20941,
+21823,
+21950
+]
+},
+{
+"addr": 22123,
+"name": "FUN_ram_566b",
+"block": "ROM2",
+"size": 6,
+"c_frame": false,
+"callees": [],
+"callers": [
+20393,
+20629
+]
+},
+{
+"addr": 22129,
+"name": "FUN_ram_5671",
+"block": "ROM2",
+"size": 6,
+"c_frame": false,
+"callees": [
+22045
+],
+"callers": [
+20393,
+20629
+]
+},
+{
+"addr": 22135,
+"name": "FUN_ram_5677",
+"block": "ROM2",
+"size": 22,
+"c_frame": false,
+"callees": [
+15379
+],
+"callers": [
+20393,
+20629
+]
+},
+{
+"addr": 22157,
+"name": "bio_load_coef",
+"block": "ROM2",
+"size": 30,
+"c_frame": false,
+"callees": [],
+"callers": [
+20970
+]
+},
+{
+"addr": 25121,
+"name": "FUN_ram_6221",
+"block": "ROM3",
+"size": 35,
+"c_frame": false,
+"callees": [],
+"callers": [
+12987,
+25710
+]
+},
+{
+"addr": 25160,
+"name": "FUN_ram_6248",
+"block": "ROM3",
+"size": 6,
+"c_frame": false,
+"callees": [],
+"callers": [
+12597,
+13021,
+13320,
+13985,
+14690,
+14831,
+15152,
+25710
+]
+},
+{
+"addr": 25166,
+"name": "FUN_ram_624e",
+"block": "ROM3",
+"size": 454,
+"c_frame": false,
+"callees": [
+27169,
+28500,
+29073,
+29565,
+29990,
+30136,
+30170
+],
+"callers": [
+12987,
+13021,
+13320,
+13985
+]
+},
+{
+"addr": 25710,
+"name": "rt_format",
+"block": "ROM3",
+"size": 1459,
+"c_frame": true,
+"callees": [
+25121,
+25160,
+27191,
+27965,
+28319,
+28731,
+29468,
+29506,
+30249,
+30257,
+30258,
+30309,
+30319,
+30321,
+30332
+],
+"callers": [
+12501,
+12597,
+12692,
+13320,
+13985,
+14690,
+14831
+]
+},
+{
+"addr": 27169,
+"name": "FUN_ram_6a21",
+"block": "ROM3",
+"size": 22,
+"c_frame": false,
+"callees": [],
+"callers": [
+25166,
+27353,
+28591,
+28731,
+29688
+]
+},
+{
+"addr": 27191,
+"name": "FUN_ram_6a37",
+"block": "ROM3",
+"size": 157,
+"c_frame": false,
+"callees": [
+29565
+],
+"callers": [
+13985,
+25710
+]
+},
+{
+"addr": 27353,
+"name": "FUN_ram_6ad9",
+"block": "ROM3",
+"size": 612,
+"c_frame": true,
+"callees": [
+27169,
+27965,
+28591,
+28731,
+29073,
+30046,
+30249,
+30258,
+30273,
+30283,
+30302,
+30309,
+30343
+],
+"callers": []
+},
+{
+"addr": 27965,
+"name": "FUN_ram_6d3d",
+"block": "ROM3",
+"size": 342,
+"c_frame": false,
+"callees": [
+29565,
+30136
+],
+"callers": [
+12597,
+12692,
+12987,
+13021,
+13320,
+13985,
+14690,
+14831,
+25710,
+27353
+]
+},
+{
+"addr": 28308,
+"name": "FUN_ram_6e94",
+"block": "ROM3",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 28319,
+"name": "FUN_ram_6e9f",
+"block": "ROM3",
+"size": 178,
+"c_frame": false,
+"callees": [],
+"callers": [
+13320,
+14690,
+14831,
+15152,
+25710
+]
+},
+{
+"addr": 28500,
+"name": "FUN_ram_6f54",
+"block": "ROM3",
+"size": 91,
+"c_frame": false,
+"callees": [],
+"callers": [
+12987,
+13021,
+13320,
+13862,
+13985,
+14831,
+15152,
+25166,
+29688
+]
+},
+{
+"addr": 28591,
+"name": "FUN_ram_6faf",
+"block": "ROM3",
+"size": 140,
+"c_frame": false,
+"callees": [
+27169,
+30136
+],
+"callers": [
+12597,
+12692,
+12917,
+13878,
+14476,
+14690,
+14831,
+27353
+]
+},
+{
+"addr": 28731,
+"name": "FUN_ram_703b",
+"block": "ROM3",
+"size": 341,
+"c_frame": false,
+"callees": [
+27169,
+29565,
+29926,
+29990,
+30136
+],
+"callers": [
+12597,
+12692,
+12987,
+13021,
+13320,
+13985,
+14690,
+14831,
+15152,
+25710,
+27353
+]
+},
+{
+"addr": 29073,
+"name": "FUN_ram_7191",
+"block": "ROM3",
+"size": 42,
+"c_frame": false,
+"callees": [],
+"callers": [
+25166,
+27353
+]
+},
+{
+"addr": 29119,
+"name": "FUN_ram_71bf",
+"block": "ROM3",
+"size": 43,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 29162,
+"name": "FUN_ram_71ea",
+"block": "ROM3",
+"size": 58,
+"c_frame": false,
+"callees": [],
+"callers": [
+12357
+]
+},
+{
+"addr": 29220,
+"name": "FUN_ram_7224",
+"block": "ROM3",
+"size": 220,
+"c_frame": false,
+"callees": [
+29440,
+29450
+],
+"callers": [
+13021
+]
+},
+{
+"addr": 29440,
+"name": "FUN_ram_7300",
+"block": "ROM3",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+29220
+]
+},
+{
+"addr": 29450,
+"name": "FUN_ram_730a",
+"block": "ROM3",
+"size": 18,
+"c_frame": false,
+"callees": [],
+"callers": [
+29220
+]
+},
+{
+"addr": 29468,
+"name": "FUN_ram_731c",
+"block": "ROM3",
+"size": 2,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710
+]
+},
+{
+"addr": 29470,
+"name": "FUN_ram_731e",
+"block": "ROM3",
+"size": 36,
+"c_frame": false,
+"callees": [],
+"callers": [
+12501,
+12597,
+12692,
+12917,
+13021,
+13320,
+13878,
+13985,
+14690,
+14831,
+15152
+]
+},
+{
+"addr": 29506,
+"name": "FUN_ram_7342",
+"block": "ROM3",
+"size": 54,
+"c_frame": false,
+"callees": [],
+"callers": [
+12692,
+13109,
+13164,
+13320,
+13862,
+13919,
+13985,
+14152,
+15093,
+25710
+]
+},
+{
+"addr": 29565,
+"name": "FUN_ram_737d",
+"block": "ROM3",
+"size": 123,
+"c_frame": false,
+"callees": [],
+"callers": [
+25166,
+27191,
+27965,
+28731
+]
+},
+{
+"addr": 29688,
+"name": "FUN_ram_73f8",
+"block": "ROM3",
+"size": 238,
+"c_frame": false,
+"callees": [
+27169,
+28500
+],
+"callers": []
+},
+{
+"addr": 29926,
+"name": "FUN_ram_74e6",
+"block": "ROM3",
+"size": 64,
+"c_frame": false,
+"callees": [],
+"callers": [
+28731
+]
+},
+{
+"addr": 29990,
+"name": "FUN_ram_7526",
+"block": "ROM3",
+"size": 32,
+"c_frame": false,
+"callees": [],
+"callers": [
+25166,
+28731
+]
+},
+{
+"addr": 30046,
+"name": "FUN_ram_755e",
+"block": "ROM3",
+"size": 82,
+"c_frame": false,
+"callees": [
+30128
+],
+"callers": [
+27353
+]
+},
+{
+"addr": 30128,
+"name": "FUN_ram_75b0",
+"block": "ROM3",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+30046
+]
+},
+{
+"addr": 30136,
+"name": "FUN_ram_75b8",
+"block": "ROM3",
+"size": 34,
+"c_frame": false,
+"callees": [],
+"callers": [
+25166,
+27965,
+28591,
+28731
+]
+},
+{
+"addr": 30170,
+"name": "FUN_ram_75da",
+"block": "ROM3",
+"size": 74,
+"c_frame": false,
+"callees": [],
+"callers": [
+25166
+]
+},
+{
+"addr": 30244,
+"name": "FUN_ram_7624",
+"block": "ROM3",
+"size": 5,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 30249,
+"name": "FUN_ram_7629",
+"block": "ROM3",
+"size": 8,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710,
+27353
+]
+},
+{
+"addr": 30257,
+"name": "FUN_ram_7631",
+"block": "ROM3",
+"size": 1,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710
+]
+},
+{
+"addr": 30258,
+"name": "FUN_ram_7632",
+"block": "ROM3",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710,
+27353
+]
+},
+{
+"addr": 30270,
+"name": "FUN_ram_763e",
+"block": "ROM3",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 30273,
+"name": "FUN_ram_7641",
+"block": "ROM3",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+27353
+]
+},
+{
+"addr": 30283,
+"name": "FUN_ram_764b",
+"block": "ROM3",
+"size": 16,
+"c_frame": false,
+"callees": [],
+"callers": [
+27353
+]
+},
+{
+"addr": 30299,
+"name": "FUN_ram_765b",
+"block": "ROM3",
+"size": 3,
+"c_frame": false,
+"callees": [],
+"callers": []
+},
+{
+"addr": 30302,
+"name": "FUN_ram_765e",
+"block": "ROM3",
+"size": 7,
+"c_frame": false,
+"callees": [],
+"callers": [
+27353
+]
+},
+{
+"addr": 30309,
+"name": "FUN_ram_7665",
+"block": "ROM3",
+"size": 10,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710,
+27353
+]
+},
+{
+"addr": 30319,
+"name": "FUN_ram_766f",
+"block": "ROM3",
+"size": 2,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710
+]
+},
+{
+"addr": 30321,
+"name": "FUN_ram_7671",
+"block": "ROM3",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710
+]
+},
+{
+"addr": 30332,
+"name": "FUN_ram_767c",
+"block": "ROM3",
+"size": 11,
+"c_frame": false,
+"callees": [],
+"callers": [
+25710
+]
+},
+{
+"addr": 30343,
+"name": "FUN_ram_7687",
+"block": "ROM3",
+"size": 12,
+"c_frame": false,
+"callees": [],
+"callers": [
+27353
+]
+}
+]

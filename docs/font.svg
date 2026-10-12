@@ -1,0 +1,457 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="796" height="690" viewBox="0 0 796 690">
+<style>
+  .bg{fill:#fff} .cell{fill:#f4f4f4;stroke:#ccc;stroke-width:.5} .ink{fill:#111}
+  .t{font:11px monospace;fill:#555} .h{font:bold 15px sans-serif;fill:#111} .s{font:11px sans-serif;fill:#555}
+</style>
+<rect class="bg" width="100%" height="100%"/>
+<text class="h" x="16" y="24">Шрифт 8×8, ПЗУ 0x5D91–0x6220 (ROM2→ROM3), символы 0x00–0x91</text>
+<text class="s" x="16" y="42">MSB слева; 0x60–0x7E — кириллица КОИ-7 Н2; адрес глифа = 0x5D91 + 8·код</text>
+<rect class="cell" x="50" y="60" width="32" height="32"/>
+<path class="ink" d="M62 60h8v4h-8z M62 64h8v4h-8z M62 72h8v4h-8z M62 76h8v4h-8z M58 80h16v4h-16z M58 84h16v4h-16z M54 88h24v4h-24z"/>
+<text class="t" x="50" y="104">00 </text>
+<rect class="cell" x="96" y="60" width="32" height="32"/>
+<path class="ink" d="M100 68h16v4h-16z M96 72h4v4h-4z M116 72h4v4h-4z M96 76h4v4h-4z M96 80h4v4h-4z M96 84h4v4h-4z M116 84h4v4h-4z M100 88h16v4h-16z"/>
+<text class="t" x="96" y="104">01 </text>
+<rect class="cell" x="142" y="60" width="32" height="32"/>
+<path class="ink" d="M146 68h8v4h-8z M158 68h8v4h-8z M142 72h4v4h-4z M154 72h4v4h-4z M166 72h4v4h-4z M142 76h4v4h-4z M154 76h4v4h-4z M166 76h4v4h-4z M142 80h4v4h-4z M154 80h4v4h-4z M166 80h4v4h-4z M142 84h4v4h-4z M154 84h4v4h-4z M166 84h4v4h-4z M142 88h4v4h-4z M154 88h4v4h-4z M166 88h4v4h-4z"/>
+<text class="t" x="142" y="104">02 </text>
+<rect class="cell" x="188" y="60" width="32" height="32"/>
+<path class="ink" d="M188 68h24v4h-24z M204 72h4v4h-4z M200 76h4v4h-4z M196 80h4v4h-4z M192 84h4v4h-4z M188 88h24v4h-24z"/>
+<text class="t" x="188" y="104">03 </text>
+<rect class="cell" x="234" y="60" width="32" height="32"/>
+<path class="ink" d="M254 60h4v4h-4z M254 64h4v4h-4z M238 68h20v4h-20z M234 72h4v4h-4z M254 72h4v4h-4z M234 76h4v4h-4z M254 76h4v4h-4z M234 80h4v4h-4z M254 80h4v4h-4z M234 84h4v4h-4z M254 84h4v4h-4z M238 88h20v4h-20z"/>
+<text class="t" x="234" y="104">04 </text>
+<rect class="cell" x="280" y="60" width="32" height="32"/>
+<path class="ink" d="M280 60h12v4h-12z M296 64h4v4h-4z M304 68h4v4h-4z"/>
+<text class="t" x="280" y="104">05 </text>
+<rect class="cell" x="326" y="60" width="32" height="32"/>
+<path class="ink" d="M326 72h4v4h-4z M330 76h4v4h-4z M334 80h4v4h-4z M338 84h4v4h-4z M342 88h4v4h-4z"/>
+<text class="t" x="326" y="104">06 </text>
+<rect class="cell" x="372" y="60" width="32" height="32"/>
+<path class="ink" d=""/>
+<text class="t" x="372" y="104">07 </text>
+<rect class="cell" x="418" y="60" width="32" height="32"/>
+<path class="ink" d="M438 64h4v4h-4z M442 72h4v4h-4z M446 80h4v4h-4z M446 84h4v4h-4z M446 88h4v4h-4z"/>
+<text class="t" x="418" y="104">08 </text>
+<rect class="cell" x="464" y="60" width="32" height="32"/>
+<path class="ink" d="M464 60h4v4h-4z M468 64h4v4h-4z M472 68h4v4h-4z M476 72h4v4h-4z M480 76h4v4h-4z M484 80h4v4h-4z M488 84h4v4h-4z M492 88h4v4h-4z"/>
+<text class="t" x="464" y="104">09 </text>
+<rect class="cell" x="510" y="60" width="32" height="32"/>
+<path class="ink" d=""/>
+<text class="t" x="510" y="104">0A </text>
+<rect class="cell" x="556" y="60" width="32" height="32"/>
+<path class="ink" d=""/>
+<text class="t" x="556" y="104">0B </text>
+<rect class="cell" x="602" y="60" width="32" height="32"/>
+<path class="ink" d="M602 60h4v4h-4z M606 64h4v4h-4z M610 68h4v4h-4z M614 72h4v4h-4z M618 76h4v4h-4z M622 80h4v4h-4z M626 84h4v4h-4z M630 88h4v4h-4z"/>
+<text class="t" x="602" y="104">0C </text>
+<rect class="cell" x="648" y="60" width="32" height="32"/>
+<path class="ink" d="M652 60h16v4h-16z M648 64h4v4h-4z"/>
+<text class="t" x="648" y="104">0D </text>
+<rect class="cell" x="694" y="60" width="32" height="32"/>
+<path class="ink" d="M702 60h16v4h-16z M698 64h4v4h-4z M694 68h4v4h-4z M694 72h20v4h-20z M694 76h4v4h-4z M694 80h4v4h-4z M698 84h4v4h-4z M702 88h16v4h-16z"/>
+<text class="t" x="694" y="104">0E </text>
+<rect class="cell" x="740" y="60" width="32" height="32"/>
+<path class="ink" d="M748 64h4v4h-4z M748 68h8v4h-8z M740 72h20v4h-20z M748 76h8v4h-8z M748 80h4v4h-4z"/>
+<text class="t" x="740" y="104">0F </text>
+<rect class="cell" x="50" y="122" width="32" height="32"/>
+<path class="ink" d="M54 126h4v4h-4z M70 126h4v4h-4z M58 130h4v4h-4z M66 130h4v4h-4z M62 134h4v4h-4z M58 138h4v4h-4z M66 138h4v4h-4z M54 142h4v4h-4z M70 142h4v4h-4z"/>
+<text class="t" x="50" y="166">10 </text>
+<rect class="cell" x="96" y="122" width="32" height="32"/>
+<path class="ink" d="M112 126h4v4h-4z M116 130h4v4h-4z M100 134h24v4h-24z M116 138h4v4h-4z M112 142h4v4h-4z"/>
+<text class="t" x="96" y="166">11 </text>
+<rect class="cell" x="142" y="122" width="32" height="32"/>
+<path class="ink" d="M154 122h4v4h-4z M150 126h4v4h-4z M146 130h4v4h-4z M142 134h32v4h-32z M146 138h4v4h-4z M150 142h4v4h-4z M154 146h4v4h-4z"/>
+<text class="t" x="142" y="166">12 </text>
+<rect class="cell" x="188" y="122" width="32" height="32"/>
+<path class="ink" d="M188 122h4v4h-4z M188 126h4v4h-4z M188 130h4v4h-4z M192 138h4v4h-4z M196 146h4v4h-4z"/>
+<text class="t" x="188" y="166">13 </text>
+<rect class="cell" x="234" y="122" width="32" height="32"/>
+<path class="ink" d=""/>
+<text class="t" x="234" y="166">14 </text>
+<rect class="cell" x="280" y="122" width="32" height="32"/>
+<path class="ink" d="M292 122h4v4h-4z M296 126h4v4h-4z M300 130h4v4h-4z M304 134h4v4h-4z M308 138h4v4h-4z"/>
+<text class="t" x="280" y="166">15 </text>
+<rect class="cell" x="326" y="122" width="32" height="32"/>
+<path class="ink" d="M330 142h4v4h-4z M338 146h4v4h-4z M346 150h12v4h-12z"/>
+<text class="t" x="326" y="166">16 </text>
+<rect class="cell" x="372" y="122" width="32" height="32"/>
+<path class="ink" d="M380 122h8v4h-8z M380 126h8v4h-8z M372 130h24v4h-24z M372 134h24v4h-24z M376 138h16v4h-16z M376 142h16v4h-16z M380 146h8v4h-8z M380 150h8v4h-8z"/>
+<text class="t" x="372" y="166">17 </text>
+<rect class="cell" x="418" y="122" width="32" height="32"/>
+<path class="ink" d="M422 130h16v4h-16z M418 134h4v4h-4z M422 138h16v4h-16z M438 142h4v4h-4z M418 146h4v4h-4z M438 146h4v4h-4z M422 150h16v4h-16z"/>
+<text class="t" x="418" y="166">18 </text>
+<rect class="cell" x="464" y="122" width="32" height="32"/>
+<path class="ink" d="M464 122h4v4h-4z M464 126h4v4h-4z M464 130h4v4h-4z M476 130h4v4h-4z M464 134h4v4h-4z M472 134h4v4h-4z M464 138h8v4h-8z M464 142h4v4h-4z M472 142h4v4h-4z M464 146h4v4h-4z M476 146h4v4h-4z M464 150h4v4h-4z M480 150h4v4h-4z"/>
+<text class="t" x="464" y="166">19 </text>
+<rect class="cell" x="510" y="122" width="32" height="32"/>
+<path class="ink" d="M514 122h12v4h-12z M510 126h4v4h-4z M526 126h4v4h-4z M510 130h4v4h-4z M526 130h4v4h-4z M514 134h16v4h-16z M522 138h8v4h-8z M518 142h4v4h-4z M526 142h4v4h-4z M514 146h4v4h-4z M526 146h4v4h-4z M518 150h8v4h-8z"/>
+<text class="t" x="510" y="166">1A </text>
+<rect class="cell" x="556" y="122" width="32" height="32"/>
+<path class="ink" d="M568 130h4v4h-4z M568 134h4v4h-4z M568 138h4v4h-4z M568 142h4v4h-4z M568 146h4v4h-4z M568 150h4v4h-4z"/>
+<text class="t" x="556" y="166">1B </text>
+<rect class="cell" x="602" y="122" width="32" height="32"/>
+<path class="ink" d="M602 130h20v4h-20z M602 134h4v4h-4z M622 134h4v4h-4z M602 138h4v4h-4z M622 138h4v4h-4z M602 142h4v4h-4z M622 142h4v4h-4z M602 146h4v4h-4z M622 146h4v4h-4z M602 150h4v4h-4z M622 150h4v4h-4z"/>
+<text class="t" x="602" y="166">1C </text>
+<rect class="cell" x="648" y="122" width="32" height="32"/>
+<path class="ink" d="M656 122h4v4h-4z M656 126h4v4h-4z M656 130h4v4h-4z M656 134h4v4h-4z M656 138h4v4h-4z M656 142h4v4h-4z M656 146h4v4h-4z M656 150h8v4h-8z"/>
+<text class="t" x="648" y="166">1D </text>
+<rect class="cell" x="694" y="122" width="32" height="32"/>
+<path class="ink" d="M698 122h8v4h-8z M694 126h4v4h-4z M706 126h4v4h-4z M706 130h4v4h-4z M698 134h8v4h-8z M694 138h4v4h-4z M694 142h16v4h-16z"/>
+<text class="t" x="694" y="166">1E </text>
+<rect class="cell" x="740" y="122" width="32" height="32"/>
+<path class="ink" d="M760 122h8v4h-8z M756 126h4v4h-4z M768 126h4v4h-4z M756 130h4v4h-4z M768 130h4v4h-4z M756 134h4v4h-4z M768 134h4v4h-4z M760 138h8v4h-8z"/>
+<text class="t" x="740" y="166">1F </text>
+<rect class="cell" x="50" y="184" width="32" height="32"/>
+<path class="ink" d=""/>
+<text class="t" x="50" y="228">20 </text>
+<rect class="cell" x="96" y="184" width="32" height="32"/>
+<path class="ink" d="M108 184h4v4h-4z M108 188h4v4h-4z M108 192h4v4h-4z M108 196h4v4h-4z M108 200h4v4h-4z M108 208h4v4h-4z"/>
+<text class="t" x="96" y="228">21 !</text>
+<rect class="cell" x="142" y="184" width="32" height="32"/>
+<path class="ink" d="M150 184h4v4h-4z M162 184h4v4h-4z M150 188h4v4h-4z M162 188h4v4h-4z M146 192h4v4h-4z M158 192h4v4h-4z"/>
+<text class="t" x="142" y="228">22 "</text>
+<rect class="cell" x="188" y="184" width="32" height="32"/>
+<path class="ink" d="M196 184h4v4h-4z M204 184h4v4h-4z M196 188h4v4h-4z M204 188h4v4h-4z M192 192h20v4h-20z M196 196h4v4h-4z M204 196h4v4h-4z M192 200h20v4h-20z M196 204h4v4h-4z M204 204h4v4h-4z M196 208h4v4h-4z M204 208h4v4h-4z"/>
+<text class="t" x="188" y="228">23 #</text>
+<rect class="cell" x="234" y="184" width="32" height="32"/>
+<path class="ink" d="M234 184h4v4h-4z M258 184h4v4h-4z M238 188h4v4h-4z M254 188h4v4h-4z M242 192h12v4h-12z M242 196h4v4h-4z M250 196h4v4h-4z M242 200h4v4h-4z M250 200h4v4h-4z M242 204h12v4h-12z M238 208h4v4h-4z M254 208h4v4h-4z M234 212h4v4h-4z M258 212h4v4h-4z"/>
+<text class="t" x="234" y="228">24 $</text>
+<rect class="cell" x="280" y="184" width="32" height="32"/>
+<path class="ink" d="M284 184h12v4h-12z M284 188h4v4h-4z M292 188h4v4h-4z M304 188h4v4h-4z M284 192h12v4h-12z M300 192h4v4h-4z M296 196h4v4h-4z M292 200h4v4h-4z M288 204h4v4h-4z M296 204h12v4h-12z M284 208h4v4h-4z M296 208h4v4h-4z M304 208h4v4h-4z M296 212h12v4h-12z"/>
+<text class="t" x="280" y="228">25 %</text>
+<rect class="cell" x="326" y="184" width="32" height="32"/>
+<path class="ink" d="M330 184h8v4h-8z M326 188h4v4h-4z M338 188h4v4h-4z M326 192h4v4h-4z M334 192h4v4h-4z M330 196h4v4h-4z M326 200h4v4h-4z M334 200h4v4h-4z M350 200h4v4h-4z M326 204h4v4h-4z M338 204h4v4h-4z M346 204h4v4h-4z M326 208h4v4h-4z M342 208h4v4h-4z M330 212h12v4h-12z M346 212h8v4h-8z"/>
+<text class="t" x="326" y="228">26 &amp;</text>
+<rect class="cell" x="372" y="184" width="32" height="32"/>
+<path class="ink" d="M384 184h4v4h-4z M384 188h4v4h-4z M380 192h4v4h-4z"/>
+<text class="t" x="372" y="228">27 '</text>
+<rect class="cell" x="418" y="184" width="32" height="32"/>
+<path class="ink" d="M434 184h4v4h-4z M430 188h4v4h-4z M426 192h4v4h-4z M426 196h4v4h-4z M426 200h4v4h-4z M426 204h4v4h-4z M430 208h4v4h-4z M434 212h4v4h-4z"/>
+<text class="t" x="418" y="228">28 (</text>
+<rect class="cell" x="464" y="184" width="32" height="32"/>
+<path class="ink" d="M472 184h4v4h-4z M476 188h4v4h-4z M480 192h4v4h-4z M480 196h4v4h-4z M480 200h4v4h-4z M480 204h4v4h-4z M476 208h4v4h-4z M472 212h4v4h-4z"/>
+<text class="t" x="464" y="228">29 )</text>
+<rect class="cell" x="510" y="184" width="32" height="32"/>
+<path class="ink" d="M522 188h4v4h-4z M514 192h4v4h-4z M522 192h4v4h-4z M530 192h4v4h-4z M518 196h12v4h-12z M514 200h4v4h-4z M522 200h4v4h-4z M530 200h4v4h-4z M522 204h4v4h-4z"/>
+<text class="t" x="510" y="228">2A *</text>
+<rect class="cell" x="556" y="184" width="32" height="32"/>
+<path class="ink" d="M568 188h4v4h-4z M568 192h4v4h-4z M560 196h20v4h-20z M568 200h4v4h-4z M568 204h4v4h-4z"/>
+<text class="t" x="556" y="228">2B +</text>
+<rect class="cell" x="602" y="184" width="32" height="32"/>
+<path class="ink" d="M606 204h4v4h-4z M606 208h4v4h-4z M602 212h4v4h-4z"/>
+<text class="t" x="602" y="228">2C ,</text>
+<rect class="cell" x="648" y="184" width="32" height="32"/>
+<path class="ink" d="M652 196h20v4h-20z"/>
+<text class="t" x="648" y="228">2D -</text>
+<rect class="cell" x="694" y="184" width="32" height="32"/>
+<path class="ink" d="M698 208h4v4h-4z"/>
+<text class="t" x="694" y="228">2E .</text>
+<rect class="cell" x="740" y="184" width="32" height="32"/>
+<path class="ink" d="M764 188h4v4h-4z M760 192h4v4h-4z M756 196h4v4h-4z M752 200h4v4h-4z M748 204h4v4h-4z M744 208h4v4h-4z M740 212h4v4h-4z"/>
+<text class="t" x="740" y="228">2F /</text>
+<rect class="cell" x="50" y="246" width="32" height="32"/>
+<path class="ink" d="M54 246h16v4h-16z M50 250h4v4h-4z M70 250h4v4h-4z M50 254h4v4h-4z M66 254h8v4h-8z M50 258h4v4h-4z M62 258h4v4h-4z M70 258h4v4h-4z M50 262h4v4h-4z M58 262h4v4h-4z M70 262h4v4h-4z M50 266h8v4h-8z M70 266h4v4h-4z M50 270h4v4h-4z M70 270h4v4h-4z M54 274h16v4h-16z"/>
+<text class="t" x="50" y="290">30 0</text>
+<rect class="cell" x="96" y="246" width="32" height="32"/>
+<path class="ink" d="M108 246h4v4h-4z M104 250h8v4h-8z M100 254h4v4h-4z M108 254h4v4h-4z M108 258h4v4h-4z M108 262h4v4h-4z M108 266h4v4h-4z M108 270h4v4h-4z M104 274h12v4h-12z"/>
+<text class="t" x="96" y="290">31 1</text>
+<rect class="cell" x="142" y="246" width="32" height="32"/>
+<path class="ink" d="M146 246h16v4h-16z M142 250h4v4h-4z M162 250h4v4h-4z M142 254h4v4h-4z M162 254h4v4h-4z M158 258h4v4h-4z M154 262h4v4h-4z M150 266h4v4h-4z M146 270h4v4h-4z M162 270h4v4h-4z M142 274h24v4h-24z"/>
+<text class="t" x="142" y="290">32 2</text>
+<rect class="cell" x="188" y="246" width="32" height="32"/>
+<path class="ink" d="M192 246h16v4h-16z M188 250h4v4h-4z M208 250h4v4h-4z M208 254h4v4h-4z M196 258h12v4h-12z M208 262h4v4h-4z M208 266h4v4h-4z M188 270h4v4h-4z M208 270h4v4h-4z M192 274h16v4h-16z"/>
+<text class="t" x="188" y="290">33 3</text>
+<rect class="cell" x="234" y="246" width="32" height="32"/>
+<path class="ink" d="M250 246h4v4h-4z M246 250h8v4h-8z M242 254h4v4h-4z M250 254h4v4h-4z M238 258h4v4h-4z M250 258h4v4h-4z M234 262h4v4h-4z M250 262h4v4h-4z M234 266h24v4h-24z M250 270h4v4h-4z M250 274h4v4h-4z"/>
+<text class="t" x="234" y="290">34 4</text>
+<rect class="cell" x="280" y="246" width="32" height="32"/>
+<path class="ink" d="M280 246h24v4h-24z M280 250h4v4h-4z M280 254h4v4h-4z M280 258h20v4h-20z M300 262h4v4h-4z M300 266h4v4h-4z M280 270h4v4h-4z M300 270h4v4h-4z M284 274h16v4h-16z"/>
+<text class="t" x="280" y="290">35 5</text>
+<rect class="cell" x="326" y="246" width="32" height="32"/>
+<path class="ink" d="M330 246h16v4h-16z M326 250h4v4h-4z M346 250h4v4h-4z M326 254h4v4h-4z M326 258h20v4h-20z M326 262h4v4h-4z M346 262h4v4h-4z M326 266h4v4h-4z M346 266h4v4h-4z M326 270h4v4h-4z M346 270h4v4h-4z M330 274h16v4h-16z"/>
+<text class="t" x="326" y="290">36 6</text>
+<rect class="cell" x="372" y="246" width="32" height="32"/>
+<path class="ink" d="M372 246h24v4h-24z M372 250h4v4h-4z M392 250h4v4h-4z M388 254h4v4h-4z M384 258h4v4h-4z M380 262h4v4h-4z M376 266h4v4h-4z M372 270h4v4h-4z M372 274h4v4h-4z"/>
+<text class="t" x="372" y="290">37 7</text>
+<rect class="cell" x="418" y="246" width="32" height="32"/>
+<path class="ink" d="M422 246h16v4h-16z M418 250h4v4h-4z M438 250h4v4h-4z M418 254h4v4h-4z M438 254h4v4h-4z M422 258h16v4h-16z M418 262h4v4h-4z M438 262h4v4h-4z M418 266h4v4h-4z M438 266h4v4h-4z M418 270h4v4h-4z M438 270h4v4h-4z M422 274h16v4h-16z"/>
+<text class="t" x="418" y="290">38 8</text>
+<rect class="cell" x="464" y="246" width="32" height="32"/>
+<path class="ink" d="M468 246h16v4h-16z M464 250h4v4h-4z M484 250h4v4h-4z M464 254h4v4h-4z M484 254h4v4h-4z M464 258h4v4h-4z M484 258h4v4h-4z M468 262h20v4h-20z M484 266h4v4h-4z M464 270h4v4h-4z M484 270h4v4h-4z M468 274h16v4h-16z"/>
+<text class="t" x="464" y="290">39 9</text>
+<rect class="cell" x="510" y="246" width="32" height="32"/>
+<path class="ink" d="M522 254h4v4h-4z M522 266h4v4h-4z"/>
+<text class="t" x="510" y="290">3A :</text>
+<rect class="cell" x="556" y="246" width="32" height="32"/>
+<path class="ink" d="M568 254h4v4h-4z M568 266h4v4h-4z M568 270h4v4h-4z M564 274h4v4h-4z"/>
+<text class="t" x="556" y="290">3B ;</text>
+<rect class="cell" x="602" y="246" width="32" height="32"/>
+<path class="ink" d="M618 250h4v4h-4z M614 254h4v4h-4z M610 258h4v4h-4z M606 262h4v4h-4z M610 266h4v4h-4z M614 270h4v4h-4z M618 274h4v4h-4z"/>
+<text class="t" x="602" y="290">3C &lt;</text>
+<rect class="cell" x="648" y="246" width="32" height="32"/>
+<path class="ink" d="M652 258h20v4h-20z M652 266h20v4h-20z"/>
+<text class="t" x="648" y="290">3D =</text>
+<rect class="cell" x="694" y="246" width="32" height="32"/>
+<path class="ink" d="M702 250h4v4h-4z M706 254h4v4h-4z M710 258h4v4h-4z M714 262h4v4h-4z M710 266h4v4h-4z M706 270h4v4h-4z M702 274h4v4h-4z"/>
+<text class="t" x="694" y="290">3E &gt;</text>
+<rect class="cell" x="740" y="246" width="32" height="32"/>
+<path class="ink" d="M748 246h12v4h-12z M744 250h4v4h-4z M760 250h4v4h-4z M760 254h4v4h-4z M756 258h4v4h-4z M752 262h4v4h-4z M752 266h4v4h-4z M752 274h4v4h-4z"/>
+<text class="t" x="740" y="290">3F ?</text>
+<rect class="cell" x="50" y="308" width="32" height="32"/>
+<path class="ink" d="M58 308h16v4h-16z M54 312h4v4h-4z M74 312h4v4h-4z M50 316h4v4h-4z M66 316h12v4h-12z M50 320h4v4h-4z M62 320h4v4h-4z M74 320h4v4h-4z M50 324h4v4h-4z M62 324h4v4h-4z M74 324h4v4h-4z M50 328h4v4h-4z M66 328h12v4h-12z M54 332h4v4h-4z M58 336h16v4h-16z"/>
+<text class="t" x="50" y="352">40 @</text>
+<rect class="cell" x="96" y="308" width="32" height="32"/>
+<path class="ink" d="M104 308h8v4h-8z M100 312h4v4h-4z M112 312h4v4h-4z M96 316h4v4h-4z M116 316h4v4h-4z M96 320h4v4h-4z M116 320h4v4h-4z M96 324h24v4h-24z M96 328h4v4h-4z M116 328h4v4h-4z M96 332h4v4h-4z M116 332h4v4h-4z M96 336h4v4h-4z M116 336h4v4h-4z"/>
+<text class="t" x="96" y="352">41 A</text>
+<rect class="cell" x="142" y="308" width="32" height="32"/>
+<path class="ink" d="M142 308h24v4h-24z M146 312h4v4h-4z M166 312h4v4h-4z M146 316h4v4h-4z M166 316h4v4h-4z M146 320h20v4h-20z M146 324h4v4h-4z M166 324h4v4h-4z M146 328h4v4h-4z M166 328h4v4h-4z M146 332h4v4h-4z M166 332h4v4h-4z M142 336h24v4h-24z"/>
+<text class="t" x="142" y="352">42 B</text>
+<rect class="cell" x="188" y="308" width="32" height="32"/>
+<path class="ink" d="M192 308h16v4h-16z M188 312h4v4h-4z M208 312h4v4h-4z M188 316h4v4h-4z M188 320h4v4h-4z M188 324h4v4h-4z M188 328h4v4h-4z M188 332h4v4h-4z M208 332h4v4h-4z M192 336h16v4h-16z"/>
+<text class="t" x="188" y="352">43 C</text>
+<rect class="cell" x="234" y="308" width="32" height="32"/>
+<path class="ink" d="M234 308h20v4h-20z M238 312h4v4h-4z M254 312h4v4h-4z M238 316h4v4h-4z M258 316h4v4h-4z M238 320h4v4h-4z M258 320h4v4h-4z M238 324h4v4h-4z M258 324h4v4h-4z M238 328h4v4h-4z M258 328h4v4h-4z M238 332h4v4h-4z M254 332h4v4h-4z M234 336h20v4h-20z"/>
+<text class="t" x="234" y="352">44 D</text>
+<rect class="cell" x="280" y="308" width="32" height="32"/>
+<path class="ink" d="M284 308h24v4h-24z M284 312h4v4h-4z M284 316h4v4h-4z M284 320h20v4h-20z M284 324h4v4h-4z M284 328h4v4h-4z M284 332h4v4h-4z M284 336h24v4h-24z"/>
+<text class="t" x="280" y="352">45 E</text>
+<rect class="cell" x="326" y="308" width="32" height="32"/>
+<path class="ink" d="M330 308h24v4h-24z M330 312h4v4h-4z M330 316h4v4h-4z M330 320h4v4h-4z M330 324h20v4h-20z M330 328h4v4h-4z M330 332h4v4h-4z M330 336h4v4h-4z"/>
+<text class="t" x="326" y="352">46 F</text>
+<rect class="cell" x="372" y="308" width="32" height="32"/>
+<path class="ink" d="M376 308h16v4h-16z M372 312h4v4h-4z M392 312h4v4h-4z M372 316h4v4h-4z M372 320h4v4h-4z M372 324h4v4h-4z M384 324h12v4h-12z M372 328h4v4h-4z M392 328h4v4h-4z M372 332h4v4h-4z M392 332h4v4h-4z M376 336h16v4h-16z"/>
+<text class="t" x="372" y="352">47 G</text>
+<rect class="cell" x="418" y="308" width="32" height="32"/>
+<path class="ink" d="M418 308h4v4h-4z M438 308h4v4h-4z M418 312h4v4h-4z M438 312h4v4h-4z M418 316h4v4h-4z M438 316h4v4h-4z M418 320h4v4h-4z M438 320h4v4h-4z M418 324h24v4h-24z M418 328h4v4h-4z M438 328h4v4h-4z M418 332h4v4h-4z M438 332h4v4h-4z M418 336h4v4h-4z M438 336h4v4h-4z"/>
+<text class="t" x="418" y="352">48 H</text>
+<rect class="cell" x="464" y="308" width="32" height="32"/>
+<path class="ink" d="M472 308h12v4h-12z M476 312h4v4h-4z M476 316h4v4h-4z M476 320h4v4h-4z M476 324h4v4h-4z M476 328h4v4h-4z M476 332h4v4h-4z M472 336h12v4h-12z"/>
+<text class="t" x="464" y="352">49 I</text>
+<rect class="cell" x="510" y="308" width="32" height="32"/>
+<path class="ink" d="M522 308h12v4h-12z M526 312h4v4h-4z M526 316h4v4h-4z M526 320h4v4h-4z M526 324h4v4h-4z M510 328h4v4h-4z M526 328h4v4h-4z M510 332h4v4h-4z M526 332h4v4h-4z M514 336h12v4h-12z"/>
+<text class="t" x="510" y="352">4A J</text>
+<rect class="cell" x="556" y="308" width="32" height="32"/>
+<path class="ink" d="M556 308h4v4h-4z M576 308h4v4h-4z M556 312h4v4h-4z M572 312h4v4h-4z M556 316h4v4h-4z M568 316h4v4h-4z M556 320h4v4h-4z M564 320h4v4h-4z M556 324h12v4h-12z M556 328h4v4h-4z M568 328h4v4h-4z M556 332h4v4h-4z M572 332h4v4h-4z M556 336h4v4h-4z M576 336h4v4h-4z"/>
+<text class="t" x="556" y="352">4B K</text>
+<rect class="cell" x="602" y="308" width="32" height="32"/>
+<path class="ink" d="M602 308h4v4h-4z M602 312h4v4h-4z M602 316h4v4h-4z M602 320h4v4h-4z M602 324h4v4h-4z M602 328h4v4h-4z M602 332h4v4h-4z M602 336h24v4h-24z"/>
+<text class="t" x="602" y="352">4C L</text>
+<rect class="cell" x="648" y="308" width="32" height="32"/>
+<path class="ink" d="M648 308h4v4h-4z M672 308h4v4h-4z M648 312h8v4h-8z M668 312h8v4h-8z M648 316h4v4h-4z M656 316h4v4h-4z M664 316h4v4h-4z M672 316h4v4h-4z M648 320h4v4h-4z M660 320h4v4h-4z M672 320h4v4h-4z M648 324h4v4h-4z M672 324h4v4h-4z M648 328h4v4h-4z M672 328h4v4h-4z M648 332h4v4h-4z M672 332h4v4h-4z M648 336h4v4h-4z M672 336h4v4h-4z"/>
+<text class="t" x="648" y="352">4D M</text>
+<rect class="cell" x="694" y="308" width="32" height="32"/>
+<path class="ink" d="M694 308h4v4h-4z M714 308h4v4h-4z M694 312h4v4h-4z M714 312h4v4h-4z M694 316h8v4h-8z M714 316h4v4h-4z M694 320h4v4h-4z M702 320h4v4h-4z M714 320h4v4h-4z M694 324h4v4h-4z M706 324h4v4h-4z M714 324h4v4h-4z M694 328h4v4h-4z M710 328h8v4h-8z M694 332h4v4h-4z M714 332h4v4h-4z M694 336h4v4h-4z M714 336h4v4h-4z"/>
+<text class="t" x="694" y="352">4E N</text>
+<rect class="cell" x="740" y="308" width="32" height="32"/>
+<path class="ink" d="M744 308h16v4h-16z M740 312h4v4h-4z M760 312h4v4h-4z M740 316h4v4h-4z M760 316h4v4h-4z M740 320h4v4h-4z M760 320h4v4h-4z M740 324h4v4h-4z M760 324h4v4h-4z M740 328h4v4h-4z M760 328h4v4h-4z M740 332h4v4h-4z M760 332h4v4h-4z M744 336h16v4h-16z"/>
+<text class="t" x="740" y="352">4F O</text>
+<rect class="cell" x="50" y="370" width="32" height="32"/>
+<path class="ink" d="M54 370h20v4h-20z M54 374h4v4h-4z M74 374h4v4h-4z M54 378h4v4h-4z M74 378h4v4h-4z M54 382h4v4h-4z M74 382h4v4h-4z M54 386h20v4h-20z M54 390h4v4h-4z M54 394h4v4h-4z M54 398h4v4h-4z"/>
+<text class="t" x="50" y="414">50 P</text>
+<rect class="cell" x="96" y="370" width="32" height="32"/>
+<path class="ink" d="M100 370h16v4h-16z M96 374h4v4h-4z M116 374h4v4h-4z M96 378h4v4h-4z M116 378h4v4h-4z M96 382h4v4h-4z M116 382h4v4h-4z M96 386h4v4h-4z M116 386h4v4h-4z M96 390h4v4h-4z M108 390h4v4h-4z M116 390h4v4h-4z M96 394h4v4h-4z M112 394h4v4h-4z M100 398h12v4h-12z M116 398h4v4h-4z"/>
+<text class="t" x="96" y="414">51 Q</text>
+<rect class="cell" x="142" y="370" width="32" height="32"/>
+<path class="ink" d="M146 370h20v4h-20z M146 374h4v4h-4z M166 374h4v4h-4z M146 378h4v4h-4z M166 378h4v4h-4z M146 382h4v4h-4z M166 382h4v4h-4z M146 386h20v4h-20z M146 390h4v4h-4z M158 390h4v4h-4z M146 394h4v4h-4z M162 394h4v4h-4z M146 398h4v4h-4z M166 398h4v4h-4z"/>
+<text class="t" x="142" y="414">52 R</text>
+<rect class="cell" x="188" y="370" width="32" height="32"/>
+<path class="ink" d="M192 370h16v4h-16z M188 374h4v4h-4z M208 374h4v4h-4z M188 378h4v4h-4z M192 382h16v4h-16z M208 386h4v4h-4z M208 390h4v4h-4z M188 394h4v4h-4z M208 394h4v4h-4z M192 398h16v4h-16z"/>
+<text class="t" x="188" y="414">53 S</text>
+<rect class="cell" x="234" y="370" width="32" height="32"/>
+<path class="ink" d="M234 370h28v4h-28z M246 374h4v4h-4z M246 378h4v4h-4z M246 382h4v4h-4z M246 386h4v4h-4z M246 390h4v4h-4z M246 394h4v4h-4z M246 398h4v4h-4z"/>
+<text class="t" x="234" y="414">54 T</text>
+<rect class="cell" x="280" y="370" width="32" height="32"/>
+<path class="ink" d="M280 370h4v4h-4z M300 370h4v4h-4z M280 374h4v4h-4z M300 374h4v4h-4z M280 378h4v4h-4z M300 378h4v4h-4z M280 382h4v4h-4z M300 382h4v4h-4z M280 386h4v4h-4z M300 386h4v4h-4z M280 390h4v4h-4z M300 390h4v4h-4z M280 394h4v4h-4z M300 394h4v4h-4z M284 398h16v4h-16z"/>
+<text class="t" x="280" y="414">55 U</text>
+<rect class="cell" x="326" y="370" width="32" height="32"/>
+<path class="ink" d="M326 370h4v4h-4z M350 370h4v4h-4z M326 374h4v4h-4z M350 374h4v4h-4z M330 378h4v4h-4z M346 378h4v4h-4z M330 382h4v4h-4z M346 382h4v4h-4z M334 386h4v4h-4z M342 386h4v4h-4z M334 390h4v4h-4z M342 390h4v4h-4z M338 394h4v4h-4z M338 398h4v4h-4z"/>
+<text class="t" x="326" y="414">56 V</text>
+<rect class="cell" x="372" y="370" width="32" height="32"/>
+<path class="ink" d="M372 370h4v4h-4z M396 370h4v4h-4z M372 374h4v4h-4z M396 374h4v4h-4z M372 378h4v4h-4z M384 378h4v4h-4z M396 378h4v4h-4z M372 382h4v4h-4z M384 382h4v4h-4z M396 382h4v4h-4z M372 386h4v4h-4z M384 386h4v4h-4z M396 386h4v4h-4z M372 390h4v4h-4z M380 390h4v4h-4z M388 390h4v4h-4z M396 390h4v4h-4z M372 394h8v4h-8z M392 394h8v4h-8z M372 398h4v4h-4z M396 398h4v4h-4z"/>
+<text class="t" x="372" y="414">57 W</text>
+<rect class="cell" x="418" y="370" width="32" height="32"/>
+<path class="ink" d="M418 370h4v4h-4z M438 370h4v4h-4z M418 374h4v4h-4z M438 374h4v4h-4z M422 378h4v4h-4z M434 378h4v4h-4z M426 382h8v4h-8z M426 386h8v4h-8z M422 390h4v4h-4z M434 390h4v4h-4z M418 394h4v4h-4z M438 394h4v4h-4z M418 398h4v4h-4z M438 398h4v4h-4z"/>
+<text class="t" x="418" y="414">58 X</text>
+<rect class="cell" x="464" y="370" width="32" height="32"/>
+<path class="ink" d="M464 370h4v4h-4z M488 370h4v4h-4z M464 374h4v4h-4z M488 374h4v4h-4z M468 378h4v4h-4z M484 378h4v4h-4z M472 382h4v4h-4z M480 382h4v4h-4z M476 386h4v4h-4z M476 390h4v4h-4z M476 394h4v4h-4z M476 398h4v4h-4z"/>
+<text class="t" x="464" y="414">59 Y</text>
+<rect class="cell" x="510" y="370" width="32" height="32"/>
+<path class="ink" d="M510 370h24v4h-24z M530 374h4v4h-4z M526 378h4v4h-4z M522 382h4v4h-4z M518 386h4v4h-4z M514 390h4v4h-4z M510 394h4v4h-4z M510 398h24v4h-24z"/>
+<text class="t" x="510" y="414">5A Z</text>
+<rect class="cell" x="556" y="370" width="32" height="32"/>
+<path class="ink" d="M564 370h12v4h-12z M564 374h4v4h-4z M564 378h4v4h-4z M564 382h4v4h-4z M564 386h4v4h-4z M564 390h4v4h-4z M564 394h4v4h-4z M564 398h12v4h-12z"/>
+<text class="t" x="556" y="414">5B [</text>
+<rect class="cell" x="602" y="370" width="32" height="32"/>
+<path class="ink" d="M606 374h4v4h-4z M610 378h4v4h-4z M614 382h4v4h-4z M618 386h4v4h-4z M622 390h4v4h-4z M626 394h4v4h-4z"/>
+<text class="t" x="602" y="414">5C \</text>
+<rect class="cell" x="648" y="370" width="32" height="32"/>
+<path class="ink" d="M656 370h12v4h-12z M664 374h4v4h-4z M664 378h4v4h-4z M664 382h4v4h-4z M664 386h4v4h-4z M664 390h4v4h-4z M664 394h4v4h-4z M656 398h12v4h-12z"/>
+<text class="t" x="648" y="414">5D ]</text>
+<rect class="cell" x="694" y="370" width="32" height="32"/>
+<path class="ink" d="M694 382h28v4h-28z M718 386h4v4h-4z M718 390h4v4h-4z"/>
+<text class="t" x="694" y="414">5E ^</text>
+<rect class="cell" x="740" y="370" width="32" height="32"/>
+<path class="ink" d="M740 398h28v4h-28z"/>
+<text class="t" x="740" y="414">5F _</text>
+<rect class="cell" x="50" y="432" width="32" height="32"/>
+<path class="ink" d="M50 432h4v4h-4z M66 432h8v4h-8z M50 436h4v4h-4z M62 436h4v4h-4z M74 436h4v4h-4z M50 440h4v4h-4z M62 440h4v4h-4z M74 440h4v4h-4z M50 444h16v4h-16z M74 444h4v4h-4z M50 448h4v4h-4z M62 448h4v4h-4z M74 448h4v4h-4z M50 452h4v4h-4z M62 452h4v4h-4z M74 452h4v4h-4z M50 456h4v4h-4z M62 456h4v4h-4z M74 456h4v4h-4z M50 460h4v4h-4z M66 460h8v4h-8z"/>
+<text class="t" x="50" y="476">60 Ю</text>
+<rect class="cell" x="96" y="432" width="32" height="32"/>
+<path class="ink" d="M104 432h8v4h-8z M100 436h4v4h-4z M112 436h4v4h-4z M96 440h4v4h-4z M116 440h4v4h-4z M96 444h4v4h-4z M116 444h4v4h-4z M96 448h24v4h-24z M96 452h4v4h-4z M116 452h4v4h-4z M96 456h4v4h-4z M116 456h4v4h-4z M96 460h4v4h-4z M116 460h4v4h-4z"/>
+<text class="t" x="96" y="476">61 А</text>
+<rect class="cell" x="142" y="432" width="32" height="32"/>
+<path class="ink" d="M142 432h24v4h-24z M142 436h4v4h-4z M142 440h4v4h-4z M142 444h20v4h-20z M142 448h4v4h-4z M162 448h4v4h-4z M142 452h4v4h-4z M162 452h4v4h-4z M142 456h4v4h-4z M162 456h4v4h-4z M142 460h20v4h-20z"/>
+<text class="t" x="142" y="476">62 Б</text>
+<rect class="cell" x="188" y="432" width="32" height="32"/>
+<path class="ink" d="M188 432h4v4h-4z M208 432h4v4h-4z M188 436h4v4h-4z M208 436h4v4h-4z M188 440h4v4h-4z M208 440h4v4h-4z M188 444h4v4h-4z M208 444h4v4h-4z M188 448h4v4h-4z M208 448h4v4h-4z M188 452h4v4h-4z M208 452h4v4h-4z M188 456h28v4h-28z M212 460h4v4h-4z"/>
+<text class="t" x="188" y="476">63 Ц</text>
+<rect class="cell" x="234" y="432" width="32" height="32"/>
+<path class="ink" d="M242 432h12v4h-12z M238 436h4v4h-4z M254 436h4v4h-4z M238 440h4v4h-4z M254 440h4v4h-4z M238 444h4v4h-4z M254 444h4v4h-4z M238 448h4v4h-4z M254 448h4v4h-4z M238 452h4v4h-4z M254 452h4v4h-4z M234 456h28v4h-28z M234 460h4v4h-4z M258 460h4v4h-4z"/>
+<text class="t" x="234" y="476">64 Д</text>
+<rect class="cell" x="280" y="432" width="32" height="32"/>
+<path class="ink" d="M280 432h24v4h-24z M280 436h4v4h-4z M280 440h4v4h-4z M280 444h20v4h-20z M280 448h4v4h-4z M280 452h4v4h-4z M280 456h4v4h-4z M280 460h24v4h-24z"/>
+<text class="t" x="280" y="476">65 Е</text>
+<rect class="cell" x="326" y="432" width="32" height="32"/>
+<path class="ink" d="M338 432h4v4h-4z M330 436h20v4h-20z M326 440h4v4h-4z M338 440h4v4h-4z M350 440h4v4h-4z M326 444h4v4h-4z M338 444h4v4h-4z M350 444h4v4h-4z M326 448h4v4h-4z M338 448h4v4h-4z M350 448h4v4h-4z M330 452h20v4h-20z M338 456h4v4h-4z M338 460h4v4h-4z"/>
+<text class="t" x="326" y="476">66 Ф</text>
+<rect class="cell" x="372" y="432" width="32" height="32"/>
+<path class="ink" d="M372 432h24v4h-24z M372 436h4v4h-4z M392 436h4v4h-4z M372 440h4v4h-4z M372 444h4v4h-4z M372 448h4v4h-4z M372 452h4v4h-4z M372 456h4v4h-4z M372 460h4v4h-4z"/>
+<text class="t" x="372" y="476">67 Г</text>
+<rect class="cell" x="418" y="432" width="32" height="32"/>
+<path class="ink" d="M418 432h4v4h-4z M442 432h4v4h-4z M422 436h4v4h-4z M438 436h4v4h-4z M426 440h4v4h-4z M434 440h4v4h-4z M430 444h4v4h-4z M426 448h4v4h-4z M434 448h4v4h-4z M422 452h4v4h-4z M438 452h4v4h-4z M418 456h4v4h-4z M442 456h4v4h-4z M418 460h4v4h-4z M442 460h4v4h-4z"/>
+<text class="t" x="418" y="476">68 Х</text>
+<rect class="cell" x="464" y="432" width="32" height="32"/>
+<path class="ink" d="M464 432h4v4h-4z M484 432h4v4h-4z M464 436h4v4h-4z M484 436h4v4h-4z M464 440h4v4h-4z M480 440h8v4h-8z M464 444h4v4h-4z M476 444h4v4h-4z M484 444h4v4h-4z M464 448h4v4h-4z M472 448h4v4h-4z M484 448h4v4h-4z M464 452h8v4h-8z M484 452h4v4h-4z M464 456h4v4h-4z M484 456h4v4h-4z M464 460h4v4h-4z M484 460h4v4h-4z"/>
+<text class="t" x="464" y="476">69 И</text>
+<rect class="cell" x="510" y="432" width="32" height="32"/>
+<path class="ink" d="M518 432h8v4h-8z M510 436h4v4h-4z M530 436h4v4h-4z M510 440h4v4h-4z M526 440h8v4h-8z M510 444h4v4h-4z M522 444h4v4h-4z M530 444h4v4h-4z M510 448h4v4h-4z M518 448h4v4h-4z M530 448h4v4h-4z M510 452h8v4h-8z M530 452h4v4h-4z M510 456h4v4h-4z M530 456h4v4h-4z M510 460h4v4h-4z M530 460h4v4h-4z"/>
+<text class="t" x="510" y="476">6A Й</text>
+<rect class="cell" x="556" y="432" width="32" height="32"/>
+<path class="ink" d="M556 432h4v4h-4z M576 432h4v4h-4z M556 436h4v4h-4z M572 436h4v4h-4z M556 440h4v4h-4z M568 440h4v4h-4z M556 444h4v4h-4z M564 444h4v4h-4z M556 448h12v4h-12z M556 452h4v4h-4z M568 452h4v4h-4z M556 456h4v4h-4z M572 456h4v4h-4z M556 460h4v4h-4z M576 460h4v4h-4z"/>
+<text class="t" x="556" y="476">6B К</text>
+<rect class="cell" x="602" y="432" width="32" height="32"/>
+<path class="ink" d="M614 432h12v4h-12z M610 436h4v4h-4z M622 436h4v4h-4z M610 440h4v4h-4z M622 440h4v4h-4z M610 444h4v4h-4z M622 444h4v4h-4z M610 448h4v4h-4z M622 448h4v4h-4z M610 452h4v4h-4z M622 452h4v4h-4z M610 456h4v4h-4z M622 456h4v4h-4z M602 460h8v4h-8z M622 460h4v4h-4z"/>
+<text class="t" x="602" y="476">6C Л</text>
+<rect class="cell" x="648" y="432" width="32" height="32"/>
+<path class="ink" d="M648 432h4v4h-4z M672 432h4v4h-4z M648 436h8v4h-8z M668 436h8v4h-8z M648 440h4v4h-4z M656 440h4v4h-4z M664 440h4v4h-4z M672 440h4v4h-4z M648 444h4v4h-4z M660 444h4v4h-4z M672 444h4v4h-4z M648 448h4v4h-4z M672 448h4v4h-4z M648 452h4v4h-4z M672 452h4v4h-4z M648 456h4v4h-4z M672 456h4v4h-4z M648 460h4v4h-4z M672 460h4v4h-4z"/>
+<text class="t" x="648" y="476">6D М</text>
+<rect class="cell" x="694" y="432" width="32" height="32"/>
+<path class="ink" d="M694 432h4v4h-4z M714 432h4v4h-4z M694 436h4v4h-4z M714 436h4v4h-4z M694 440h4v4h-4z M714 440h4v4h-4z M694 444h24v4h-24z M694 448h4v4h-4z M714 448h4v4h-4z M694 452h4v4h-4z M714 452h4v4h-4z M694 456h4v4h-4z M714 456h4v4h-4z M694 460h4v4h-4z M714 460h4v4h-4z"/>
+<text class="t" x="694" y="476">6E Н</text>
+<rect class="cell" x="740" y="432" width="32" height="32"/>
+<path class="ink" d="M744 432h16v4h-16z M740 436h4v4h-4z M760 436h4v4h-4z M740 440h4v4h-4z M760 440h4v4h-4z M740 444h4v4h-4z M760 444h4v4h-4z M740 448h4v4h-4z M760 448h4v4h-4z M740 452h4v4h-4z M760 452h4v4h-4z M740 456h4v4h-4z M760 456h4v4h-4z M744 460h16v4h-16z"/>
+<text class="t" x="740" y="476">6F О</text>
+<rect class="cell" x="50" y="494" width="32" height="32"/>
+<path class="ink" d="M50 494h24v4h-24z M50 498h4v4h-4z M70 498h4v4h-4z M50 502h4v4h-4z M70 502h4v4h-4z M50 506h4v4h-4z M70 506h4v4h-4z M50 510h4v4h-4z M70 510h4v4h-4z M50 514h4v4h-4z M70 514h4v4h-4z M50 518h4v4h-4z M70 518h4v4h-4z M50 522h4v4h-4z M70 522h4v4h-4z"/>
+<text class="t" x="50" y="538">70 П</text>
+<rect class="cell" x="96" y="494" width="32" height="32"/>
+<path class="ink" d="M100 494h20v4h-20z M96 498h4v4h-4z M116 498h4v4h-4z M96 502h4v4h-4z M116 502h4v4h-4z M96 506h4v4h-4z M116 506h4v4h-4z M100 510h20v4h-20z M104 514h4v4h-4z M116 514h4v4h-4z M100 518h4v4h-4z M116 518h4v4h-4z M96 522h4v4h-4z M116 522h4v4h-4z"/>
+<text class="t" x="96" y="538">71 Я</text>
+<rect class="cell" x="142" y="494" width="32" height="32"/>
+<path class="ink" d="M142 494h20v4h-20z M142 498h4v4h-4z M162 498h4v4h-4z M142 502h4v4h-4z M162 502h4v4h-4z M142 506h4v4h-4z M162 506h4v4h-4z M142 510h20v4h-20z M142 514h4v4h-4z M142 518h4v4h-4z M142 522h4v4h-4z"/>
+<text class="t" x="142" y="538">72 Р</text>
+<rect class="cell" x="188" y="494" width="32" height="32"/>
+<path class="ink" d="M192 494h16v4h-16z M188 498h4v4h-4z M208 498h4v4h-4z M188 502h4v4h-4z M188 506h4v4h-4z M188 510h4v4h-4z M188 514h4v4h-4z M188 518h4v4h-4z M208 518h4v4h-4z M192 522h16v4h-16z"/>
+<text class="t" x="188" y="538">73 С</text>
+<rect class="cell" x="234" y="494" width="32" height="32"/>
+<path class="ink" d="M238 494h20v4h-20z M246 498h4v4h-4z M246 502h4v4h-4z M246 506h4v4h-4z M246 510h4v4h-4z M246 514h4v4h-4z M246 518h4v4h-4z M246 522h4v4h-4z"/>
+<text class="t" x="234" y="538">74 Т</text>
+<rect class="cell" x="280" y="494" width="32" height="32"/>
+<path class="ink" d="M280 494h4v4h-4z M300 494h4v4h-4z M280 498h4v4h-4z M300 498h4v4h-4z M280 502h4v4h-4z M300 502h4v4h-4z M284 506h4v4h-4z M296 506h4v4h-4z M288 510h8v4h-8z M288 514h4v4h-4z M284 518h4v4h-4z M280 522h4v4h-4z"/>
+<text class="t" x="280" y="538">75 У</text>
+<rect class="cell" x="326" y="494" width="32" height="32"/>
+<path class="ink" d="M326 494h4v4h-4z M338 494h4v4h-4z M350 494h4v4h-4z M326 498h4v4h-4z M338 498h4v4h-4z M350 498h4v4h-4z M330 502h4v4h-4z M338 502h4v4h-4z M346 502h4v4h-4z M334 506h12v4h-12z M330 510h4v4h-4z M338 510h4v4h-4z M346 510h4v4h-4z M326 514h4v4h-4z M338 514h4v4h-4z M350 514h4v4h-4z M326 518h4v4h-4z M338 518h4v4h-4z M350 518h4v4h-4z M326 522h4v4h-4z M338 522h4v4h-4z M350 522h4v4h-4z"/>
+<text class="t" x="326" y="538">76 Ж</text>
+<rect class="cell" x="372" y="494" width="32" height="32"/>
+<path class="ink" d="M372 494h20v4h-20z M372 498h4v4h-4z M392 498h4v4h-4z M372 502h4v4h-4z M392 502h4v4h-4z M372 506h20v4h-20z M372 510h4v4h-4z M388 510h4v4h-4z M372 514h4v4h-4z M392 514h4v4h-4z M372 518h4v4h-4z M392 518h4v4h-4z M372 522h20v4h-20z"/>
+<text class="t" x="372" y="538">77 В</text>
+<rect class="cell" x="418" y="494" width="32" height="32"/>
+<path class="ink" d="M418 494h4v4h-4z M418 498h4v4h-4z M418 502h4v4h-4z M418 506h20v4h-20z M418 510h4v4h-4z M438 510h4v4h-4z M418 514h4v4h-4z M438 514h4v4h-4z M418 518h4v4h-4z M438 518h4v4h-4z M418 522h20v4h-20z"/>
+<text class="t" x="418" y="538">78 Ь</text>
+<rect class="cell" x="464" y="494" width="32" height="32"/>
+<path class="ink" d="M464 494h4v4h-4z M484 494h4v4h-4z M464 498h4v4h-4z M484 498h4v4h-4z M464 502h4v4h-4z M484 502h4v4h-4z M464 506h12v4h-12z M484 506h4v4h-4z M464 510h4v4h-4z M476 510h4v4h-4z M484 510h4v4h-4z M464 514h4v4h-4z M476 514h4v4h-4z M484 514h4v4h-4z M464 518h4v4h-4z M476 518h4v4h-4z M484 518h4v4h-4z M464 522h12v4h-12z M484 522h4v4h-4z"/>
+<text class="t" x="464" y="538">79 Ы</text>
+<rect class="cell" x="510" y="494" width="32" height="32"/>
+<path class="ink" d="M514 494h16v4h-16z M510 498h4v4h-4z M530 498h4v4h-4z M530 502h4v4h-4z M518 506h12v4h-12z M530 510h4v4h-4z M530 514h4v4h-4z M510 518h4v4h-4z M530 518h4v4h-4z M514 522h16v4h-16z"/>
+<text class="t" x="510" y="538">7A З</text>
+<rect class="cell" x="556" y="494" width="32" height="32"/>
+<path class="ink" d="M556 494h4v4h-4z M568 494h4v4h-4z M580 494h4v4h-4z M556 498h4v4h-4z M568 498h4v4h-4z M580 498h4v4h-4z M556 502h4v4h-4z M568 502h4v4h-4z M580 502h4v4h-4z M556 506h4v4h-4z M568 506h4v4h-4z M580 506h4v4h-4z M556 510h4v4h-4z M568 510h4v4h-4z M580 510h4v4h-4z M556 514h4v4h-4z M568 514h4v4h-4z M580 514h4v4h-4z M556 518h4v4h-4z M568 518h4v4h-4z M580 518h4v4h-4z M556 522h28v4h-28z"/>
+<text class="t" x="556" y="538">7B Ш</text>
+<rect class="cell" x="602" y="494" width="32" height="32"/>
+<path class="ink" d="M602 494h16v4h-16z M618 498h4v4h-4z M622 502h4v4h-4z M606 506h20v4h-20z M622 510h4v4h-4z M622 514h4v4h-4z M618 518h4v4h-4z M602 522h16v4h-16z"/>
+<text class="t" x="602" y="538">7C Э</text>
+<rect class="cell" x="648" y="494" width="32" height="32"/>
+<path class="ink" d="M648 494h4v4h-4z M660 494h4v4h-4z M672 494h4v4h-4z M648 498h4v4h-4z M660 498h4v4h-4z M672 498h4v4h-4z M648 502h4v4h-4z M660 502h4v4h-4z M672 502h4v4h-4z M648 506h4v4h-4z M660 506h4v4h-4z M672 506h4v4h-4z M648 510h4v4h-4z M660 510h4v4h-4z M672 510h4v4h-4z M648 514h4v4h-4z M660 514h4v4h-4z M672 514h4v4h-4z M648 518h28v4h-28z M672 522h4v4h-4z"/>
+<text class="t" x="648" y="538">7D Щ</text>
+<rect class="cell" x="694" y="494" width="32" height="32"/>
+<path class="ink" d="M694 494h4v4h-4z M714 494h4v4h-4z M694 498h4v4h-4z M714 498h4v4h-4z M694 502h4v4h-4z M714 502h4v4h-4z M694 506h4v4h-4z M714 506h4v4h-4z M698 510h20v4h-20z M714 514h4v4h-4z M714 518h4v4h-4z M714 522h4v4h-4z"/>
+<text class="t" x="694" y="538">7E Ч</text>
+<rect class="cell" x="740" y="494" width="32" height="32"/>
+<path class="ink" d="M740 494h28v4h-28z M740 498h28v4h-28z M740 502h28v4h-28z M740 506h28v4h-28z M740 510h28v4h-28z M740 514h28v4h-28z M740 518h28v4h-28z M740 522h28v4h-28z"/>
+<text class="t" x="740" y="538">7F </text>
+<rect class="cell" x="50" y="556" width="32" height="32"/>
+<path class="ink" d="M62 556h8v4h-8z M58 560h16v4h-16z M54 564h4v4h-4z M62 564h8v4h-8z M74 564h4v4h-4z M62 568h8v4h-8z M62 572h8v4h-8z M62 576h8v4h-8z M62 580h8v4h-8z M62 584h8v4h-8z"/>
+<text class="t" x="50" y="600">80 </text>
+<rect class="cell" x="96" y="556" width="32" height="32"/>
+<path class="ink" d="M108 556h16v4h-16z M116 560h12v4h-12z M112 564h16v4h-16z M108 568h12v4h-12z M124 568h4v4h-4z M104 572h12v4h-12z M124 572h4v4h-4z M100 576h12v4h-12z M104 580h4v4h-4z"/>
+<text class="t" x="96" y="600">81 </text>
+<rect class="cell" x="142" y="556" width="32" height="32"/>
+<path class="ink" d="M162 560h4v4h-4z M166 564h4v4h-4z M142 568h32v4h-32z M142 572h32v4h-32z M166 576h4v4h-4z M162 580h4v4h-4z"/>
+<text class="t" x="142" y="600">82 </text>
+<rect class="cell" x="188" y="556" width="32" height="32"/>
+<path class="ink" d="M196 560h4v4h-4z M192 564h12v4h-12z M196 568h12v4h-12z M216 568h4v4h-4z M200 572h12v4h-12z M216 572h4v4h-4z M204 576h16v4h-16z M208 580h12v4h-12z M200 584h16v4h-16z"/>
+<text class="t" x="188" y="600">83 </text>
+<rect class="cell" x="234" y="556" width="32" height="32"/>
+<path class="ink" d="M246 556h8v4h-8z M246 560h8v4h-8z M246 564h8v4h-8z M246 568h8v4h-8z M246 572h8v4h-8z M238 576h4v4h-4z M246 576h8v4h-8z M258 576h4v4h-4z M242 580h16v4h-16z M246 584h8v4h-8z"/>
+<text class="t" x="234" y="600">84 </text>
+<rect class="cell" x="280" y="556" width="32" height="32"/>
+<path class="ink" d="M300 560h4v4h-4z M296 564h12v4h-12z M280 568h4v4h-4z M292 568h12v4h-12z M280 572h4v4h-4z M288 572h12v4h-12z M280 576h16v4h-16z M280 580h12v4h-12z M284 584h16v4h-16z"/>
+<text class="t" x="280" y="600">85 </text>
+<rect class="cell" x="326" y="556" width="32" height="32"/>
+<path class="ink" d="M334 560h4v4h-4z M330 564h4v4h-4z M326 568h32v4h-32z M326 572h32v4h-32z M330 576h4v4h-4z M334 580h4v4h-4z"/>
+<text class="t" x="326" y="600">86 </text>
+<rect class="cell" x="372" y="556" width="32" height="32"/>
+<path class="ink" d="M376 556h16v4h-16z M372 560h12v4h-12z M372 564h16v4h-16z M372 568h4v4h-4z M380 568h12v4h-12z M372 572h4v4h-4z M384 572h12v4h-12z M388 576h12v4h-12z M392 580h4v4h-4z"/>
+<text class="t" x="372" y="600">87 </text>
+<rect class="cell" x="418" y="556" width="32" height="32"/>
+<path class="ink" d="M426 556h12v4h-12z M422 560h4v4h-4z M438 560h4v4h-4z M422 564h4v4h-4z M438 564h4v4h-4z M422 568h20v4h-20z M422 572h4v4h-4z M438 572h4v4h-4z M422 576h4v4h-4z M438 576h4v4h-4z M446 576h4v4h-4z M422 580h4v4h-4z M438 580h8v4h-8z M442 584h4v4h-4z"/>
+<text class="t" x="418" y="600">88 </text>
+<rect class="cell" x="464" y="556" width="32" height="32"/>
+<path class="ink" d="M472 556h12v4h-12z M476 560h4v4h-4z M476 564h4v4h-4z M476 568h4v4h-4z M476 572h4v4h-4z M476 576h4v4h-4z M492 576h4v4h-4z M472 580h12v4h-12z M488 580h4v4h-4z M488 584h4v4h-4z"/>
+<text class="t" x="464" y="600">89 </text>
+<rect class="cell" x="510" y="556" width="32" height="32"/>
+<path class="ink" d="M522 556h4v4h-4z M514 560h20v4h-20z M514 564h4v4h-4z M514 568h4v4h-4z M514 572h16v4h-16z M514 576h4v4h-4z M514 580h4v4h-4z M514 584h20v4h-20z"/>
+<text class="t" x="510" y="600">8A </text>
+<rect class="cell" x="556" y="556" width="32" height="32"/>
+<path class="ink" d="M560 556h20v4h-20z M560 560h4v4h-4z M560 564h4v4h-4z M560 568h16v4h-16z M560 572h4v4h-4z M560 576h4v4h-4z M584 576h4v4h-4z M560 580h24v4h-24z M580 584h4v4h-4z"/>
+<text class="t" x="556" y="600">8B </text>
+<rect class="cell" x="602" y="556" width="32" height="32"/>
+<path class="ink" d="M614 556h8v4h-8z M610 560h16v4h-16z M606 564h4v4h-4z M626 564h4v4h-4z M606 568h4v4h-4z M610 572h16v4h-16z M626 576h4v4h-4z M606 580h4v4h-4z M626 580h4v4h-4z M610 584h16v4h-16z"/>
+<text class="t" x="602" y="600">8C </text>
+<rect class="cell" x="648" y="556" width="32" height="32"/>
+<path class="ink" d="M656 556h8v4h-8z M648 560h4v4h-4z M668 560h4v4h-4z M648 564h4v4h-4z M668 564h4v4h-4z M648 568h4v4h-4z M668 568h4v4h-4z M648 572h4v4h-4z M668 572h4v4h-4z M648 576h4v4h-4z M668 576h4v4h-4z M648 580h4v4h-4z M668 580h4v4h-4z M652 584h16v4h-16z"/>
+<text class="t" x="648" y="600">8D </text>
+<rect class="cell" x="694" y="556" width="32" height="32"/>
+<path class="ink" d="M694 556h4v4h-4z M714 556h4v4h-4z M694 560h4v4h-4z M714 560h4v4h-4z M694 564h4v4h-4z M714 564h4v4h-4z M694 568h4v4h-4z M714 568h4v4h-4z M694 572h4v4h-4z M714 572h4v4h-4z M694 576h4v4h-4z M714 576h4v4h-4z M722 576h4v4h-4z M698 580h16v4h-16z M718 580h4v4h-4z M718 584h4v4h-4z"/>
+<text class="t" x="694" y="600">8E </text>
+<rect class="cell" x="740" y="556" width="32" height="32"/>
+<path class="ink" d="M748 556h8v4h-8z M740 560h24v4h-24z M756 564h4v4h-4z M752 568h4v4h-4z M748 572h4v4h-4z M744 576h4v4h-4z M740 580h4v4h-4z M740 584h24v4h-24z"/>
+<text class="t" x="740" y="600">8F </text>
+<rect class="cell" x="50" y="618" width="32" height="32"/>
+<path class="ink" d="M58 618h8v4h-8z M54 622h16v4h-16z M50 626h4v4h-4z M70 626h4v4h-4z M50 630h4v4h-4z M50 634h4v4h-4z M50 638h4v4h-4z M50 642h4v4h-4z M70 642h4v4h-4z M54 646h16v4h-16z"/>
+<text class="t" x="50" y="662">90 </text>
+<rect class="cell" x="96" y="618" width="32" height="32"/>
+<path class="ink" d="M112 626h4v4h-4z M96 630h8v4h-8z M108 630h20v4h-20z M96 634h8v4h-8z M108 634h20v4h-20z M112 638h4v4h-4z"/>
+<text class="t" x="96" y="662">91 </text>
+<text class="t" x="10" y="78">00</text>
+<text class="t" x="10" y="140">10</text>
+<text class="t" x="10" y="202">20</text>
+<text class="t" x="10" y="264">30</text>
+<text class="t" x="10" y="326">40</text>
+<text class="t" x="10" y="388">50</text>
+<text class="t" x="10" y="450">60</text>
+<text class="t" x="10" y="512">70</text>
+<text class="t" x="10" y="574">80</text>
+<text class="t" x="10" y="636">90</text>
+</svg>

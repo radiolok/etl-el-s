@@ -1,0 +1,105 @@
+21C2   ЗАЖАТЫ КНОПКИ ПУ
+227F  ОШИБКА ПЗУ
+22C7  "ОШИБКА УВЗ
+2EAD  ВВЕДИТЕ ДАТУ
+2EBA  ВВЕДИТЕ КОД ПАЦИЕНТА
+2ECF  ФИКСАЦИЯ
+2ED8  0-КОД ПАЦИЕНТА
+2EE7  1-ВВОД ДАТЫ
+2EF3  2-ПОЛ ПАЦИЕНТА
+2F02  3-СТИРАНИЕ
+2F0D  4-ПОЛОЖЕНИЕ УЗП
+2F1D  5-РЕЖИМ БИОМЕТРИИ
+2F2F  ФОКУС-ПЕРИМЕТР/ПЛОЩАДЬ
+2F46  ВЫБОР ПИКТОГРАММЫ: +
+2F5B  ПОЛОЖЕНИЕ УЗП
+2F91  СДВИГ ПО ОСЯМ X,Y
+2FDF  ВЫБОР СДЕЛАН: Н/П
+2FF1  MEDELKOM
+2FFA  SLE-101
+3002  FR 3.5MH
+3C8B  A#ЮA
+577B         БИОМЕТРИЯ
+578C  1-ИЗМЕРЕНИЯ
+5798  2-ДАННЫЕ В ПРОТОКОЛ
+57AC  3-МЕТОДЫ ИЗМЕРЕНИЯ
+57BF  4-ВЫЗОВ ПРОТОКОЛА
+57D1  5-СТИРАНИЕ РЕЗУЛЬТАТОВ
+57E8  6-НОВЫЙ ПАЦИЕНТ
+57F8  Н/П-ВЫХОД ИЗ МЕНЮ
+580A      ДАННЫЕ В ПРОТОКОЛ
+5820  1-КОД ПАЦИЕНТА
+5830  2-ДАТА РОЖДЕНИЯ
+5840          ДЕНЬ  МЕСЯЦ  ГОД
+585A  3-ПОСЛЕДНИЙ ЦИКЛ
+586B          ДЕНЬ  МЕСЯЦ  ГОД
+5885  4-ДАТА ОБСЛЕДОВАНИЯ
+5899          ДЕНЬ  МЕСЯЦ  ГОД
+58B3  5-ЧИСЛО БЕРЕМЕННОСТЕЙ
+58CA  Н/П-ВЫХОД ИЗ МЕНЮ
+58EE  HANSMANN
+58F7  HELLMAN 
+5900  ROBINSON
+5909  KURTZ   
+5912  HADLOCK 
+591B  JEANTY  
+5924  FESCINA 
+592D  WARSOF  
+5936   <GSD>
+593D   <CRL>
+5944   <BPD>
+594B    <HC>
+5952    <FL>
+5959   <TBD>
+5960  <APBD>
+5967    <AC>
+596E  Н/П-ВЫХОД
+5978    1-GSD
+5980    2-CRL
+5988    3-BPD
+5990    4-HC
+5997    5-FL
+599E    6-TBD
+59A6    7-APBD
+59AF    8-AC
+59B6    9-ПРОТ.
+59C0  Н/П-ВЫХОД
+59CA       MEDELKOM    SLE-101   
+5B45  HC/AC  *.**
+5B51  FL/AC  *.**
+5BAC  1-GSD -
+5BB4  2-CRL -
+5BBC  3-BPD -
+5BC4  4-HC  -
+5BCC  5-FL  -
+5BD4  6-TBD -
+5BDC  7-APBD-
+5BE4  8-AC  -
+5BEC  9-EFBW-
+5BF4  Н/П-ВЫХОД
+5BFE  GSD(GESTATIONAL SAC DIAMETER)
+5C1C  1-HANSMANN
+5C27  2-HELLMAN
+5C32  ВЫБОР МЕТОДА
+5C3F  CRL(CROWN RUMP LENGTH)
+5C56  1-HANSMANN
+5C61  2-ROBINSON
+5C6D  BPD(BIPARIETAL DIAMETER)
+5C86  1-HANSMANN
+5C91  2-KURTZ
+5C9A  HC(HEAD CIRCUMFERENCE)
+5CB1  1-HADLOCK
+5CBD  FL(FEMUR LENGTH)
+5CCE  1-HANSMANN
+5CD9  2-JEANTY
+5CE3  TBD(TRANSVERSE BODY DIAMETER)
+5D01  1-FESCINA
+5D0D  APBD(ANTERIOR-POSTERIOR-BODY
+5D2A       DIAMETER)
+5D39  1-HANSMANN
+5D44  2-FESCINA
+5D4E  AC-(ABDOMINAL CIRCUMFERENCE)
+5D6B  1-HADLOCK
+5D77  EFBW
+5D7C  1-HANSMANN
+5D87  2-WARSOF
