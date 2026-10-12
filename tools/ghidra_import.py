@@ -1,4 +1,4 @@
-"""Создаёт проект Ghidra с прошивкой ЭТЛ-ЭЛ-С (8085) и запускает автоанализ.
+"""Создаёт проект Ghidra с прошивкой ЭТС-ЭЛ-С (8085) и запускает автоанализ.
 
 Запуск:  GHIDRA_INSTALL_DIR=~/ghidra_12.1.4_PUBLIC python3 tools/ghidra_import.py
 Проект:  ghidra/etl.gpr (в .gitignore)

@@ -38,7 +38,7 @@ def main():
          '.s{font:11px sans-serif;fill:#333}.a{font:10px monospace;fill:#555}'
          '.n{font:11px sans-serif;fill:#111}.d{font:10px sans-serif;fill:#444}</style>',
          '<rect width="100%" height="100%" fill="#fff"/>',
-         '<text class="h" x="20" y="26">ЭТЛ-ЭЛ-С (MEDELKOM SLE-101): составные части прошивки по ПЗУ</text>',
+         '<text class="h" x="20" y="26">ЭТС-ЭЛ-С (MEDELKOM SLE-101): составные части прошивки по ПЗУ</text>',
          '<text class="s" x="20" y="46">Высота столбца пропорциональна размеру ПЗУ (2716 = 2 КБ, 2764 = 8 КБ). '
          'Адреса — в адресном пространстве 8085.</text>']
     for i, (rom, base, size, chip, fn) in enumerate(ROMS):

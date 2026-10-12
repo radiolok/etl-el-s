@@ -78,7 +78,7 @@ def main():
             b = group(t, COMPONENTS)
             if a and b and a != b:
                 edges[(a, b)] += 1
-    s = Svg(1200, 880, 'ЭТЛ-ЭЛ-С: граф вызовов между частями прошивки',
+    s = Svg(1200, 880, 'ЭТС-ЭЛ-С: граф вызовов между частями прошивки',
             'Число на стрелке — пар «функция → вызываемая функция»; толщина ~ числу. Пунктир — переход через таблицу.')
     s.o.append('<defs><marker id="au" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" '
                'markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10z" fill="#555"/></marker></defs>')
